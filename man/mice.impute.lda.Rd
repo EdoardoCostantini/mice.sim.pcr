@@ -71,6 +71,7 @@ Venables, W.N. & Ripley, B.D. (1997). Modern applied statistics with S-PLUS
 
 Other univariate imputation functions: 
 \code{\link{mice.impute.cart}()},
+\code{\link{mice.impute.durr.gaus}()},
 \code{\link{mice.impute.logreg.boot}()},
 \code{\link{mice.impute.logreg}()},
 \code{\link{mice.impute.mean}()},

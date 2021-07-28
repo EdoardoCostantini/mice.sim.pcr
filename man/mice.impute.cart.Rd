@@ -73,6 +73,7 @@ Chapman & Hall/CRC. Boca Raton, FL.
 \code{\link[rpart]{rpart}}, \code{\link[rpart]{rpart.control}}
 
 Other univariate imputation functions: 
+\code{\link{mice.impute.durr.gaus}()},
 \code{\link{mice.impute.lda}()},
 \code{\link{mice.impute.logreg.boot}()},
 \code{\link{mice.impute.logreg}()},

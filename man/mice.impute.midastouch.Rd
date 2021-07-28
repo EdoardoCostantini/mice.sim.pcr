@@ -128,6 +128,7 @@ Statistical Software}, \bold{45}, 3, 1--67. \url{https://www.jstatsoft.org/v45/i
 \seealso{
 Other univariate imputation functions: 
 \code{\link{mice.impute.cart}()},
+\code{\link{mice.impute.durr.gaus}()},
 \code{\link{mice.impute.lda}()},
 \code{\link{mice.impute.logreg.boot}()},
 \code{\link{mice.impute.logreg}()},

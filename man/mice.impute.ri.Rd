@@ -50,6 +50,7 @@ Dissertation. University of Utrecht, Dec 7 2012.
 \seealso{
 Other univariate imputation functions: 
 \code{\link{mice.impute.cart}()},
+\code{\link{mice.impute.durr.gaus}()},
 \code{\link{mice.impute.lda}()},
 \code{\link{mice.impute.logreg.boot}()},
 \code{\link{mice.impute.logreg}()},
