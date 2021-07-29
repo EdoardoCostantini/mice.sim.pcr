@@ -59,6 +59,7 @@ Schafer, J.L. (1997). Analysis of incomplete multivariate data. London: Chapman 
 \seealso{
 Other univariate imputation functions: 
 \code{\link{mice.impute.cart}()},
+\code{\link{mice.impute.durr.bern}()},
 \code{\link{mice.impute.durr.gaus}()},
 \code{\link{mice.impute.lda}()},
 \code{\link{mice.impute.logreg.boot}()},
