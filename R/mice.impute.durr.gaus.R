@@ -20,12 +20,11 @@ mice.impute.durr.gaus <- function(y, ry, x, wy = NULL, ...) {
   idx_bs  <- sample(1:length(y), length(y), replace = TRUE)
   y_star  <- y[idx_bs]
   ry_star <- ry[idx_bs]
-  wy_star <- wy[idx_bs]
   x_star <- x[idx_bs, ]
   
   # Prepare data for imputation model
   xobs <- x_star[ry_star, , drop = FALSE]
-  xmis <- x_star[wy_star, , drop = FALSE]
+  xmis <- x[wy, , drop = FALSE]
   yobs <- y_star[ry_star]
 
   # Train imputation model
