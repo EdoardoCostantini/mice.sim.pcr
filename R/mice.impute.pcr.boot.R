@@ -28,15 +28,11 @@ mice.impute.pcr.boot <- function(y, ry, x, wy = NULL, ...) {
   dotxobs <- x[ry, , drop = FALSE][s, ]
   dotyobs <- y[ry][s]
 
-  # Find out number of components
-  pca_out <- stats::prcomp(x, scale = TRUE, retx = TRUE)
-  expvar <- cumsum(pca_out$sdev^2) / sum(pca_out$sdev^2)
-  ncomp <- ifelse(any(expvar <= .5), sum(expvar <= .5), 1)
-
   # Fit PCR
   pcr_model <- pls::pcr(dotyobs ~ .,
                         data = data.frame(dotyobs, dotxobs),
-                        ncomp = ncomp, validation = "none")
+                        validation = "CV")
+  ncomp <- selectNcomp(pcr_model, "onesigma", plot = FALSE)
 
   # Predict
   pcr_pred <- predict(pcr_model, x[wy, ], ncomp = ncomp)
