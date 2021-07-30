@@ -46,7 +46,8 @@ Imports:
     rlang,
     stats,
     tidyr,
-    utils
+    utils,
+    pls
 Suggests:
     broom.mixed,
     haven,
