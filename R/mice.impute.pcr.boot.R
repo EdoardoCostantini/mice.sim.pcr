@@ -32,7 +32,7 @@ mice.impute.pcr.boot <- function(y, ry, x, wy = NULL, ...) {
   pcr_model <- pls::pcr(dotyobs ~ .,
                         data = data.frame(dotyobs, dotxobs),
                         validation = "CV")
-  ncomp <- selectNcomp(pcr_model, "onesigma", plot = FALSE)
+  ncomp <- pls::selectNcomp(pcr_model, "onesigma", plot = FALSE)
 
   # Predict
   pcr_pred <- predict(pcr_model, x[wy, ], ncomp = ncomp)
