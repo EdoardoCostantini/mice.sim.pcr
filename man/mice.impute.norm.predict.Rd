@@ -75,6 +75,7 @@ Other univariate imputation functions:
 \code{\link{mice.impute.norm.nob}()},
 \code{\link{mice.impute.norm}()},
 \code{\link{mice.impute.pcr.boot}()},
+\code{\link{mice.impute.pcr.mixed}()},
 \code{\link{mice.impute.pmm}()},
 \code{\link{mice.impute.polr}()},
 \code{\link{mice.impute.polyreg}()},

@@ -47,7 +47,8 @@ Imports:
     stats,
     tidyr,
     utils,
-    pls
+    pls,
+    psych
 Suggests:
     broom.mixed,
     haven,
