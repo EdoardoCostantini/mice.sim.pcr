@@ -28,10 +28,23 @@ mice.impute.pcr.mixed <- function(y, ry, x, wy = NULL, npcs, ...) {
   if (is.null(wy)) wy <- !ry
 
   # Get PCs
-  pcr_out <- psych::principal(x,
-                              nfactors = npcs,
-                              cor = "mixed")
-  x_pcs <- pcr_out$scores[, , drop = FALSE]
+  pcr_out <- stats::prcomp(x,
+                           center = TRUE,
+                           scale = TRUE)
+
+  # Compute Explained Variance by each principal component
+  pc_var_exp <- prop.table(pcr_out$sdev^2)
+
+  # Keep PCs based on npcs object
+  if(npcs >= 1){
+    # npcs as NOT-a-proportion
+    pcs_keep <- 1:npcs
+    x_pcs <- pcr_out$x[, pcs_keep, drop = FALSE]
+  } else {
+    # npcs as a proportion
+    pcs_keep <- cumsum(pc_var_exp) <= npcs
+    x_pcs <- pcr_out$x[, pcs_keep, drop = FALSE]
+  }
 
   # Use traditional norm.boot machinery to obtain prediction
   x <- cbind(1, as.matrix(x_pcs))
