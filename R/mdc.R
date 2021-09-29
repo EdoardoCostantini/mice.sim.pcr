@@ -1,7 +1,7 @@
 #' Graphical parameter for missing data plots
 #'
 #' \code{mdc} returns colors used to distinguish observed, missing and combined
-#' data in plotting. \code{mice.theme} return a partial list of named objects
+#' data in plotting. \code{mice.pcr.sim.theme} return a partial list of named objects
 #' that can be used as a theme in \code{stripplot}, \code{bwplot},
 #' \code{densityplot} and \code{xyplot}.
 #'

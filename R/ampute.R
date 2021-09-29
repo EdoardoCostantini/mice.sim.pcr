@@ -2,11 +2,11 @@
 #'
 #' This function generates multivariate missing data under a MCAR, MAR or MNAR
 #' missing data mechanism. Imputation of data sets containing missing values can
-#' be performed with \code{\link{mice}}.
+#' be performed with \code{\link{mice.pcr.sim}}.
 #'
 #' This function generates missing values in complete data sets. Amputation of complete
 #' data sets is useful for the evaluation of imputation techniques, such as multiple
-#' imputation (performed with function \code{\link{mice}} in this package).
+#' imputation (performed with function \code{\link{mice.pcr.sim}} in this package).
 #'
 #' The basic strategy underlying multivariate imputation was suggested by
 #' Don Rubin during discussions in the 90's. Brand (1997) created one particular
@@ -154,7 +154,7 @@
 #' amputed data set)
 #' @author Rianne Schouten [aut, cre], Gerko Vink [aut], Peter Lugtig [ctb], 2016
 #' @seealso \code{\link{mads-class}}, \code{\link{bwplot}}, \code{\link{xyplot}},
-#' \code{\link{mice}}
+#' \code{\link{mice.pcr.sim}}
 #'
 #' @references Brand, J.P.L. (1999) \emph{Development, implementation and
 #' evaluation of multiple imputation strategies for the statistical analysis of

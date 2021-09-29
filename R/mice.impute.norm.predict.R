@@ -3,8 +3,8 @@
 #' Imputes the "best value" according to the linear regression model, also
 #' known as \emph{regression imputation}.
 #'
-#' @aliases mice.impute.norm.predict norm.predict
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.norm.predict norm.predict
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @details
@@ -17,8 +17,8 @@
 #' of the missing values and artificially
 #' amplifies the relations between the columns of the data. Application of
 #' richer models having more parameters does not help to evade these issues.
-#' Stochastic regression methods, like \code{\link{mice.impute.pmm}} or
-#' \code{\link{mice.impute.norm}}, are generally preferred.
+#' Stochastic regression methods, like \code{\link{mice.pcr.sim.impute.pmm}} or
+#' \code{\link{mice.pcr.sim.impute.norm}}, are generally preferred.
 #'
 #' At best, prediction can give reasonable estimates of the mean, especially
 #' if normality assumptions are plausible. See Little and Rubin (2002, p. 62-64)
@@ -34,7 +34,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.norm.predict <- function(y, ry, x, wy = NULL, ...) {
+mice.pcr.sim.impute.norm.predict <- function(y, ry, x, wy = NULL, ...) {
   if (is.null(wy)) wy <- !ry
   x <- cbind(1, as.matrix(x))
   p <- estimice(x[ry, , drop = FALSE], y[ry], ...)

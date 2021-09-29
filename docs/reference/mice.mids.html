@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Multivariate Imputation by Chained Equations (Iteration Step) — mice.mids • mice</title>
+<title>Multivariate Imputation by Chained Equations (Iteration Step) — mice.pcr.sim.mids • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -45,7 +45,7 @@
 
 
 
-<meta property="og:title" content="Multivariate Imputation by Chained Equations (Iteration Step) — mice.mids" />
+<meta property="og:title" content="Multivariate Imputation by Chained Equations (Iteration Step) — mice.pcr.sim.mids" />
 <meta property="og:description" content="Takes a mids object, and produces a new object of class mids." />
 
 
@@ -77,7 +77,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -114,7 +114,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -139,15 +139,15 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Multivariate Imputation by Chained Equations (Iteration Step)</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/mice.mids.R'><code>R/mice.mids.R</code></a></small>
-    <div class="hidden name"><code>mice.mids.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.mids.R'><code>R/mice.pcr.sim.mids.R</code></a></small>
+    <div class="hidden name"><code>mice.pcr.sim.mids.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Takes a <code>mids</code> object, and produces a new object of class <code>mids</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mice.mids</span><span class='op'>(</span><span class='va'>obj</span>, newdata <span class='op'>=</span> <span class='cn'>NULL</span>, maxit <span class='op'>=</span> <span class='fl'>1</span>, printFlag <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>mice.pcr.sim.mids</span><span class='op'>(</span><span class='va'>obj</span>, newdata <span class='op'>=</span> <span class='cn'>NULL</span>, maxit <span class='op'>=</span> <span class='fl'>1</span>, printFlag <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,7 +155,7 @@
     <tr>
       <th>obj</th>
       <td><p>An object of class <code>mids</code>, typically produces by a previous
-call to <code><a href='mice.html'>mice()</a></code> or <code>mice.mids()</code></p></td>
+call to <code><a href='mice.pcr.sim.html'>mice.pcr.sim()</a></code> or <code>mice.pcr.sim.mids()</code></p></td>
     </tr>
     <tr>
       <th>newdata</th>
@@ -190,32 +190,32 @@ problems.</p></li>
 specific points, e.g. after each iteration, for monitoring convergence.  -
 For computing a 'few extra iterations'.</p></li>
 </ul><p>Note: The imputation model itself
-is specified in the <code><a href='mice.html'>mice()</a></code> function and cannot be changed with
-<code>mice.mids</code>.  The state of the random generator is saved with the
+is specified in the <code><a href='mice.pcr.sim.html'>mice.pcr.sim()</a></code> function and cannot be changed with
+<code>mice.pcr.sim.mids</code>.  The state of the random generator is saved with the
 <code>mids</code> object.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Van Buuren, S., Groothuis-Oudshoorn, K. (2011). <code>mice</code>:
+    <p>Van Buuren, S., Groothuis-Oudshoorn, K. (2011). <code>mice.pcr.sim</code>:
 Multivariate Imputation by Chained Equations in <code>R</code>. <em>Journal of
 Statistical Software</em>, <b>45</b>(3), 1-67.
 <a href='https://www.jstatsoft.org/v45/i03/'>https://www.jstatsoft.org/v45/i03/</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='complete.mids.html'>complete</a></code>, <code><a href='mice.html'>mice</a></code>, <code><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></code>,
+    <div class='dont-index'><p><code><a href='complete.mids.html'>complete</a></code>, <code><a href='mice.pcr.sim.html'>mice.pcr.sim</a></code>, <code><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></code>,
 <code><a href='mids-class.html'>mids</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Stef van Buuren, Karin Groothuis-Oudshoorn, 2000</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>imp1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>nhanes</span>, maxit <span class='op'>=</span> <span class='fl'>1</span>, seed <span class='op'>=</span> <span class='fl'>123</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>imp1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>nhanes</span>, maxit <span class='op'>=</span> <span class='fl'>1</span>, seed <span class='op'>=</span> <span class='fl'>123</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  iter imp variable
 #&gt;   1   1  bmi  hyp  chl
 #&gt;   1   2  bmi  hyp  chl
 #&gt;   1   3  bmi  hyp  chl
 #&gt;   1   4  bmi  hyp  chl
-#&gt;   1   5  bmi  hyp  chl</div><div class='input'><span class='va'>imp2</span> <span class='op'>&lt;-</span> <span class='fu'>mice.mids</span><span class='op'>(</span><span class='va'>imp1</span><span class='op'>)</span>
+#&gt;   1   5  bmi  hyp  chl</div><div class='input'><span class='va'>imp2</span> <span class='op'>&lt;-</span> <span class='fu'>mice.pcr.sim.mids</span><span class='op'>(</span><span class='va'>imp1</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  iter imp variable
 #&gt;   2   1  bmi  hyp  chl
@@ -224,7 +224,7 @@ Statistical Software</em>, <b>45</b>(3), 1-67.
 #&gt;   2   4  bmi  hyp  chl
 #&gt;   2   5  bmi  hyp  chl</div><div class='input'>
 <span class='co'># yields the same result as</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>nhanes</span>, maxit <span class='op'>=</span> <span class='fl'>2</span>, seed <span class='op'>=</span> <span class='fl'>123</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>nhanes</span>, maxit <span class='op'>=</span> <span class='fl'>2</span>, seed <span class='op'>=</span> <span class='fl'>123</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  iter imp variable
 #&gt;   1   1  bmi  hyp  chl
@@ -269,7 +269,7 @@ Statistical Software</em>, <b>45</b>(3), 1-67.
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

@@ -6,18 +6,18 @@
 #' \code{predictorMatrix}.
 #'
 #' @aliases 2lonly.norm
-#' @inheritParams mice.impute.pmm
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param type Group identifier must be specified by '-2'. Predictors must be
 #' specified by '1'.
 #' @param ... Other named arguments.
 #' @return A vector of length \code{nmis} with imputations.
 #' @author Alexander Robitzsch (IPN - Leibniz Institute for Science and
 #' Mathematics Education, Kiel, Germany), \email{robitzsch@@ipn.uni-kiel.de}
-#' @seealso \code{\link{mice.impute.norm}},
-#' \code{\link{mice.impute.2lonly.pmm}}, \code{\link{mice.impute.2l.pan}},
-#' \code{\link{mice.impute.2lonly.mean}}
+#' @seealso \code{\link{mice.pcr.sim.impute.norm}},
+#' \code{\link{mice.pcr.sim.impute.2lonly.pmm}}, \code{\link{mice.pcr.sim.impute.2l.pan}},
+#' \code{\link{mice.pcr.sim.impute.2lonly.mean}}
 #' @details
-#' This function allows in combination with \code{\link{mice.impute.2l.pan}}
+#' This function allows in combination with \code{\link{mice.pcr.sim.impute.2l.pan}}
 #' switching regression imputation between level 1 and level 2 as described in
 #' Yucel (2008) or Gelman and Hill (2007, p. 541).
 #'
@@ -42,7 +42,7 @@
 #' @family univariate-2lonly
 #' @note
 #' For a more general approach, see
-#' \code{miceadds::mice.impute.2lonly.function()}.
+#' \code{miceadds::mice.pcr.sim.impute.2lonly.function()}.
 #' @examples
 #' # simulate some data
 #' # x,y ... level 1 variables
@@ -64,8 +64,8 @@
 #' dfr[rep(rnorm(G), each = n) < qnorm(missrate), "w"] <- NA
 #' dfr[rep(rnorm(G), each = n) < qnorm(missrate), "v"] <- NA
 #'
-#' # empty mice imputation
-#' imp0 <- mice(as.matrix(dfr), maxit = 0)
+#' # empty mice.pcr.sim imputation
+#' imp0 <- mice.pcr.sim(as.matrix(dfr), maxit = 0)
 #' predM <- imp0$predictorMatrix
 #' impM <- imp0$method
 #'
@@ -80,7 +80,7 @@
 #' # w ... imputation at level 2 using norm
 #' # v ... imputation at level 2 using pmm
 #'
-#' imp1 <- mice(as.matrix(dfr),
+#' imp1 <- mice.pcr.sim(as.matrix(dfr),
 #'   m = 1, predictorMatrix = predM1,
 #'   method = impM1, maxit = 1, paniter = 500
 #' )
@@ -104,7 +104,7 @@
 #' \dontrun{
 #' # The following fails because 2lonly.norm found partially missing
 #' # level-2 data
-#' # imp <- mice(data, method = c("", "2lonly.norm", "2l.pan"),
+#' # imp <- mice.pcr.sim(data, method = c("", "2lonly.norm", "2l.pan"),
 #' #             predictorMatrix = pred, maxit = 1, m = 2)
 #' # > iter imp variable
 #' # > 1   1  sex  crpError in .imputation.level2(y = y, ... :
@@ -117,13 +117,13 @@
 #' # except on r-patched-solaris-x86. I used dontrun to evade CRAN errors.
 #' \dontrun{
 #' data[1:5, "sex"] <- NA
-#' imp <- mice(data,
+#' imp <- mice.pcr.sim(data,
 #'   method = c("", "2lonly.norm", "2l.pan"),
 #'   predictorMatrix = pred, maxit = 1, m = 2
 #' )
 #' }
 #' @export
-mice.impute.2lonly.norm <- function(y, ry, x, type, wy = NULL, ...) {
+mice.pcr.sim.impute.2lonly.norm <- function(y, ry, x, type, wy = NULL, ...) {
   imp <- .imputation.level2(
     y = y, ry = ry, x = x, type = type, wy = wy,
     method = "norm", ...

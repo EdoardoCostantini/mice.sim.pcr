@@ -2,7 +2,7 @@ context("as.mids")
 
 nhanes3 <- nhanes
 rownames(nhanes3) <- LETTERS[1:nrow(nhanes3)]
-imp <- mice(nhanes3, m = 2, maxit = 1, print = FALSE)
+imp <- mice.pcr.sim(nhanes3, m = 2, maxit = 1, print = FALSE)
 
 X <- complete(imp, action = "long", include = TRUE)
 # create dataset with .imp variable as numeric

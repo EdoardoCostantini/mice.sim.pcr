@@ -13,7 +13,7 @@ impMethod <- make.method(dat)
 impMethod["ablat"] <- "pmm"
 impMethod
 
-imp <- mice(dat, print = FALSE, predictorMatrix = predMatrix, method = impMethod, seed = 1234)
+imp <- mice.pcr.sim(dat, print = FALSE, predictorMatrix = predMatrix, method = impMethod, seed = 1234)
 test_that("does not break metafor package", {
   expect_silent(fit <- with(imp, rma(yi, vi, mods = ~ ablat + year)))
 })

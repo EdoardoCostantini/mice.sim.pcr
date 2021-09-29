@@ -1,4 +1,4 @@
-context("mice.impute.2l.bin")
+context("mice.pcr.sim.impute.2l.bin")
 
 # toenail: outcome is factor
 data("toenail2")
@@ -14,8 +14,8 @@ summary(data)
 pred <- make.predictorMatrix(data)
 pred["outcome", "patientID"] <- -2
 
-test_that("mice::mice.impute.2l.bin() accepts factor outcome", {
-  expect_silent(imp <- mice(data, method = "2l.bin", print = FALSE, pred = pred, m = 1, maxit = 1))
+test_that("mice.pcr.sim::mice.pcr.sim.impute.2l.bin() accepts factor outcome", {
+  expect_silent(imp <- mice.pcr.sim(data, method = "2l.bin", print = FALSE, pred = pred, m = 1, maxit = 1))
   expect_false(anyNA(complete(imp)))
 })
 
@@ -28,7 +28,7 @@ summary(data)
 pred <- make.predictorMatrix(data)
 pred["outcome", "ID"] <- -2
 
-test_that("mice::mice.impute.2l.bin() accepts 0/1 outcome", {
-  expect_silent(imp <- mice(data, method = "2l.bin", print = FALSE, pred = pred, m = 1, maxit = 1))
+test_that("mice.pcr.sim::mice.pcr.sim.impute.2l.bin() accepts 0/1 outcome", {
+  expect_silent(imp <- mice.pcr.sim(data, method = "2l.bin", print = FALSE, pred = pred, m = 1, maxit = 1))
   expect_false(anyNA(complete(imp)))
 })

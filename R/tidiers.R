@@ -58,7 +58,7 @@ tidy.mipo <- function(x, conf.int = FALSE, conf.level = .95, ...) {
 
 #' Glance method to extract information from a `mipo` object
 #'
-#' @param x An object with multiply-imputed models from `mice` (class: `mipo`)
+#' @param x An object with multiply-imputed models from `mice.pcr.sim` (class: `mipo`)
 #' @param ... extra arguments (not used)
 #' @return a dataframe with one row and the following columns:
 #' \itemize{

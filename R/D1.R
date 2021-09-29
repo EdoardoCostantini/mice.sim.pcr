@@ -20,13 +20,13 @@
 #' \url{https://stefvanbuuren.name/fimd/sec-multiparameter.html#sec:wald}
 #' @examples
 #' # Compare two linear models:
-#' imp <- mice(nhanes2, seed = 51009, print = FALSE)
+#' imp <- mice.pcr.sim(nhanes2, seed = 51009, print = FALSE)
 #' mi1 <- with(data = imp, expr = lm(bmi ~ age + hyp + chl))
 #' mi0 <- with(data = imp, expr = lm(bmi ~ age + hyp))
 #' D1(mi1, mi0)
 #' \dontrun{
 #' # Compare two logistic regression models
-#' imp <- mice(boys, maxit = 2, print = FALSE)
+#' imp <- mice.pcr.sim(boys, maxit = 2, print = FALSE)
 #' fit1 <- with(imp, glm(gen > levels(gen)[1] ~ hgt + hc + reg, family = binomial))
 #' fit0 <- with(imp, glm(gen > levels(gen)[1] ~ hgt + hc, family = binomial))
 #' D1(fit1, fit0)
@@ -77,6 +77,6 @@ D1 <- function(fit1, fit0 = NULL, dfcom = NULL, df.com = NULL) {
     use = NULL,
     dfcom = tmr$df.com
   )
-  class(out) <- c("mice.anova", class(fit1))
+  class(out) <- c("mice.pcr.sim.anova", class(fit1))
   out
 }

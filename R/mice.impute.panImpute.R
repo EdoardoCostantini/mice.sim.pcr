@@ -2,13 +2,13 @@
 #'
 #' This function is a wrapper around the \code{panImpute} function
 #' from the \code{mitml} package so that it can be called to
-#' impute blocks of variables in \code{mice}. The \code{mitml::panImpute}
+#' impute blocks of variables in \code{mice.pcr.sim}. The \code{mitml::panImpute}
 #' function provides an interface to the \code{pan} package for
 #' multiple imputation of multilevel data (Schafer & Yucel, 2002).
 #' Imputations can be generated using \code{type} or \code{formula},
 #' which offer different options for model specification.
 #'
-#' @name mice.impute.panImpute
+#' @name mice.pcr.sim.impute.panImpute
 #' @inheritParams mitml::panImpute
 #' @param data A data frame containing incomplete and auxiliary variables,
 #' the cluster indicator variable, and any other variables that should be
@@ -30,7 +30,7 @@
 #' object.
 #' @seealso \code{\link[mitml]{panImpute}}
 #' @note The number of imputations \code{m} is set to 1, and the function
-#' is called \code{m} times so that it fits within the \code{mice}
+#' is called \code{m} times so that it fits within the \code{mice.pcr.sim}
 #' iteration scheme.
 #'
 #' This is a multivariate imputation function using a joint model.
@@ -53,12 +53,12 @@
 #' @examples
 #' blocks <- list(c("bmi", "chl", "hyp"), "age")
 #' method <- c("panImpute", "pmm")
-#' ini <- mice(nhanes, blocks = blocks, method = method, maxit = 0)
+#' ini <- mice.pcr.sim(nhanes, blocks = blocks, method = method, maxit = 0)
 #' pred <- ini$pred
 #' pred["B1", "hyp"] <- -2
-#' imp <- mice(nhanes, blocks = blocks, method = method, pred = pred, maxit = 1)
+#' imp <- mice.pcr.sim(nhanes, blocks = blocks, method = method, pred = pred, maxit = 1)
 #' @export
-mice.impute.panImpute <- function(data, formula, type, m = 1, silent = TRUE,
+mice.pcr.sim.impute.panImpute <- function(data, formula, type, m = 1, silent = TRUE,
                                   format = "imputes", ...) {
   install.on.demand("mitml", ...)
 

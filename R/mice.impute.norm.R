@@ -3,8 +3,8 @@
 #' Calculates imputations for univariate missing data by Bayesian linear
 #' regression, also known as the normal model.
 #'
-#' @aliases mice.impute.norm norm
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.norm norm
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @author Stef van Buuren, Karin Groothuis-Oudshoorn
@@ -26,7 +26,7 @@
 #' \item{Calculate the \eqn{n_0} values \eqn{y_{imp} = X_{mis}\dot\beta + \dot z_2\dot\sigma}.}
 #' }
 #'
-#' Using \code{mice.impute.norm} for all columns emulates Schafer's NORM method (Schafer, 1997).
+#' Using \code{mice.pcr.sim.impute.norm} for all columns emulates Schafer's NORM method (Schafer, 1997).
 #' @references
 #' Rubin, D.B (1987). Multiple Imputation for Nonresponse in Surveys. New York: John Wiley & Sons.
 #'
@@ -34,7 +34,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.norm <- function(y, ry, x, wy = NULL, ...) {
+mice.pcr.sim.impute.norm <- function(y, ry, x, wy = NULL, ...) {
   if (is.null(wy)) wy <- !ry
   x <- cbind(1, as.matrix(x))
   parm <- .norm.draw(y, ry, x, ...)
@@ -100,7 +100,7 @@ norm.draw <- function(y, ry, x, rank.adjust = TRUE, ...) {
 #' crossproduct to allow for proper calculation of the inverse.
 #'
 #' @note
-#' This functions adds a star to variable names in the mice iteration
+#' This functions adds a star to variable names in the mice.pcr.sim iteration
 #' history to signal that a ridge penalty was added. In that case, it
 #' also adds an entry to \code{loggedEvents}.
 #'
@@ -134,7 +134,7 @@ estimice <- function(x, y, ls.meth = "qr", ridge = 1e-05, ...) {
       # add ridge penalty to allow inverse of v
       v <- solve(xtx + diag(pen))
       mess <- paste0(
-        "mice detected that your data are (nearly) multi-collinear.\n",
+        "mice.pcr.sim detected that your data are (nearly) multi-collinear.\n",
         "It applied a ridge penalty to continue calculations, but the results can be unstable.\n",
         "Does your dataset contain duplicates, linear transformation, or factors with unique respondent names?"
       )
@@ -169,7 +169,7 @@ estimice <- function(x, y, ls.meth = "qr", ridge = 1e-05, ...) {
       # add ridge penalty to allow inverse of v
       v <- solve(xtx + diag(pen))
       mess <- paste0(
-        "mice detected that your data are (nearly) multi-collinear.\n",
+        "mice.pcr.sim detected that your data are (nearly) multi-collinear.\n",
         "It applied a ridge penalty to continue calculations, but the results can be unstable.\n",
         "Does your dataset contain duplicates, linear transformation, or factors with unique respondent names?"
       )

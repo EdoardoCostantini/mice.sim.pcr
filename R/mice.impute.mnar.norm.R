@@ -5,10 +5,10 @@
 #' different model specifications may shed light on the impact of
 #' different MNAR assumptions on the conclusions.
 #'
-#' @rdname mice.impute.mnar
-#' @aliases mice.impute.mnar.norm mnar.norm
-#'          mice.impute.mnar.logreg mnar.logreg
-#' @inheritParams mice.impute.pmm
+#' @rdname mice.pcr.sim.impute.mnar
+#' @aliases mice.pcr.sim.impute.mnar.norm mnar.norm
+#'          mice.pcr.sim.impute.mnar.logreg mnar.logreg
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param ums A string containing the specification of the
 #' unidentifiable part of the imputation model (the *unidentifiable
 #' model specification"), that is, the desired \eqn{\delta}-adjustment
@@ -28,19 +28,19 @@
 #' Boshuizen & Knook (1999) to the case with multiple incomplete
 #' variables within the FCS framework. In practical terms, the
 #' NARFCS procedure shifts the imputations drawn at each
-#' iteration of \code{mice} by a user-specified quantity that can
+#' iteration of \code{mice.pcr.sim} by a user-specified quantity that can
 #' vary across subjects, to reflect systematic departures of the
 #' missing data from the data distribution imputed under MAR.
 #'
 #' Specification of the NARFCS model is done by the \code{blots}
-#' argument of \code{mice()}. The \code{blots} parameter is a named
+#' argument of \code{mice.pcr.sim()}. The \code{blots} parameter is a named
 #' list. For each variable to be imputed by
-#' \code{mice.impute.mnar.norm()} or \code{mice.impute.mnar.logreg()}
+#' \code{mice.pcr.sim.impute.mnar.norm()} or \code{mice.pcr.sim.impute.mnar.logreg()}
 #' the corresponding element in \code{blots} is a list with
 #' at least one argument \code{ums} and, optionally, a second
 #' argument \code{umx}.
 #' For example, the high-level call might like something like
-#' \code{mice(nhanes[, c(2, 4)], method = c("pmm", "mnar.norm"),
+#' \code{mice.pcr.sim(nhanes[, c(2, 4)], method = c("pmm", "mnar.norm"),
 #' blots = list(chl = list(ums = "-3+2*bmi")))}.
 #'
 #' The \code{ums} parameter is required, and might look like this:
@@ -76,7 +76,7 @@
 #' to what is used in \code{ums} to refer to the category-specific terms
 #' (see above);}
 #' \item{It has the same number of rows as the \code{data} argument
-#' passed on to the main \code{mice} function;}
+#' passed on to the main \code{mice.pcr.sim} function;}
 #' \item{It does not contain variables that were already predictors
 #' in the identifiable part of the model for the variable under
 #' imputation.}
@@ -88,7 +88,7 @@
 #' It is not possible to specify models where the offset depends on
 #' incomplete auxiliary variables.
 #'
-#' For an MNAR alternative see also \code{\link{mice.impute.ri}}.
+#' For an MNAR alternative see also \code{\link{mice.pcr.sim.impute.ri}}.
 #'
 #' @author Margarita Moreno-Betancur, Stef van Buuren, Ian R. White, 2020.
 #' @references
@@ -111,7 +111,7 @@
 #' mnar.blot <- list(X = list(ums = "-4"), Y = list(ums = "2+1*ZCat1-3*ZCat2"))
 #'
 #' # Run NARFCS by using mnar imputation methods and passing argument via blots
-#' impNARFCS <- mice(mnar_demo_data,
+#' impNARFCS <- mice.pcr.sim(mnar_demo_data,
 #'   method = c("mnar.logreg", "mnar.norm", ""),
 #'   blots = mnar.blot, seed = 234235, print = FALSE
 #' )
@@ -136,7 +136,7 @@
 #' )
 #'
 #' # Run NARFCS by using mnar imputation methods and passing argument via blots
-#' impNARFCS <- mice(mnar_demo_data,
+#' impNARFCS <- mice.pcr.sim(mnar_demo_data,
 #'   method = c("mnar.logreg", "mnar.norm", ""),
 #'   blots = mnar.blot, seed = 234235, print = FALSE
 #' )
@@ -145,13 +145,13 @@
 #' # from old version at https://github.com/moreno-betancur/NARFCS
 #' pool(with(impNARFCS, lm(Y ~ X + Z)))$pooled$estimate
 #' @export
-mice.impute.mnar.norm <- function(y, ry, x, wy = NULL,
+mice.pcr.sim.impute.mnar.norm <- function(y, ry, x, wy = NULL,
                                   ums = NULL, umx = NULL, ...) {
 
   ## Undentifiable part:
   u <- parse.ums(x, ums = ums, umx = umx, ...)
 
-  ## Identifiable part: exactly the same as mice.impute.norm
+  ## Identifiable part: exactly the same as mice.pcr.sim.impute.norm
   if (is.null(wy)) wy <- !ry
   x <- cbind(1, as.matrix(x))
   parm <- .norm.draw(y, ry, x, ...)

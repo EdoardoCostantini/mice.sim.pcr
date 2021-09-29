@@ -86,7 +86,7 @@ edit.setup <- function(data, setup,
   }
 
   if (all(pred == 0L)) {
-    stop("`mice` detected constant and/or collinear variables. No predictors were left after their removal.")
+    stop("`mice.pcr.sim` detected constant and/or collinear variables. No predictors were left after their removal.")
   }
 
   setup$predictorMatrix <- pred

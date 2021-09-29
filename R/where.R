@@ -1,7 +1,7 @@
 #' Creates a \code{where} argument
 #'
 #' This helper function creates a valid \code{where} matrix. The
-#' \code{where} matrix is an argument to the \code{mice} function.
+#' \code{where} matrix is an argument to the \code{mice.pcr.sim} function.
 #' It has the same size as \code{data} and specifies which values
 #' are to be imputed (\code{TRUE}) or nor (\code{FALSE}).
 #' @param data A \code{data.frame} with the source data

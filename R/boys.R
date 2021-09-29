@@ -30,7 +30,7 @@
 #' @examples
 #'
 #' # create two imputed data sets
-#' imp <- mice(boys, m = 1, maxit = 2)
+#' imp <- mice.pcr.sim(boys, m = 1, maxit = 2)
 #' z <- complete(imp, 1)
 #'
 #' # create imputations for age <8yrs
@@ -64,7 +64,7 @@
 #' pred <- imp$predictorMatrix
 #' pred["hgt", "bmi"] <- 0
 #' pred["wgt", "bmi"] <- 0
-#' imp2 <- mice(boys, m = 1, maxit = 2, meth = meth, pred = pred)
+#' imp2 <- mice.pcr.sim(boys, m = 1, maxit = 2, meth = meth, pred = pred)
 #' z2 <- complete(imp2, 1)
 #'
 #' # show that new imputations are consistent

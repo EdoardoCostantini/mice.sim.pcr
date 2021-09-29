@@ -7,13 +7,13 @@
 #' case where we combine data from different sources. Data are missing sporadically
 #' if they have been partially observed.
 #'
-#' @inheritParams mice.impute.2l.lmer
+#' @inheritParams mice.pcr.sim.impute.2l.lmer
 #' @param intercept Logical determining whether the intercept is automatically
 #' added.
 #' @param \dots Arguments passed down to \code{glmer}
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
-#' @author Shahab Jolani, 2015; adapted to mice, SvB, 2018
+#' @author Shahab Jolani, 2015; adapted to mice.pcr.sim, SvB, 2018
 #' @references
 #' Jolani S., Debray T.P.A., Koffijberg H., van Buuren S., Moons K.G.M. (2015).
 #' Imputation of systematically missing predictors in an individual
@@ -30,12 +30,12 @@
 #'   dplyr::select(-time) %>%
 #'   dplyr::mutate(patientID = as.integer(patientID))
 #' \dontrun{
-#' pred <- mice(data, print = FALSE, maxit = 0, seed = 1)$pred
+#' pred <- mice.pcr.sim(data, print = FALSE, maxit = 0, seed = 1)$pred
 #' pred["outcome", "patientID"] <- -2
-#' imp <- mice(data, method = "2l.bin", pred = pred, maxit = 1, m = 1, seed = 1)
+#' imp <- mice.pcr.sim(data, method = "2l.bin", pred = pred, maxit = 1, m = 1, seed = 1)
 #' }
 #' @export
-mice.impute.2l.bin <- function(y, ry, x, type,
+mice.pcr.sim.impute.2l.bin <- function(y, ry, x, type,
                                wy = NULL, intercept = TRUE, ...) {
   install.on.demand("MASS", ...)
   install.on.demand("lme4", ...)

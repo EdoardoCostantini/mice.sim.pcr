@@ -24,11 +24,11 @@
 #' choice is \code{col=mdc(1:2)}, a transparent blue color for the observed
 #' data, and a transparent red color for the imputed data. A good choice is
 #' \code{col=mdc(1:2), pch=20, cex=1.5}. These choices can be set for the
-#' duration of the session by running \code{mice.theme()}.
+#' duration of the session by running \code{mice.pcr.sim.theme()}.
 #'
 #' @aliases stripplot
-#' @param x A \code{mids} object, typically created by \code{mice()} or
-#' \code{mice.mids()}.
+#' @param x A \code{mids} object, typically created by \code{mice.pcr.sim()} or
+#' \code{mice.pcr.sim.mids()}.
 #' @param data Formula that selects the data to be plotted.  This argument
 #' follows the \pkg{lattice} rules for \emph{formulas}, describing the primary
 #' variables (used for the per-panel display) and the optional conditioning
@@ -72,12 +72,12 @@
 #' \code{groups} are specified, \code{na.groups} takes precedence, and
 #' \code{groups} is ignored.
 #' @param theme A named list containing the graphical parameters. The default
-#' function \code{mice.theme} produces a short list of default colors, line
+#' function \code{mice.pcr.sim.theme} produces a short list of default colors, line
 #' width, and so on. The extensive list may be obtained from
 #' \code{trellis.par.get()}. Global graphical parameters like \code{col} or
 #' \code{cex} in high-level calls are still honored, so first experiment with
 #' the global parameters. Many setting consists of a pair. For example,
-#' \code{mice.theme} defines two symbol colors. The first is for the observed
+#' \code{mice.pcr.sim.theme} defines two symbol colors. The first is for the observed
 #' data, the second for the imputed data. The theme settings only exist during
 #' the call, and do not affect the trellis graphical parameters.
 #' @param jitter.data See \code{\link[lattice:panel.xyplot]{panel.xyplot}}.
@@ -103,16 +103,16 @@
 #' compared to the standard Trellis syntax implemented in \pkg{lattice}. This
 #' reversal was necessary in order to benefit from automatic method dispatch.
 #'
-#' In \pkg{mice} the argument \code{x} is always a \code{mids} object, whereas
+#' In \pkg{mice.pcr.sim} the argument \code{x} is always a \code{mids} object, whereas
 #' in \pkg{lattice} the argument \code{x} is always a formula.
 #'
-#' In \pkg{mice} the argument \code{data} is always a formula object, whereas in
+#' In \pkg{mice.pcr.sim} the argument \code{data} is always a formula object, whereas in
 #' \pkg{lattice} the argument \code{data} is usually a data frame.
 #'
 #' All other arguments have identical interpretation.
 #'
 #' @author Stef van Buuren
-#' @seealso \code{\link{mice}}, \code{\link{xyplot}}, \code{\link{densityplot}},
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link{xyplot}}, \code{\link{densityplot}},
 #' \code{\link{bwplot}}, \code{\link{lattice}} for an overview of the
 #' package, as well as \code{\link[lattice:xyplot]{stripplot}},
 #' \code{\link[lattice:panel.stripplot]{panel.stripplot}},
@@ -121,12 +121,12 @@
 #' @references Sarkar, Deepayan (2008) \emph{Lattice: Multivariate Data
 #' Visualization with R}, Springer.
 #'
-#' van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice}: Multivariate
+#' van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice.pcr.sim}: Multivariate
 #' Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 #' Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 #' @keywords hplot
 #' @examples
-#' imp <- mice(boys, maxit = 1)
+#' imp <- mice.pcr.sim(boys, maxit = 1)
 #'
 #' ### stripplot, all numerical variables
 #' \dontrun{
@@ -183,7 +183,7 @@ stripplot.mids <- function(x,
                            na.groups = NULL,
                            groups = NULL,
                            as.table = TRUE,
-                           theme = mice.theme(),
+                           theme = mice.pcr.sim.theme(),
                            allow.multiple = TRUE,
                            outer = TRUE,
                            drop.unused.levels = lattice::lattice.getOption("drop.unused.levels"),

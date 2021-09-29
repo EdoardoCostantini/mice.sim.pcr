@@ -1,14 +1,14 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# mice <a href='https://amices.github.io/mice/'><img src='MICE_sticker_SMALL.png' align="right" height="139" /></a>
+# mice.pcr.sim <a href='https://amices.github.io/mice.pcr.sim/'><img src='MICE_sticker_SMALL.png' align="right" height="139" /></a>
 
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/mice)](https://cran.r-project.org/package=mice)
-[![](https://cranlogs.r-pkg.org/badges/mice)](https://cran.r-project.org/package=mice)
-[![](https://img.shields.io/badge/github%20version-3.13.9-orange.svg)](https://amices.github.io/mice/)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/mice.pcr.sim)](https://cran.r-project.org/package=mice.pcr.sim)
+[![](https://cranlogs.r-pkg.org/badges/mice.pcr.sim)](https://cran.r-project.org/package=mice.pcr.sim)
+[![](https://img.shields.io/badge/github%20version-3.13.9-orange.svg)](https://amices.github.io/mice.pcr.sim/)
 
-## [Multivariate Imputation by Chained Equations](https://amices.github.io/mice/)
+## [Multivariate Imputation by Chained Equations](https://amices.github.io/mice.pcr.sim/)
 
-The [`mice`](https://cran.r-project.org/package=mice) package implements
+The [`mice.pcr.sim`](https://cran.r-project.org/package=mice.pcr.sim) package implements
 a method to deal with missing data. The package creates multiple
 imputations (replacement values) for multivariate missing data. The
 method is based on Fully Conditional Specification, where each
@@ -21,23 +21,23 @@ quality of the imputations.
 
 ## Installation
 
-The `mice` package can be installed from CRAN as follows:
+The `mice.pcr.sim` package can be installed from CRAN as follows:
 
 ``` r
-install.packages("mice")
+install.packages("mice.pcr.sim")
 ```
 
 The latest version can be installed from GitHub as follows:
 
 ``` r
 install.packages("devtools")
-devtools::install_github(repo = "amices/mice")
+devtools::install_github(repo = "amices/mice.pcr.sim")
 ```
 
 ## Minimal example
 
 ``` r
-library(mice, warn.conflicts = FALSE)
+library(mice.pcr.sim, warn.conflicts = FALSE)
 
 # show the missing data pattern
 md.pattern(nhanes)
@@ -59,7 +59,7 @@ The table and the graph summarize where the missing data occur in the
 
 ``` r
 # multiple impute the missing values
-imp <- mice(nhanes, maxit = 2, m = 2, seed = 1)
+imp <- mice.pcr.sim(nhanes, maxit = 2, m = 2, seed = 1)
 #> 
 #>  iter imp variable
 #>   1   1  bmi  hyp  chl
@@ -92,7 +92,7 @@ The complete-data is fit to each imputed dataset, and the results are
 combined to arrive at estimates that properly account for the missing
 data.
 
-## `mice 3.0`
+## `mice.pcr.sim 3.0`
 
 Version 3.0 represents a major update that implements the following
 features:
@@ -129,7 +129,7 @@ features:
     Edition.](https://stefvanbuuren.name/fimd/)
 
 See [MICE: Multivariate Imputation by Chained
-Equations](https://amices.github.io/mice/) for more resources.
+Equations](https://amices.github.io/mice.pcr.sim/) for more resources.
 
 I’ll be happy to take feedback and discuss suggestions. Please submit
 these through Github’s issues facility.
@@ -145,7 +145,7 @@ these through Github’s issues facility.
 ### Course materials
 
 1.  [Handling Missing Data in `R` with
-    `mice`](https://amices.github.io/Winnipeg/)
+    `mice.pcr.sim`](https://amices.github.io/Winnipeg/)
 2.  [Statistical Methods for combined data
     sets](https://stefvanbuuren.github.io/RECAPworkshop/)
 
@@ -162,7 +162,7 @@ these through Github’s issues facility.
 5.  [Imputing multilevel
     data](https://gerkovink.github.io/miceVignettes/Multi_level/Multi_level_data.html)
 6.  [Sensitivity analysis with
-    `mice`](https://gerkovink.github.io/miceVignettes/Sensitivity_analysis/Sensitivity_analysis.html)
+    `mice.pcr.sim`](https://gerkovink.github.io/miceVignettes/Sensitivity_analysis/Sensitivity_analysis.html)
 7.  [Generate missing values with
     `ampute`](https://rianneschouten.github.io/mice_ampute/vignette/ampute.html)
 
@@ -173,10 +173,10 @@ these through Github’s issues facility.
 
 ## Acknowledgement
 
-The cute mice sticker was designed by Jaden M. Walters. Thanks Jaden!
+The cute mice.pcr.sim sticker was designed by Jaden M. Walters. Thanks Jaden!
 
 ## Code of Conduct
 
-Please note that the mice project is released with a [Contributor Code
-of Conduct](https://amices.github.io/mice/CODE_OF_CONDUCT.html). By
+Please note that the mice.pcr.sim project is released with a [Contributor Code
+of Conduct](https://amices.github.io/mice.pcr.sim/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.

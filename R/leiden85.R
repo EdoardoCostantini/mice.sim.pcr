@@ -8,7 +8,7 @@
 #' Multiple imputation of this data set has been described in Boshuizen et al
 #' (1998), Van Buuren et al (1999) and Van Buuren (2012), chapter 7.
 #'
-#' The data set is not available as part of \code{mice}.
+#' The data set is not available as part of \code{mice.pcr.sim}.
 #'
 #' @name leiden85
 #' @docType data

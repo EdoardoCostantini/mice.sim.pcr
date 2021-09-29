@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Imputation of quadratic terms — mice.impute.quadratic • mice</title>
+<title>Imputation of quadratic terms — mice.pcr.sim.impute.quadratic • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -45,7 +45,7 @@
 
 
 
-<meta property="og:title" content="Imputation of quadratic terms — mice.impute.quadratic" />
+<meta property="og:title" content="Imputation of quadratic terms — mice.pcr.sim.impute.quadratic" />
 <meta property="og:description" content="Imputes incomplete variable that appears as both
 main effect and quadratic effect in the complete-data model." />
 
@@ -78,7 +78,7 @@ main effect and quadratic effect in the complete-data model." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -115,7 +115,7 @@ main effect and quadratic effect in the complete-data model." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -140,8 +140,8 @@ main effect and quadratic effect in the complete-data model." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Imputation of quadratic terms</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/mice.impute.quadratic.R'><code>R/mice.impute.quadratic.R</code></a></small>
-    <div class="hidden name"><code>mice.impute.quadratic.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.impute.quadratic.R'><code>R/mice.pcr.sim.impute.quadratic.R</code></a></small>
+    <div class="hidden name"><code>mice.pcr.sim.impute.quadratic.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -149,7 +149,7 @@ main effect and quadratic effect in the complete-data model." />
 main effect and quadratic effect in the complete-data model.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mice.impute.quadratic</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>mice.pcr.sim.impute.quadratic</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -205,36 +205,36 @@ use both \(Y\) and \(Y^2\).</p>
 is present in the data, calculate the quadratic term <code>YY</code> after
 imputation. If both the linear term <code>Y</code> and the the quadratic term
 <code>YY</code> are variables in the data, then first impute <code>Y</code> by calling
-<code>mice.impute.quadratic()</code> on <code>Y</code>, and then impute <code>YY</code> by
+<code>mice.pcr.sim.impute.quadratic()</code> on <code>Y</code>, and then impute <code>YY</code> by
 passive imputation as <code>meth["YY"] &lt;- "~I(Y^2)"</code>.  See example section
 for details.  Generally, we would like <code>YY</code> to be present in the data if
 we need to preserve quadratic relations between <code>YY</code> and any third
 variables in the multivariate incomplete data that we might wish to impute.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='mice.impute.pmm.html'>mice.impute.pmm</a></code>
+    <div class='dont-index'><p><code><a href='mice.pcr.sim.impute.pmm.html'>mice.pcr.sim.impute.pmm</a></code>
 Van Buuren, S. (2018).
 <a href='https://stefvanbuuren.name/fimd/sec-knowledge.html#sec:quadratic'><em>Flexible Imputation of Missing Data. Second Edition.</em></a>
 Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
 <p>Vink, G., van Buuren, S. (2013). Multiple Imputation of Squared Terms.
 <em>Sociological Methods &amp; Research</em>, 42:598-607.</p>
 <p>Other univariate imputation functions: 
-<code><a href='mice.impute.cart.html'>mice.impute.cart</a>()</code>,
-<code><a href='mice.impute.lda.html'>mice.impute.lda</a>()</code>,
-<code><a href='mice.impute.logreg.boot.html'>mice.impute.logreg.boot</a>()</code>,
-<code><a href='mice.impute.logreg.html'>mice.impute.logreg</a>()</code>,
-<code><a href='mice.impute.mean.html'>mice.impute.mean</a>()</code>,
-<code><a href='mice.impute.midastouch.html'>mice.impute.midastouch</a>()</code>,
-<code><a href='mice.impute.mnar.logreg.html'>mice.impute.mnar.logreg</a>()</code>,
-<code><a href='mice.impute.norm.boot.html'>mice.impute.norm.boot</a>()</code>,
-<code><a href='mice.impute.norm.nob.html'>mice.impute.norm.nob</a>()</code>,
-<code><a href='mice.impute.norm.predict.html'>mice.impute.norm.predict</a>()</code>,
-<code><a href='mice.impute.norm.html'>mice.impute.norm</a>()</code>,
-<code><a href='mice.impute.pmm.html'>mice.impute.pmm</a>()</code>,
-<code><a href='mice.impute.polr.html'>mice.impute.polr</a>()</code>,
-<code><a href='mice.impute.polyreg.html'>mice.impute.polyreg</a>()</code>,
-<code><a href='mice.impute.rf.html'>mice.impute.rf</a>()</code>,
-<code><a href='mice.impute.ri.html'>mice.impute.ri</a>()</code></p></div>
+<code><a href='mice.pcr.sim.impute.cart.html'>mice.pcr.sim.impute.cart</a>()</code>,
+<code><a href='mice.pcr.sim.impute.lda.html'>mice.pcr.sim.impute.lda</a>()</code>,
+<code><a href='mice.pcr.sim.impute.logreg.boot.html'>mice.pcr.sim.impute.logreg.boot</a>()</code>,
+<code><a href='mice.pcr.sim.impute.logreg.html'>mice.pcr.sim.impute.logreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.mean.html'>mice.pcr.sim.impute.mean</a>()</code>,
+<code><a href='mice.pcr.sim.impute.midastouch.html'>mice.pcr.sim.impute.midastouch</a>()</code>,
+<code><a href='mice.pcr.sim.impute.mnar.logreg.html'>mice.pcr.sim.impute.mnar.logreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.boot.html'>mice.pcr.sim.impute.norm.boot</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.nob.html'>mice.pcr.sim.impute.norm.nob</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.predict.html'>mice.pcr.sim.impute.norm.predict</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.html'>mice.pcr.sim.impute.norm</a>()</code>,
+<code><a href='mice.pcr.sim.impute.pmm.html'>mice.pcr.sim.impute.pmm</a>()</code>,
+<code><a href='mice.pcr.sim.impute.polr.html'>mice.pcr.sim.impute.polr</a>()</code>,
+<code><a href='mice.pcr.sim.impute.polyreg.html'>mice.pcr.sim.impute.polyreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.rf.html'>mice.pcr.sim.impute.rf</a>()</code>,
+<code><a href='mice.pcr.sim.impute.ri.html'>mice.pcr.sim.impute.ri</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Gerko Vink (University of Utrecht), <a href='mailto:g.vink@uu.nl'>g.vink@uu.nl</a></p>
@@ -255,13 +255,13 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
 <span class='va'>dat</span><span class='op'>[</span><span class='fl'>0</span> <span class='op'>==</span> <span class='fu'><a href='https://rdrr.io/r/stats/Binomial.html'>rbinom</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='fl'>1</span>, <span class='fl'>1</span> <span class='op'>-</span> <span class='fl'>.25</span><span class='op'>)</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span>
 
 <span class='co'># Prepare data for imputation</span>
-<span class='va'>ini</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>dat</span>, maxit <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>ini</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>dat</span>, maxit <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
 <span class='va'>meth</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"quadratic"</span>, <span class='st'>"~I(x^2)"</span>, <span class='st'>""</span><span class='op'>)</span>
 <span class='va'>pred</span> <span class='op'>&lt;-</span> <span class='va'>ini</span><span class='op'>$</span><span class='va'>pred</span>
 <span class='va'>pred</span><span class='op'>[</span>, <span class='st'>"xx"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fl'>0</span>
 
 <span class='co'># Impute data</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>dat</span>, meth <span class='op'>=</span> <span class='va'>meth</span>, pred <span class='op'>=</span> <span class='va'>pred</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>dat</span>, meth <span class='op'>=</span> <span class='va'>meth</span>, pred <span class='op'>=</span> <span class='va'>pred</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  iter imp variable
 #&gt;   1   1  x  xx
@@ -302,10 +302,10 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
 #&gt; 3 200.2092 0.14162442 0.12405518 0.13267630</div><div class='input'>
 <span class='co'># Plot results</span>
 <span class='fu'><a href='stripplot.mids.html'>stripplot</a></span><span class='op'>(</span><span class='va'>imp</span><span class='op'>)</span>
-</div><div class='img'><img src='mice.impute.quadratic-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>x</span>, <span class='va'>dat</span><span class='op'>$</span><span class='va'>xx</span>, col <span class='op'>=</span> <span class='fu'><a href='mdc.html'>mdc</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>, xlab <span class='op'>=</span> <span class='st'>"x"</span>, ylab <span class='op'>=</span> <span class='st'>"xx"</span><span class='op'>)</span>
+</div><div class='img'><img src='mice.pcr.sim.impute.quadratic-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>x</span>, <span class='va'>dat</span><span class='op'>$</span><span class='va'>xx</span>, col <span class='op'>=</span> <span class='fu'><a href='mdc.html'>mdc</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>, xlab <span class='op'>=</span> <span class='st'>"x"</span>, ylab <span class='op'>=</span> <span class='st'>"xx"</span><span class='op'>)</span>
 </div><div class='input'><span class='va'>cmp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='complete.mids.html'>complete</a></span><span class='op'>(</span><span class='va'>imp</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span><span class='op'>(</span><span class='va'>cmp</span><span class='op'>$</span><span class='va'>x</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>x</span><span class='op'>)</span><span class='op'>]</span>, <span class='va'>cmp</span><span class='op'>$</span><span class='va'>xx</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>$</span><span class='va'>x</span><span class='op'>)</span><span class='op'>]</span>, col <span class='op'>=</span> <span class='fu'><a href='mdc.html'>mdc</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='img'><img src='mice.impute.quadratic-2.png' alt='' width='700' height='433' /></div></pre>
+</div><div class='img'><img src='mice.pcr.sim.impute.quadratic-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -334,7 +334,7 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

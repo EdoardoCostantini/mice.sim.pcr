@@ -2,11 +2,11 @@
 #'
 #' Imputes univariate missing data using random forests.
 #'
-#' @aliases mice.impute.rf
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.rf
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param ntree The number of trees to grow. The default is 10.
 #' @param \dots Other named arguments passed down to
-#' \code{mice:::install.on.demand()}, \code{randomForest::randomForest()} and
+#' \code{mice.pcr.sim:::install.on.demand()}, \code{randomForest::randomForest()} and
 #' \code{randomForest:::randomForest.default()}.
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
@@ -18,11 +18,11 @@
 #' (2014) for the definition of the algorithm used.
 #' @note An alternative implementation was independently
 #' developed by Shah et al (2014). This were available as
-#' functions \code{CALIBERrfimpute::mice.impute.rfcat} and
-#' \code{CALIBERrfimpute::mice.impute.rfcont} (now archived).
+#' functions \code{CALIBERrfimpute::mice.pcr.sim.impute.rfcat} and
+#' \code{CALIBERrfimpute::mice.pcr.sim.impute.rfcont} (now archived).
 #' Simulations by Shah (Feb 13, 2014) suggested that
 #' the quality of the imputation for 10 and 100 trees was identical,
-#' so mice 2.22 changed the default number of trees from \code{ntree = 100} to
+#' so mice.pcr.sim 2.22 changed the default number of trees from \code{ntree = 100} to
 #' \code{ntree = 10}.
 #' @author Lisa Doove, Stef van Buuren, Elise Dusseldorp, 2012
 #' @references
@@ -39,17 +39,17 @@
 #' Van Buuren, S. (2018).
 #' \href{https://stefvanbuuren.name/fimd/sec-cart.html}{\emph{Flexible Imputation of Missing Data. Second Edition.}}
 #' Chapman & Hall/CRC. Boca Raton, FL.
-#' @seealso \code{\link{mice}}, \code{\link{mice.impute.cart}},
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link{mice.pcr.sim.impute.cart}},
 #' \code{\link[randomForest]{randomForest}}
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @examples
 #' library("lattice")
 #'
-#' imp <- mice(nhanes2, meth = "rf", ntree = 3)
+#' imp <- mice.pcr.sim(nhanes2, meth = "rf", ntree = 3)
 #' plot(imp)
 #' @export
-mice.impute.rf <- function(y, ry, x, wy = NULL, ntree = 10, ...) {
+mice.pcr.sim.impute.rf <- function(y, ry, x, wy = NULL, ntree = 10, ...) {
   install.on.demand("randomForest", ...)
   if (is.null(wy)) wy <- !ry
   onetree <- function(xobs, xmis, yobs, ...) {

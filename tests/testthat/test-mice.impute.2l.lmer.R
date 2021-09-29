@@ -1,11 +1,11 @@
-context("mice.impute.2l.lmer")
+context("mice.pcr.sim.impute.2l.lmer")
 
 d <- brandsma[1:200, c("sch", "lpo")]
 pred <- make.predictorMatrix(d)
 pred["lpo", "sch"] <- -2
 
-test_that("mice::mice.impute.2l.lmer() runs empty model", {
-  expect_silent(imp <- mice(d, method = "2l.lmer", print = FALSE, pred = pred, m = 1, maxit = 1))
+test_that("mice.pcr.sim::mice.pcr.sim.impute.2l.lmer() runs empty model", {
+  expect_silent(imp <- mice.pcr.sim(d, method = "2l.lmer", print = FALSE, pred = pred, m = 1, maxit = 1))
   expect_false(anyNA(complete(imp)))
 })
 
@@ -15,6 +15,6 @@ pred <- make.predictorMatrix(d)
 pred[c("lpo", "iqv"), "sch"] <- -2
 
 test_that("2l.lmer() runs random intercept, one predictor", {
-  expect_silent(imp <- mice(d, method = "2l.lmer", print = FALSE, pred = pred, m = 1, maxit = 1))
+  expect_silent(imp <- mice.pcr.sim(d, method = "2l.lmer", print = FALSE, pred = pred, m = 1, maxit = 1))
   expect_false(anyNA(complete(imp)))
 })

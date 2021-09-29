@@ -1,11 +1,11 @@
 #' Creates a \code{method} argument
 #'
 #' This helper function creates a valid \code{method} vector. The
-#' \code{method} vector is an argument to the \code{mice} function that
+#' \code{method} vector is an argument to the \code{mice.pcr.sim} function that
 #' specifies the method for each block.
-#' @inheritParams mice
+#' @inheritParams mice.pcr.sim
 #' @return Vector of \code{length(blocks)} element with method names
-#' @seealso \code{\link{mice}}
+#' @seealso \code{\link{mice.pcr.sim}}
 #' @examples
 #' make.method(nhanes2)
 #' @export
@@ -62,9 +62,9 @@ check.method <- function(method, data, where, blocks, defaultMethod) {
   passive.check <- is.passive(method) & nimp > 0 & method != ""
   check <- all(active.check) & any(passive.check)
   if (check) {
-    fullNames <- rep.int("mice.impute.passive", length(method[passive.check]))
+    fullNames <- rep.int("mice.pcr.sim.impute.passive", length(method[passive.check]))
   } else {
-    fullNames <- paste("mice.impute", method[active.check], sep = ".")
+    fullNames <- paste("mice.pcr.sim.impute", method[active.check], sep = ".")
     if (length(method[active.check]) == 0) fullNames <- character(0)
   }
 

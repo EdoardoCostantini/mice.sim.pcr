@@ -1,17 +1,17 @@
 # Same seed - multiple cores -
-# Result: Imputations not equal between mice and parlmice
-test_that("Warning and Imputations between mice and parlmice are unequal", {
+# Result: Imputations not equal between mice.pcr.sim and parlmice
+test_that("Warning and Imputations between mice.pcr.sim and parlmice are unequal", {
   skip_if_not(parallel::detectCores() > 2)
   expect_warning(A <- parlmice(nhanes, m = 2, seed = 123))
-  B <- mice(nhanes, m = 2, print = FALSE, seed = 123)
+  B <- mice.pcr.sim(nhanes, m = 2, print = FALSE, seed = 123)
   expect_false(all(complete(A, "long") == complete(B, "long")))
 })
 
 # Same seed - single core -
-# Result: Imputations equal between mice and parlmice
-test_that("Imputations are equal between mice and parlmice", {
+# Result: Imputations equal between mice.pcr.sim and parlmice
+test_that("Imputations are equal between mice.pcr.sim and parlmice", {
   C <- parlmice(nhanes, n.core = 1, n.imp.core = 5, seed = 123)
-  D <- mice(nhanes, m = 5, print = FALSE, seed = 123)
+  D <- mice.pcr.sim(nhanes, m = 5, print = FALSE, seed = 123)
   expect_identical(complete(C, "long"), complete(D, "long"))
 })
 

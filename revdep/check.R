@@ -3,7 +3,7 @@
 
 # using tools: tried, but seemed to stall, not used
 # save mice_x.y.z.tar.gz in dir specified below
-#dir <- path.expand("~/Package/mice/checkdep")
+#dir <- path.expand("~/Package/mice.pcr.sim/checkdep")
 #check_packages_in_dir(dir,
 #                      check_args = c("--as-cran", ""),
 #                      reverse = list(repos = getOption("repos")["CRAN"]))

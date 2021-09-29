@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wrapper function that runs MICE in parallel — parlmice • mice</title>
+<title>Wrapper function that runs MICE in parallel — parlmice • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -46,8 +46,8 @@
 
 
 <meta property="og:title" content="Wrapper function that runs MICE in parallel — parlmice" />
-<meta property="og:description" content="This is a wrapper function for mice, using multiple cores to
-execute mice in parallel. As a result, the imputation
+<meta property="og:description" content="This is a wrapper function for mice.pcr.sim, using multiple cores to
+execute mice.pcr.sim in parallel. As a result, the imputation
 procedure can be sped up, which may be useful in general." />
 
 
@@ -79,7 +79,7 @@ procedure can be sped up, which may be useful in general." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -116,7 +116,7 @@ procedure can be sped up, which may be useful in general." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -141,13 +141,13 @@ procedure can be sped up, which may be useful in general." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Wrapper function that runs MICE in parallel</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/parlmice.R'><code>R/parlmice.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/parlmice.R'><code>R/parlmice.R</code></a></small>
     <div class="hidden name"><code>parlmice.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This is a wrapper function for <code><a href='mice.html'>mice</a></code>, using multiple cores to
-execute <code><a href='mice.html'>mice</a></code> in parallel. As a result, the imputation
+    <p>This is a wrapper function for <code><a href='mice.pcr.sim.html'>mice.pcr.sim</a></code>, using multiple cores to
+execute <code><a href='mice.pcr.sim.html'>mice.pcr.sim</a></code> in parallel. As a result, the imputation
 procedure can be sped up, which may be useful in general.</p>
     </div>
 
@@ -168,18 +168,18 @@ procedure can be sped up, which may be useful in general.</p>
     <tr>
       <th>data</th>
       <td><p>A data frame or matrix containing the incomplete data. Similar to
-the first argument of <code><a href='mice.html'>mice</a></code>.</p></td>
+the first argument of <code><a href='mice.pcr.sim.html'>mice.pcr.sim</a></code>.</p></td>
     </tr>
     <tr>
       <th>m</th>
-      <td><p>The number of desired imputated datasets. By default $m=5$ as with <code>mice</code></p></td>
+      <td><p>The number of desired imputated datasets. By default $m=5$ as with <code>mice.pcr.sim</code></p></td>
     </tr>
     <tr>
       <th>seed</th>
-      <td><p>A scalar to be used as the seed value for the mice algorithm within
+      <td><p>A scalar to be used as the seed value for the mice.pcr.sim algorithm within
 each parallel stream. Please note that the imputations will be the same for all
 streams and, hence, this should be used if and only if <code>n.core = 1</code> and
-if it is desired to obtain the same output as under <code>mice</code>.</p></td>
+if it is desired to obtain the same output as under <code>mice.pcr.sim</code>.</p></td>
     </tr>
     <tr>
       <th>cluster.seed</th>
@@ -202,7 +202,7 @@ generally benefit from much faster cluster computation if <code>type</code> is s
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Named arguments that are passed down to function <code><a href='mice.html'>mice</a></code> or
+      <td><p>Named arguments that are passed down to function <code><a href='mice.pcr.sim.html'>mice.pcr.sim</a></code> or
 <code>makeCluster</code>.</p></td>
     </tr>
     </table>
@@ -222,11 +222,11 @@ arise on a Windows system, we advise to store the multiply imputed datasets,
 clean the memory by using <code><a href='https://rdrr.io/r/base/rm.html'>rm</a></code> and <code><a href='https://rdrr.io/r/base/gc.html'>gc</a></code> and make another
 run using the same settings.</p>
 <p>This wrapper function combines the output of <code>parLapply</code> with
-function <code><a href='ibind.html'>ibind</a></code> in <code><a href='mice.html'>mice</a></code>. A <code>mids</code> object is returned
+function <code><a href='ibind.html'>ibind</a></code> in <code><a href='mice.pcr.sim.html'>mice.pcr.sim</a></code>. A <code>mids</code> object is returned
 and can be used for further analyses.</p>
 <p>Note that if a seed value is desired, the seed should be entered to this function
 with argument <code>seed</code>. Seed values outside the wrapper function (in an
-R-script or passed to <code><a href='mice.html'>mice</a></code>) will not result to reproducible results.
+R-script or passed to <code><a href='mice.pcr.sim.html'>mice.pcr.sim</a></code>) will not result to reproducible results.
 We refer to the manual of <code><a href='https://rdrr.io/pkg/lattice/man/splom.html'>parallel</a></code> for an explanation on this matter.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -238,7 +238,7 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/lattice/man/splom.html'>parallel</a></code>, <code>parLapply</code>, <code>makeCluster</code>,
-<code><a href='mice.html'>mice</a></code>, <code><a href='mids-class.html'>mids-class</a></code></p></div>
+<code><a href='mice.pcr.sim.html'>mice.pcr.sim</a></code>, <code><a href='mids-class.html'>mids-class</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Gerko Vink, Rianne Schouten</p>
@@ -247,7 +247,7 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
     <pre class="examples"><div class='input'><span class='co'># 150 imputations in dataset nhanes, performed by 3 cores</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='va'>imp1</span> <span class='op'>&lt;-</span> <span class='fu'>parlmice</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>nhanes</span>, n.core <span class='op'>=</span> <span class='fl'>3</span>, n.imp.core <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span>
-<span class='co'># Making use of arguments in mice.</span>
+<span class='co'># Making use of arguments in mice.pcr.sim.</span>
 <span class='va'>imp2</span> <span class='op'>&lt;-</span> <span class='fu'>parlmice</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>nhanes</span>, method <span class='op'>=</span> <span class='st'>"norm.nob"</span>, m <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>
 <span class='va'>imp2</span><span class='op'>$</span><span class='va'>method</span>
 <span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='va'>imp2</span>, <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>bmi</span> <span class='op'>~</span> <span class='va'>hyp</span><span class='op'>)</span><span class='op'>)</span>
@@ -283,7 +283,7 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

@@ -23,7 +23,7 @@
 #' @references Schafer, J.L. (1997), Analysis of multivariate incomplete data.
 #' London: Chapman&Hall.
 #'
-#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}: Multivariate
+#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}: Multivariate
 #' Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 #' Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 #' @keywords univar
@@ -59,7 +59,7 @@ md.pattern <- function(x, plot = TRUE, rotate.names = FALSE) {
   # update row and column margins
   if (all(!is.na(x))) {
     cat(" /\\     /\\\n{  `---'  }\n{  O   O  }\n==>  V <==")
-    cat("  No need for mice. This data set is completely observed.\n")
+    cat("  No need for mice.pcr.sim. This data set is completely observed.\n")
     cat(" \\  \\|/  /\n  `-----'\n\n")
     mpat <- t(as.matrix(mpat, byrow = TRUE))
     rownames(mpat) <- table(pat)

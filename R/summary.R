@@ -64,14 +64,14 @@ summary.mads <- function(object, ...) {
 }
 
 
-#' Print a \code{mice.anova} object
+#' Print a \code{mice.pcr.sim.anova} object
 #'
 #' @rdname summary
 #' @return \code{NULL}
 #' @seealso \code{\link{mipo}}
-#' @method summary mice.anova
+#' @method summary mice.pcr.sim.anova
 #' @export
-summary.mice.anova <- function(object, ...) {
+summary.mice.pcr.sim.anova <- function(object, ...) {
 
   # handle objects from anova
   out <- object$out
@@ -108,6 +108,6 @@ summary.mice.anova <- function(object, ...) {
     models = ff, comparisons = rf,
     m = object$m, method = object$method, use = object$use
   ),
-  class = c("mice.anova.summary", class(object))
+  class = c("mice.pcr.sim.anova.summary", class(object))
   )
 }

@@ -21,7 +21,7 @@
 #' @seealso \code{\link[=mira-class]{mira}}, \code{\link{with.mids}}
 #' @keywords manip
 #' @examples
-#' imp <- mice(nhanes, print = FALSE, seed = 21443)
+#' imp <- mice.pcr.sim(nhanes, print = FALSE, seed = 21443)
 #' fit <- with(imp, lm(bmi ~ chl + hyp))
 #' f1 <- getfit(fit)
 #' class(f1)

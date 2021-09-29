@@ -2,8 +2,8 @@
 #'
 #' Imputes missing data in a categorical variable using polytomous regression
 #'
-#' @aliases mice.impute.polyreg
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.polyreg
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param nnet.maxit Tuning parameter for \code{nnet()}.
 #' @param nnet.trace Tuning parameter for \code{nnet()}.
 #' @param nnet.MaxNWts Tuning parameter for \code{nnet()}.
@@ -11,12 +11,12 @@
 #' \code{sum(wy)}
 #' @author Stef van Buuren, Karin Groothuis-Oudshoorn, 2000-2010
 #' @details
-#' The function \code{mice.impute.polyreg()} imputes categorical response
+#' The function \code{mice.pcr.sim.impute.polyreg()} imputes categorical response
 #' variables by the Bayesian polytomous regression model. See J.P.L. Brand
 #' (1999), Chapter 4, Appendix B.
 #'
 #' By default, unordered factors with more than two levels are imputed by
-#' \code{mice.impute.polyreg()}.
+#' \code{mice.pcr.sim.impute.polyreg()}.
 #'
 #' The method consists of the following steps:
 #' \enumerate{
@@ -25,16 +25,16 @@
 #' \item Add appropriate noise to predictions
 #' }
 #'
-#' The algorithm of \code{mice.impute.polyreg} uses the function
+#' The algorithm of \code{mice.pcr.sim.impute.polyreg} uses the function
 #' \code{multinom()} from the \code{nnet} package.
 #'
 #' In order to avoid bias due to perfect prediction, the algorithm augment the
 #' data according to the method of White, Daniel and Royston (2010).
-#' @seealso \code{\link{mice}}, \code{\link[nnet]{multinom}},
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link[nnet]{multinom}},
 #' \code{\link[MASS]{polr}}
 #' @references
 #'
-#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}: Multivariate
+#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}: Multivariate
 #' Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 #' Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 #'
@@ -51,7 +51,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.polyreg <- function(y, ry, x, wy = NULL, nnet.maxit = 100,
+mice.pcr.sim.impute.polyreg <- function(y, ry, x, wy = NULL, nnet.maxit = 100,
                                 nnet.trace = FALSE, nnet.MaxNWts = 1500, ...) {
   install.on.demand("nnet", ...)
   if (is.null(wy)) {

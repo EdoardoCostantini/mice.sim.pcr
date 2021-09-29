@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Imputation under MNAR mechanism by NARFCS — mice.impute.mnar.logreg • mice</title>
+<title>Imputation under MNAR mechanism by NARFCS — mice.pcr.sim.impute.mnar.logreg • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -45,7 +45,7 @@
 
 
 
-<meta property="og:title" content="Imputation under MNAR mechanism by NARFCS — mice.impute.mnar.logreg" />
+<meta property="og:title" content="Imputation under MNAR mechanism by NARFCS — mice.pcr.sim.impute.mnar.logreg" />
 <meta property="og:description" content="Imputes univariate data under a user-specified MNAR mechanism by
 linear or logistic regression and NARFCS. Sensitivity analysis under
 different model specifications may shed light on the impact of
@@ -80,7 +80,7 @@ different MNAR assumptions on the conclusions." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -117,7 +117,7 @@ different MNAR assumptions on the conclusions." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -142,8 +142,8 @@ different MNAR assumptions on the conclusions." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Imputation under MNAR mechanism by NARFCS</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/mice.impute.mnar.logreg.R'><code>R/mice.impute.mnar.logreg.R</code></a>, <a href='https://github.com/amices/mice/blob/master/R/mice.impute.mnar.norm.R'><code>R/mice.impute.mnar.norm.R</code></a></small>
-    <div class="hidden name"><code>mice.impute.mnar.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.impute.mnar.logreg.R'><code>R/mice.pcr.sim.impute.mnar.logreg.R</code></a>, <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.impute.mnar.norm.R'><code>R/mice.pcr.sim.impute.mnar.norm.R</code></a></small>
+    <div class="hidden name"><code>mice.pcr.sim.impute.mnar.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -153,9 +153,9 @@ different model specifications may shed light on the impact of
 different MNAR assumptions on the conclusions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mice.impute.mnar.logreg</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, ums <span class='op'>=</span> <span class='cn'>NULL</span>, umx <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>mice.pcr.sim.impute.mnar.logreg</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, ums <span class='op'>=</span> <span class='cn'>NULL</span>, umx <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>mice.impute.mnar.norm</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, ums <span class='op'>=</span> <span class='cn'>NULL</span>, umx <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+<span class='fu'>mice.pcr.sim.impute.mnar.norm</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, ums <span class='op'>=</span> <span class='cn'>NULL</span>, umx <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -215,18 +215,18 @@ Random (MNAR) by the NARFCS method. The NARFCS procedure
 Boshuizen &amp; Knook (1999) to the case with multiple incomplete
 variables within the FCS framework. In practical terms, the
 NARFCS procedure shifts the imputations drawn at each
-iteration of <code>mice</code> by a user-specified quantity that can
+iteration of <code>mice.pcr.sim</code> by a user-specified quantity that can
 vary across subjects, to reflect systematic departures of the
 missing data from the data distribution imputed under MAR.</p>
 <p>Specification of the NARFCS model is done by the <code>blots</code>
-argument of <code><a href='mice.html'>mice()</a></code>. The <code>blots</code> parameter is a named
+argument of <code><a href='mice.pcr.sim.html'>mice.pcr.sim()</a></code>. The <code>blots</code> parameter is a named
 list. For each variable to be imputed by
-<code>mice.impute.mnar.norm()</code> or <code>mice.impute.mnar.logreg()</code>
+<code>mice.pcr.sim.impute.mnar.norm()</code> or <code>mice.pcr.sim.impute.mnar.logreg()</code>
 the corresponding element in <code>blots</code> is a list with
 at least one argument <code>ums</code> and, optionally, a second
 argument <code>umx</code>.
 For example, the high-level call might like something like
-<code><a href='mice.html'>mice(nhanes[, c(2, 4)], method = c("pmm", "mnar.norm"),
+<code><a href='mice.pcr.sim.html'>mice.pcr.sim(nhanes[, c(2, 4)], method = c("pmm", "mnar.norm"),
 blots = list(chl = list(ums = "-3+2*bmi")))</a></code>.</p>
 <p>The <code>ums</code> parameter is required, and might look like this:
 <code>"-4+1*Y"</code>. The <code>ums</code> specifcation must have the
@@ -259,7 +259,7 @@ must be represented as dummy indicators with names corresponding
 to what is used in <code>ums</code> to refer to the category-specific terms
 (see above);</p></li>
 <li><p>It has the same number of rows as the <code>data</code> argument
-passed on to the main <code>mice</code> function;</p></li>
+passed on to the main <code>mice.pcr.sim</code> function;</p></li>
 <li><p>It does not contain variables that were already predictors
 in the identifiable part of the model for the variable under
 imputation.</p></li>
@@ -270,7 +270,7 @@ that appear in the identifiable part of the imputation model (<code>x</code>) or
 in complete auxiliary variables passed on via the <code>umx</code> argument.
 It is not possible to specify models where the offset depends on
 incomplete auxiliary variables.</p>
-<p>For an MNAR alternative see also <code><a href='mice.impute.ri.html'>mice.impute.ri</a></code>.</p>
+<p>For an MNAR alternative see also <code><a href='mice.pcr.sim.impute.ri.html'>mice.pcr.sim.impute.ri</a></code>.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Tompsett, D. M., Leacy, F., Moreno-Betancur, M., Heron, J., &amp;
@@ -285,22 +285,22 @@ imputation of missing blood pressure covariates in survival analysis.
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other univariate imputation functions: 
-<code><a href='mice.impute.cart.html'>mice.impute.cart</a>()</code>,
-<code><a href='mice.impute.lda.html'>mice.impute.lda</a>()</code>,
-<code><a href='mice.impute.logreg.boot.html'>mice.impute.logreg.boot</a>()</code>,
-<code><a href='mice.impute.logreg.html'>mice.impute.logreg</a>()</code>,
-<code><a href='mice.impute.mean.html'>mice.impute.mean</a>()</code>,
-<code><a href='mice.impute.midastouch.html'>mice.impute.midastouch</a>()</code>,
-<code><a href='mice.impute.norm.boot.html'>mice.impute.norm.boot</a>()</code>,
-<code><a href='mice.impute.norm.nob.html'>mice.impute.norm.nob</a>()</code>,
-<code><a href='mice.impute.norm.predict.html'>mice.impute.norm.predict</a>()</code>,
-<code><a href='mice.impute.norm.html'>mice.impute.norm</a>()</code>,
-<code><a href='mice.impute.pmm.html'>mice.impute.pmm</a>()</code>,
-<code><a href='mice.impute.polr.html'>mice.impute.polr</a>()</code>,
-<code><a href='mice.impute.polyreg.html'>mice.impute.polyreg</a>()</code>,
-<code><a href='mice.impute.quadratic.html'>mice.impute.quadratic</a>()</code>,
-<code><a href='mice.impute.rf.html'>mice.impute.rf</a>()</code>,
-<code><a href='mice.impute.ri.html'>mice.impute.ri</a>()</code></p></div>
+<code><a href='mice.pcr.sim.impute.cart.html'>mice.pcr.sim.impute.cart</a>()</code>,
+<code><a href='mice.pcr.sim.impute.lda.html'>mice.pcr.sim.impute.lda</a>()</code>,
+<code><a href='mice.pcr.sim.impute.logreg.boot.html'>mice.pcr.sim.impute.logreg.boot</a>()</code>,
+<code><a href='mice.pcr.sim.impute.logreg.html'>mice.pcr.sim.impute.logreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.mean.html'>mice.pcr.sim.impute.mean</a>()</code>,
+<code><a href='mice.pcr.sim.impute.midastouch.html'>mice.pcr.sim.impute.midastouch</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.boot.html'>mice.pcr.sim.impute.norm.boot</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.nob.html'>mice.pcr.sim.impute.norm.nob</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.predict.html'>mice.pcr.sim.impute.norm.predict</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.html'>mice.pcr.sim.impute.norm</a>()</code>,
+<code><a href='mice.pcr.sim.impute.pmm.html'>mice.pcr.sim.impute.pmm</a>()</code>,
+<code><a href='mice.pcr.sim.impute.polr.html'>mice.pcr.sim.impute.polr</a>()</code>,
+<code><a href='mice.pcr.sim.impute.polyreg.html'>mice.pcr.sim.impute.polyreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.quadratic.html'>mice.pcr.sim.impute.quadratic</a>()</code>,
+<code><a href='mice.pcr.sim.impute.rf.html'>mice.pcr.sim.impute.rf</a>()</code>,
+<code><a href='mice.pcr.sim.impute.ri.html'>mice.pcr.sim.impute.ri</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Margarita Moreno-Betancur, Stef van Buuren, Ian R. White, 2020.</p>
@@ -312,7 +312,7 @@ imputation of missing blood pressure covariates in survival analysis.
 <span class='va'>mnar.blot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>X <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>ums <span class='op'>=</span> <span class='st'>"-4"</span><span class='op'>)</span>, Y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>ums <span class='op'>=</span> <span class='st'>"2+1*ZCat1-3*ZCat2"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># Run NARFCS by using mnar imputation methods and passing argument via blots</span>
-<span class='va'>impNARFCS</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>mnar_demo_data</span>,
+<span class='va'>impNARFCS</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>mnar_demo_data</span>,
   method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mnar.logreg"</span>, <span class='st'>"mnar.norm"</span>, <span class='st'>""</span><span class='op'>)</span>,
   blots <span class='op'>=</span> <span class='va'>mnar.blot</span>, seed <span class='op'>=</span> <span class='fl'>234235</span>, print <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span>
@@ -337,7 +337,7 @@ imputation of missing blood pressure covariates in survival analysis.
 <span class='op'>)</span>
 
 <span class='co'># Run NARFCS by using mnar imputation methods and passing argument via blots</span>
-<span class='va'>impNARFCS</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>mnar_demo_data</span>,
+<span class='va'>impNARFCS</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>mnar_demo_data</span>,
   method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mnar.logreg"</span>, <span class='st'>"mnar.norm"</span>, <span class='st'>""</span><span class='op'>)</span>,
   blots <span class='op'>=</span> <span class='va'>mnar.blot</span>, seed <span class='op'>=</span> <span class='fl'>234235</span>, print <span class='op'>=</span> <span class='cn'>FALSE</span>
 <span class='op'>)</span>
@@ -374,7 +374,7 @@ imputation of missing blood pressure covariates in survival analysis.
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

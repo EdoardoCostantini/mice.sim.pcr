@@ -74,7 +74,7 @@ extractBS <- function(fit) {
 }
 
 
-## used by mice.impute.midastouch
+## used by mice.pcr.sim.impute.midastouch
 bootfunc.plain <- function(n) {
   random <- sample.int(n, replace = TRUE)
   as.numeric(table(factor(random, levels = seq_len(n))))

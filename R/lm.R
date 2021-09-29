@@ -9,20 +9,20 @@
 #' operator, and the terms, separated by + operators, on the right. See the
 #' documentation of \code{\link{lm}} and \code{\link{formula}} for details.
 #' @param data An object of type 'mids', which stands for 'multiply imputed data
-#' set', typically created by a call to function \code{mice()}.
+#' set', typically created by a call to function \code{mice.pcr.sim()}.
 #' @param \dots Additional parameters passed to \code{\link{lm}}
 #' @return An objects of class \code{mira}, which stands for 'multiply imputed
 #' repeated analysis'.  This object contains \code{data$m} distinct
 #' \code{lm.objects}, plus some descriptive information.
 #' @author Stef van Buuren, Karin Groothuis-Oudshoorn, 2000
 #' @seealso \code{\link{lm}}, \code{\link[=mids-class]{mids}}, \code{\link[=mira-class]{mira}}
-#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
+#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}:
 #' Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}(3), 1-67.
 #' \url{https://www.jstatsoft.org/v45/i03/}
 #' @keywords multivariate
 #' @examples
-#' imp <- mice(nhanes)
+#' imp <- mice.pcr.sim(nhanes)
 #' fit <- lm.mids(bmi ~ hyp + chl, data = imp)
 #' fit
 #' @export
@@ -55,7 +55,7 @@ lm.mids <- function(formula, data, ...) {
 #' \code{\link{formula}} for details.
 #' @param family The family of the glm model
 #' @param data An object of type \code{mids}, which stands for 'multiply imputed
-#' data set', typically created by function \code{mice()}.
+#' data set', typically created by function \code{mice.pcr.sim()}.
 #' @param \dots Additional parameters passed to \code{\link{glm}}.
 #' @return An objects of class \code{mira}, which stands for 'multiply imputed
 #' repeated analysis'.  This object contains \code{data$m} distinct
@@ -69,7 +69,7 @@ lm.mids <- function(formula, data, ...) {
 #' @keywords multivariate
 #' @examples
 #'
-#' imp <- mice(nhanes)
+#' imp <- mice.pcr.sim(nhanes)
 #'
 #' # logistic regression on the imputed data
 #' fit <- glm.mids((hyp == 2) ~ bmi + chl, data = imp, family = binomial)

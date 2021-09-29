@@ -2,14 +2,14 @@
 #'
 #' Imputes the arithmetic mean of the observed data
 #'
-#' @inheritParams mice.impute.pmm
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @section Warning: Imputing the mean of a variable is almost never
 #' appropriate.  See Little and Rubin (2002, p. 61-62) or
 #' Van Buuren (2012, p. 10-11)
-#' @seealso \code{\link{mice}}, \code{\link{mean}}
-#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link{mean}}
+#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}:
 #' Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}(3), 1-67.
 #' \url{https://www.jstatsoft.org/v45/i03/}
@@ -23,7 +23,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.mean <- function(y, ry, x = NULL, wy = NULL, ...) {
+mice.pcr.sim.impute.mean <- function(y, ry, x = NULL, wy = NULL, ...) {
   if (is.null(wy)) {
     wy <- !ry
   }

@@ -1,4 +1,4 @@
 library(testthat)
-library(mice)
+library(mice.pcr.sim)
 
-test_check("mice")
+test_check("mice.pcr.sim")

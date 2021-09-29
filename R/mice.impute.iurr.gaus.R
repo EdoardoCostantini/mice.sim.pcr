@@ -2,8 +2,8 @@
 #'
 #' Imputes univariate missing data using lasso 2-step linear regression
 #'
-#' @aliases mice.impute.iurr.gaus iurr.gaus
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.iurr.gaus iurr.gaus
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @details
@@ -20,7 +20,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.iurr.gaus <- function(y, ry, x, wy = NULL, ...) {
+mice.pcr.sim.impute.iurr.gaus <- function(y, ry, x, wy = NULL, ...) {
   # Internal function for lm loss function
   lmLoss <- function(theta, Y, X){
     # source: https://rpubs.com/YaRrr/MLTutorial

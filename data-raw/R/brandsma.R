@@ -7,7 +7,7 @@
 # read data
 library(haven)
 library(dplyr)
-project <- path.expand("~/Package/mice/multilevel/Snijders")
+project <- path.expand("~/Package/mice.pcr.sim/multilevel/Snijders")
 fn <- file.path(project, "MLbook_2nded_total_4106-99.sav")
 mlbook2 <- read_sav(fn)
 

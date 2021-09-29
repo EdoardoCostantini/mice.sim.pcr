@@ -1,4 +1,4 @@
-Package: mice
+Package: mice.pcr.sim
 Type: Package
 Version: 3.13.9
 Title: Multivariate Imputation by Chained Equations
@@ -81,8 +81,8 @@ Encoding: UTF-8
 License: GPL-2 | GPL-3
 LazyLoad: yes
 LazyData: yes
-URL: https://github.com/amices/mice, https://amices.org/mice/, https://stefvanbuuren.name/fimd/
-BugReports: https://github.com/amices/mice/issues
+URL: https://github.com/amices/mice.pcr.sim, https://amices.org/mice.pcr.sim/, https://stefvanbuuren.name/fimd/
+BugReports: https://github.com/amices/mice.pcr.sim/issues
 RoxygenNote: 7.1.1
 LinkingTo: cpp11, Rcpp
 SystemRequirements: C++11

@@ -2,7 +2,7 @@
 #'
 #' Imputes univariate missing data using linear discriminant analysis
 #'
-#' @inheritParams mice.impute.pmm
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param ... Other named arguments. Not used.
 #' @return Vector with imputed data, of type factor, and of length
 #' \code{sum(wy)}
@@ -12,10 +12,10 @@
 #' case, and draws the imputations from this posterior.
 #'
 #' This function can be called from within the Gibbs sampler by specifying
-#' \code{"lda"} in the \code{method} argument of \code{mice()}. This method is usually
+#' \code{"lda"} in the \code{method} argument of \code{mice.pcr.sim()}. This method is usually
 #' faster and uses fewer resources than calling the function, but the statistical
 #' properties may not be as good (Brand, 1999).
-#' \code{\link{mice.impute.polyreg}}.
+#' \code{\link{mice.pcr.sim.impute.polyreg}}.
 #' @section Warning: The function does not incorporate the variability of the
 #' discriminant weight, so it is not 'proper' in the sense of Rubin. For small
 #' samples and rare categories in the \code{y}, variability of the imputed data
@@ -24,9 +24,9 @@
 #' Added: SvB June 2009 Tried to include bootstrap, but disabled since
 #' bootstrapping may easily lead to constant variables within groups.
 #' @author Stef van Buuren, Karin Groothuis-Oudshoorn, 2000
-#' @seealso \code{\link{mice}}, \code{link{mice.impute.polyreg}},
+#' @seealso \code{\link{mice.pcr.sim}}, \code{link{mice.pcr.sim.impute.polyreg}},
 #' \code{\link[MASS]{lda}}
-#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
+#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}:
 #' Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}(3), 1-67.
 #' \url{https://www.jstatsoft.org/v45/i03/}
@@ -41,7 +41,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.lda <- function(y, ry, x, wy = NULL, ...) {
+mice.pcr.sim.impute.lda <- function(y, ry, x, wy = NULL, ...) {
   install.on.demand("MASS", ...)
   if (is.null(wy)) wy <- !ry
   fy <- as.factor(y)

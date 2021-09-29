@@ -46,7 +46,7 @@ dplyr::filter
 #' @author Patrick Rockenschaub
 #' @keywords manip
 #' @examples
-#' imp <- mice(nhanes, m = 2, maxit = 1, print = FALSE)
+#' imp <- mice.pcr.sim(nhanes, m = 2, maxit = 1, print = FALSE)
 #'
 #' # example with external logical vector
 #' imp_f <- filter(imp, c(rep(TRUE, 13), rep(FALSE, 12)))
@@ -121,7 +121,7 @@ filter.mids <- function(.data, ..., .preserve = FALSE) {
     chainMean = chainMean,
     chainVar = chainVar,
     loggedEvents = loggedEvents,
-    version = packageVersion("mice"),
+    version = packageVersion("mice.pcr.sim"),
     date = Sys.Date()
   )
   oldClass(midsobj) <- "mids"

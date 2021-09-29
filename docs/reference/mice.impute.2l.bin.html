@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Imputation by a two-level logistic model using glmer — mice.impute.2l.bin • mice</title>
+<title>Imputation by a two-level logistic model using glmer — mice.pcr.sim.impute.2l.bin • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -45,7 +45,7 @@
 
 
 
-<meta property="og:title" content="Imputation by a two-level logistic model using glmer — mice.impute.2l.bin" />
+<meta property="og:title" content="Imputation by a two-level logistic model using glmer — mice.pcr.sim.impute.2l.bin" />
 <meta property="og:description" content="Imputes univariate systematically and sporadically missing data
 using a two-level logistic model using lme4::glmer()" />
 
@@ -78,7 +78,7 @@ using a two-level logistic model using lme4::glmer()" />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -115,7 +115,7 @@ using a two-level logistic model using lme4::glmer()" />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -140,8 +140,8 @@ using a two-level logistic model using lme4::glmer()" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Imputation by a two-level logistic model using <code>glmer</code></h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/mice.impute.2l.bin.R'><code>R/mice.impute.2l.bin.R</code></a></small>
-    <div class="hidden name"><code>mice.impute.2l.bin.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.impute.2l.bin.R'><code>R/mice.pcr.sim.impute.2l.bin.R</code></a></small>
+    <div class="hidden name"><code>mice.pcr.sim.impute.2l.bin.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -149,7 +149,7 @@ using a two-level logistic model using lme4::glmer()" />
 using a two-level logistic model using <code><a href='https://rdrr.io/pkg/lme4/man/glmer.html'>lme4::glmer()</a></code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>mice.impute.2l.bin</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, <span class='va'>type</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, intercept <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>mice.pcr.sim.impute.2l.bin</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, <span class='va'>type</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, intercept <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -211,12 +211,12 @@ participant data meta-analysis: a generalized approach using MICE.
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other univariate-2l: 
-<code><a href='mice.impute.2l.lmer.html'>mice.impute.2l.lmer</a>()</code>,
-<code><a href='mice.impute.2l.norm.html'>mice.impute.2l.norm</a>()</code>,
-<code><a href='mice.impute.2l.pan.html'>mice.impute.2l.pan</a>()</code></p></div>
+<code><a href='mice.pcr.sim.impute.2l.lmer.html'>mice.pcr.sim.impute.2l.lmer</a>()</code>,
+<code><a href='mice.pcr.sim.impute.2l.norm.html'>mice.pcr.sim.impute.2l.norm</a>()</code>,
+<code><a href='mice.pcr.sim.impute.2l.pan.html'>mice.pcr.sim.impute.2l.pan</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Shahab Jolani, 2015; adapted to mice, SvB, 2018</p>
+    <p>Shahab Jolani, 2015; adapted to mice.pcr.sim, SvB, 2018</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span>
@@ -232,9 +232,9 @@ participant data meta-analysis: a generalized approach using MICE.
   <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>time</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>patientID <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>patientID</span><span class='op'>)</span><span class='op'>)</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='va'>pred</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>data</span>, print <span class='op'>=</span> <span class='cn'>FALSE</span>, maxit <span class='op'>=</span> <span class='fl'>0</span>, seed <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>$</span><span class='va'>pred</span>
+<span class='va'>pred</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>data</span>, print <span class='op'>=</span> <span class='cn'>FALSE</span>, maxit <span class='op'>=</span> <span class='fl'>0</span>, seed <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>$</span><span class='va'>pred</span>
 <span class='va'>pred</span><span class='op'>[</span><span class='st'>"outcome"</span>, <span class='st'>"patientID"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='op'>-</span><span class='fl'>2</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>data</span>, method <span class='op'>=</span> <span class='st'>"2l.bin"</span>, pred <span class='op'>=</span> <span class='va'>pred</span>, maxit <span class='op'>=</span> <span class='fl'>1</span>, m <span class='op'>=</span> <span class='fl'>1</span>, seed <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>data</span>, method <span class='op'>=</span> <span class='st'>"2l.bin"</span>, pred <span class='op'>=</span> <span class='va'>pred</span>, maxit <span class='op'>=</span> <span class='fl'>1</span>, m <span class='op'>=</span> <span class='fl'>1</span>, seed <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>
@@ -265,7 +265,7 @@ participant data meta-analysis: a generalized approach using MICE.
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

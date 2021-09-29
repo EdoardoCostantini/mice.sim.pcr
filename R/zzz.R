@@ -9,7 +9,7 @@
 #' version()
 #' version("base")
 #' @export
-version <- function(pkg = "mice") {
+version <- function(pkg = "mice.pcr.sim") {
   lib <- dirname(system.file(package = pkg))
   d <- packageDescription(pkg)
   return(paste(d$Package, d$Version, d$Date, lib))

@@ -20,14 +20,14 @@ knitr::opts_chunk$set(
 
 # Help for old friends
 
-This documents describes the changes between `mice 2.46.0` and 
-`mice 3.0.0`. Most code written for versions `mice 2.12 - mice 2.46.0`
+This documents describes the changes between `mice.pcr.sim 2.46.0` and 
+`mice.pcr.sim 3.0.0`. Most code written for versions `mice.pcr.sim 2.12 - mice.pcr.sim 2.46.0`
 should run unchanged. I have tried to minimize the changes to the 
 function arguments, but it was not possible to remain 100% backward 
 compatible. This document outlines the visible changes, and suggests
-ways how to adapt old code to `mice 3.0`.
+ways how to adapt old code to `mice.pcr.sim 3.0`.
 
-## `mice` function arguments
+## `mice.pcr.sim` function arguments
 
 | Argument  | 2.46.0                   | 3.0.0
 |:----------|:-------------------------|:-------------------------|
@@ -49,20 +49,20 @@ No changes were made for the following arguments: `data`, `m`,
 
 If `blocks` is not specified, then each variable is allocated to a
 separate block. In that case, `length(blocks)` is identical to
-`ncol(data)`, and the method in `mice 3.0.0` reduces to
-variable-by-variable imputation, as in `mice 2.46.0` and before.
+`ncol(data)`, and the method in `mice.pcr.sim 3.0.0` reduces to
+variable-by-variable imputation, as in `mice.pcr.sim 2.46.0` and before.
 
 Argument `visitSequence` may still be specified as `integer` 
 or `numeric`, but it will internally be converted into `character` 
 using the column names in `data`.
 
-An existing function call to `mice` using the old `form` argument
+An existing function call to `mice.pcr.sim` using the old `form` argument
 may result in an error `Argument "formulas" not a list`. The advice
 is to specify the formula as a list, e.g.,
 
 ```{r}
-library(mice, warn.conflicts = FALSE)
-imp <- mice(nhanes, 
+library(mice.pcr.sim, warn.conflicts = FALSE)
+imp <- mice.pcr.sim(nhanes, 
             formulas = list(hyp ~ bmi, 
                             chl ~ age + hyp + bmi,
                             bmi ~ age + hyp + chl),
@@ -73,14 +73,14 @@ imp$formulas
 
 ## `pool()` function uses `broom`
 
-`mice 2.46.0` and before used `coef()` and `vcov()` to extract the parameters
+`mice.pcr.sim 2.46.0` and before used `coef()` and `vcov()` to extract the parameters
 from the complete-data model. There were two problems with this approach: 
 1) `coef()` or `vcov()` were often not defined for the analysis of interest, 
 2) their output was not standard across procedures. Older versions of 
-`mice` therefore needed quite some custom code to extract the parameters 
+`mice.pcr.sim` therefore needed quite some custom code to extract the parameters 
 and their variance estimates.
 
-`mice 3.0.0` uses the `broom` package for this task. The advantage is that the
+`mice.pcr.sim 3.0.0` uses the `broom` package for this task. The advantage is that the
 standardised output. The downside is that (still) many packages offer no 
 defined `tidy.xxx()` and `glance.xxx()` functions. In those cases, the user
 sees the error message `Error: No tidy methods for objects of class xxx`. See 
@@ -88,7 +88,7 @@ the pool() documentation for what to do in those cases.
 
 ## `pool()` for mixed models requires `library(broom.mixed)`
 
-`mice` automatically loads the `broom` package. Tidiers for mixed models live 
+`mice.pcr.sim` automatically loads the `broom` package. Tidiers for mixed models live 
 in the `broom.mixed` packages and this is NOT automatically loaded. If you want 
 to pool the results of mixed model, issue `library(broom.mixed)` before calling
 the `pool()` function.

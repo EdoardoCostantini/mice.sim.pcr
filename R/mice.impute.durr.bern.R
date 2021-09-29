@@ -2,8 +2,8 @@
 #'
 #' Imputes univariate missing data using lasso logistic regression with bootstrap
 #'
-#' @aliases mice.impute.durr.bern durr.bern
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.durr.bern durr.bern
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @details
@@ -20,7 +20,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.durr.bern <- function(y, ry, x, wy = NULL, ...) {
+mice.pcr.sim.impute.durr.bern <- function(y, ry, x, wy = NULL, ...) {
   # Bootstrap sample
   if (is.null(wy)) wy <- !ry
   n1 <- sum(ry)

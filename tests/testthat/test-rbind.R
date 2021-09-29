@@ -1,25 +1,25 @@
 context("rbind.mids")
 
-expect_warning(imp1 <<- mice(nhanes[1:13, ], m = 2, maxit = 1, print = FALSE))
+expect_warning(imp1 <<- mice.pcr.sim(nhanes[1:13, ], m = 2, maxit = 1, print = FALSE))
 test_that("Constant variables are not imputed by default", {
   expect_equal(sum(is.na(complete(imp1))), 6L)
 })
 
-expect_warning(imp1b <<- mice(nhanes[1:13, ], m = 2, maxit = 1, print = FALSE, remove.constant = FALSE))
+expect_warning(imp1b <<- mice.pcr.sim(nhanes[1:13, ], m = 2, maxit = 1, print = FALSE, remove.constant = FALSE))
 test_that("Constant variables are imputed for remove.constant = FALSE", {
   expect_equal(sum(is.na(complete(imp1b))), 0L)
 })
 
-imp2 <- mice(nhanes[14:25, ], m = 2, maxit = 1, print = FALSE)
-imp3 <- mice(nhanes2, m = 2, maxit = 1, print = FALSE)
-imp4 <- mice(nhanes2, m = 1, maxit = 1, print = FALSE)
-expect_warning(imp5 <<- mice(nhanes[1:13, ], m = 2, maxit = 2, print = FALSE))
-expect_error(imp6 <<- mice(nhanes[1:13, 2:3], m = 2, maxit = 2, print = FALSE), "`mice` detected constant and/or collinear variables. No predictors were left after their removal.")
+imp2 <- mice.pcr.sim(nhanes[14:25, ], m = 2, maxit = 1, print = FALSE)
+imp3 <- mice.pcr.sim(nhanes2, m = 2, maxit = 1, print = FALSE)
+imp4 <- mice.pcr.sim(nhanes2, m = 1, maxit = 1, print = FALSE)
+expect_warning(imp5 <<- mice.pcr.sim(nhanes[1:13, ], m = 2, maxit = 2, print = FALSE))
+expect_error(imp6 <<- mice.pcr.sim(nhanes[1:13, 2:3], m = 2, maxit = 2, print = FALSE), "`mice.pcr.sim` detected constant and/or collinear variables. No predictors were left after their removal.")
 nh3 <- nhanes
 colnames(nh3) <- c("AGE", "bmi", "hyp", "chl")
-imp7 <- mice(nh3[14:25, ], m = 2, maxit = 2, print = FALSE)
-expect_warning(imp8 <<- mice(nhanes[1:13, ], m = 2, maxit = 2, print = FALSE))
-imp9 <- mice(nhanes,
+imp7 <- mice.pcr.sim(nh3[14:25, ], m = 2, maxit = 2, print = FALSE)
+expect_warning(imp8 <<- mice.pcr.sim(nhanes[1:13, ], m = 2, maxit = 2, print = FALSE))
+imp9 <- mice.pcr.sim(nhanes,
   m = 2, maxit = 1, print = FALSE,
   ignore = c(rep(FALSE, 20), rep(TRUE, 5))
 )
@@ -69,23 +69,23 @@ test_that("`ignore` is correctly appended", {
   expect_equal(r5$ignore, c(rep(FALSE, 32), rep(TRUE, 5)))
 })
 
-# r11 <- mice.mids(rbind(imp1, imp5), print = FALSE)
+# r11 <- mice.pcr.sim.mids(rbind(imp1, imp5), print = FALSE)
 # test_that("plot throws error on convergence diagnostics", {
 #   expect_error(plot(r11), "no convergence diagnostics found")
 #   })
 
-r21 <- mice.mids(r2, print = FALSE)
-r31 <- mice.mids(r3, print = FALSE)
+r21 <- mice.pcr.sim.mids(r2, print = FALSE)
+r31 <- mice.pcr.sim.mids(r3, print = FALSE)
 
 # issue #59
 set.seed <- 818
 x <- rnorm(10)
 D <- data.frame(x = x, y = 2 * x + rnorm(10))
 D[c(2:4, 7), 1] <- NA
-expect_error(D_mids <<- mice(D[1:5, ], print = FALSE), "`mice` detected constant and/or collinear variables. No predictors were left after their removal.")
-expect_warning(D_mids <<- mice(D[1:5, ], print = FALSE, remove.collinear = FALSE))
+expect_error(D_mids <<- mice.pcr.sim(D[1:5, ], print = FALSE), "`mice.pcr.sim` detected constant and/or collinear variables. No predictors were left after their removal.")
+expect_warning(D_mids <<- mice.pcr.sim(D[1:5, ], print = FALSE, remove.collinear = FALSE))
 
-D_rbind <- mice:::rbind.mids(D_mids, D[6:10, ])
+D_rbind <- mice.pcr.sim:::rbind.mids(D_mids, D[6:10, ])
 cmp <- complete(D_rbind, 1)
 test_that("Solves issue #59, rbind", expect_identical(cmp[6:10, ], D[6:10, ]))
 
@@ -94,18 +94,18 @@ test_that("rbind does not throw a warning (#114)", {
 })
 
 # calculate chainMean and chainVar
-# imp1 <- mice(nhanes[1:13, ], m = 5, maxit = 25, print = FALSE, seed = 123)
-# imp2 <- mice(nhanes[14:25, ], m = 5, maxit = 25, print = FALSE, seed = 456)
+# imp1 <- mice.pcr.sim(nhanes[1:13, ], m = 5, maxit = 25, print = FALSE, seed = 123)
+# imp2 <- mice.pcr.sim(nhanes[14:25, ], m = 5, maxit = 25, print = FALSE, seed = 456)
 # z <- rbind(imp1, imp2)
 # plot(z)
 #
-# imp3 <- mice(nhanes, m = 5, maxit = 25, print = FALSE, seed = 123)
+# imp3 <- mice.pcr.sim(nhanes, m = 5, maxit = 25, print = FALSE, seed = 123)
 # plot(imp3)
 #
 # An interesting observation is that the SD(hyp, a) < SD(hyp, imp3). This is
 # because SD(hyp, imp1) = 0.
 
-# issue 319: https://github.com/amices/mice/issues/319
+# issue 319: https://github.com/amices/mice.pcr.sim/issues/319
 # impute a subset
 # do not touch or impute non-selected rows
 # return full data as mids object
@@ -117,11 +117,11 @@ odd <- as.logical((1:nrow(data)) %% 2)
 # method 1: ignore + where
 where <- make.where(data)
 where[odd, ] <- FALSE
-imp1 <- mice(nhanes, ignore = odd, where = where, seed = 1, m = 2, print = FALSE)
+imp1 <- mice.pcr.sim(nhanes, ignore = odd, where = where, seed = 1, m = 2, print = FALSE)
 c1 <- complete(imp1, 2)
 
 # method 2: filter + rbind
-imp2 <- mice(data[!odd, ], seed = 1, m = 2, print = FALSE)
+imp2 <- mice.pcr.sim(data[!odd, ], seed = 1, m = 2, print = FALSE)
 imp2 <- rbind(imp2, data[odd, ])
 idx <- order(as.numeric(rownames(imp2$data)))
 imp2$data <- imp2$data[idx, ]

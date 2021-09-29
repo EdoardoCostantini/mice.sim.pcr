@@ -2,8 +2,8 @@
 #'
 #' Imputes nonignorable missing data by the random indicator method.
 #'
-#' @aliases mice.impute.ri ri
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.ri ri
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param ri.maxit Number of inner iterations
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
@@ -16,14 +16,14 @@
 #' This routine assumes that the response model and imputation model
 #' have same predictors.
 #'
-#' For an MNAR alternative see also \code{\link{mice.impute.mnar.logreg}}.
+#' For an MNAR alternative see also \code{\link{mice.pcr.sim.impute.mnar.logreg}}.
 #' @references Jolani, S. (2012).
 #' \emph{Dual Imputation Strategies for Analyzing Incomplete Data}.
 #' Dissertation. University of Utrecht, Dec 7 2012.
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.ri <- function(y, ry, x, wy = NULL, ri.maxit = 10, ...) {
+mice.pcr.sim.impute.ri <- function(y, ry, x, wy = NULL, ri.maxit = 10, ...) {
   if (is.null(wy)) {
     wy <- !ry
   }
@@ -31,7 +31,7 @@ mice.impute.ri <- function(y, ry, x, wy = NULL, ri.maxit = 10, ...) {
   xy <- x
   xr <- xy
   y.dot <- y
-  y.dot[wy] <- mice.impute.sample(y, ry, wy = wy)
+  y.dot[wy] <- mice.pcr.sim.impute.sample(y, ry, wy = wy)
   for (k in seq_len(ri.maxit)) {
     r.dot <- .r.draw(y.dot, ry, xr, ...)
     y.dot <- .y.draw(y, ry, r.dot, xy, wy, ...)

@@ -1,10 +1,10 @@
-context("mice-initialize")
+context("mice.pcr.sim-initialize")
 
 data <- nhanes
 
 # case A: no predictorMatrix, blocks or formulas arguments
 
-imp1 <- mice(data, print = FALSE, m = 1, maxit = 1)
+imp1 <- mice.pcr.sim(data, print = FALSE, m = 1, maxit = 1)
 pred <- imp1$predictorMatrix
 form <- imp1$formulas
 test_that("Case A finds blocks", {
@@ -29,16 +29,16 @@ pred4 <- matrix(1,
   nrow = 2, ncol = 3,
   dimnames = list(c("bmi", "hyp"), c("bmi", "hyp", "chl"))
 )
-imp1 <- mice(data, predictorMatrix = pred1, print = FALSE, m = 1, maxit = 1)
-imp3 <- mice(data, predictorMatrix = pred3, print = FALSE, m = 1, maxit = 1)
+imp1 <- mice.pcr.sim(data, predictorMatrix = pred1, print = FALSE, m = 1, maxit = 1)
+imp3 <- mice.pcr.sim(data, predictorMatrix = pred3, print = FALSE, m = 1, maxit = 1)
 test_that("Case B tests the predictorMatrix", {
   expect_equal(nrow(imp1$predictorMatrix), 4L)
-  expect_error(mice(data,
+  expect_error(mice.pcr.sim(data,
     predictorMatrix = pred2,
     "Missing row/column names in `predictorMatrix`."
   ))
   expect_equal(nrow(imp3$predictorMatrix), 2L)
-  expect_error(mice(data, predictorMatrix = pred4))
+  expect_error(mice.pcr.sim(data, predictorMatrix = pred4))
 })
 
 pred <- imp3$predictorMatrix
@@ -58,18 +58,18 @@ test_that("Case B finds formulas", {
 
 # Case C: Only blocks argument
 
-imp1.0 <- mice(data, blocks = list("bmi", "chl", "hyp"), m = 1, maxit = 0, seed = 11)
-imp2.0 <- mice(data, blocks = list(c("bmi", "chl"), "hyp"), m = 1, maxit = 0, seed = 11)
-imp3.0 <- mice(data, blocks = list(all = c("bmi", "chl", "hyp")), m = 1, maxit = 0, seed = 11)
+imp1.0 <- mice.pcr.sim(data, blocks = list("bmi", "chl", "hyp"), m = 1, maxit = 0, seed = 11)
+imp2.0 <- mice.pcr.sim(data, blocks = list(c("bmi", "chl"), "hyp"), m = 1, maxit = 0, seed = 11)
+imp3.0 <- mice.pcr.sim(data, blocks = list(all = c("bmi", "chl", "hyp")), m = 1, maxit = 0, seed = 11)
 
 test_that("Case C imputations are identical after initialization", {
   expect_identical(complete(imp1.0), complete(imp2.0))
   expect_identical(complete(imp1.0), complete(imp3.0))
 })
 
-imp1 <- mice(data, blocks = list("bmi", "chl", "hyp"), print = FALSE, m = 1, maxit = 1, seed = 11)
-imp2 <- mice(data, blocks = list(c("bmi", "chl"), "hyp"), print = FALSE, m = 1, maxit = 1, seed = 11)
-imp3 <- mice(data, blocks = list(all = c("bmi", "chl", "hyp")), print = FALSE, m = 1, maxit = 1, seed = 11)
+imp1 <- mice.pcr.sim(data, blocks = list("bmi", "chl", "hyp"), print = FALSE, m = 1, maxit = 1, seed = 11)
+imp2 <- mice.pcr.sim(data, blocks = list(c("bmi", "chl"), "hyp"), print = FALSE, m = 1, maxit = 1, seed = 11)
+imp3 <- mice.pcr.sim(data, blocks = list(all = c("bmi", "chl", "hyp")), print = FALSE, m = 1, maxit = 1, seed = 11)
 
 test_that("Case C finds blocks", {
   expect_identical(names(imp2$blocks), c("B1", "hyp"))
@@ -100,14 +100,14 @@ form1 <- list(
   hyp ~ age + bmi + chl,
   chl ~ age + bmi + hyp
 )
-imp1 <- mice(data,
+imp1 <- mice.pcr.sim(data,
   formulas = form1, method = "norm.nob",
   print = FALSE, m = 1, maxit = 1, seed = 12199
 )
 
 # same model using dot notation
 form2 <- list(bmi ~ ., hyp ~ ., chl ~ .)
-imp2 <- mice(data,
+imp2 <- mice.pcr.sim(data,
   formulas = form2, method = "norm.nob",
   print = FALSE, m = 1, maxit = 1, seed = 12199
 )
@@ -117,14 +117,14 @@ form3 <- list(
   bmi + hyp ~ age + chl,
   chl ~ age + bmi + hyp
 )
-imp3 <- mice(data,
+imp3 <- mice.pcr.sim(data,
   formulas = form3, method = "norm.nob",
   print = FALSE, m = 1, maxit = 1, seed = 12199
 )
 
 # same model using dot notation
 form4 <- list(bmi + hyp ~ ., chl ~ .)
-imp4 <- mice(data,
+imp4 <- mice.pcr.sim(data,
   formulas = form4, method = "norm.nob",
   print = FALSE, m = 1, maxit = 1, seed = 12199
 )
@@ -149,12 +149,12 @@ pred1 <- make.predictorMatrix(data, blocks = blocks1)
 pred2 <- make.predictorMatrix(data, blocks = blocks2)
 pred3 <- make.predictorMatrix(data, blocks = blocks3)
 
-imp1 <- mice(data, blocks = blocks1, pred = pred1, m = 1, maxit = 1, print = FALSE)
-imp1a <- mice(data, blocks = blocks1, pred = matrix(1, nr = 4, nc = 4), m = 1, maxit = 1, print = FALSE)
-imp2 <- mice(data, blocks = blocks2, pred = pred2, m = 1, maxit = 1, print = FALSE)
-imp2a <- mice(data, blocks = blocks2, pred = matrix(1, nr = 2, nc = 4), m = 1, maxit = 1, print = FALSE)
-imp3 <- mice(data, blocks = blocks3, pred = pred3, m = 1, maxit = 1, print = FALSE)
-imp3a <- mice(data, blocks = blocks3, pred = matrix(1, nr = 1, nc = 4), m = 1, maxit = 1, print = FALSE)
+imp1 <- mice.pcr.sim(data, blocks = blocks1, pred = pred1, m = 1, maxit = 1, print = FALSE)
+imp1a <- mice.pcr.sim(data, blocks = blocks1, pred = matrix(1, nr = 4, nc = 4), m = 1, maxit = 1, print = FALSE)
+imp2 <- mice.pcr.sim(data, blocks = blocks2, pred = pred2, m = 1, maxit = 1, print = FALSE)
+imp2a <- mice.pcr.sim(data, blocks = blocks2, pred = matrix(1, nr = 2, nc = 4), m = 1, maxit = 1, print = FALSE)
+imp3 <- mice.pcr.sim(data, blocks = blocks3, pred = pred3, m = 1, maxit = 1, print = FALSE)
+imp3a <- mice.pcr.sim(data, blocks = blocks3, pred = matrix(1, nr = 1, nc = 4), m = 1, maxit = 1, print = FALSE)
 
 test_that("Case E borrows rownames from blocks", {
   expect_identical(rownames(imp1a$predictorMatrix), names(blocks1))
@@ -170,34 +170,34 @@ test_that("Case E borrows colnames from data", {
 
 test_that("Case E name setting fails on incompatible sizes", {
   expect_error(
-    mice(data, blocks = blocks2, pred = matrix(1, nr = 2, nc = 2)),
+    mice.pcr.sim(data, blocks = blocks2, pred = matrix(1, nr = 2, nc = 2)),
     "Unable to set column names of predictorMatrix"
   )
   expect_error(
-    mice(data, blocks = blocks2, pred = matrix(1, nr = 1, nc = 4)),
+    mice.pcr.sim(data, blocks = blocks2, pred = matrix(1, nr = 1, nc = 4)),
     "Unable to set row names of predictorMatrix"
   )
-  expect_error(mice(data, blocks = blocks2, pred = matrix(1, nr = 4, nc = 4)))
+  expect_error(mice.pcr.sim(data, blocks = blocks2, pred = matrix(1, nr = 4, nc = 4)))
 })
 
 colnames(pred1) <- c("A", "B", "chl", "bmi")
 pred2a <- pred2[, -(1:4), drop = FALSE]
 test_that("Case E detects incompatible arguments", {
   expect_error(
-    mice(data, blocks = blocks1, pred = pred1),
+    mice.pcr.sim(data, blocks = blocks1, pred = pred1),
     "Names not found in data: A, B"
   )
   expect_error(
-    mice(data, blocks = blocks1, pred = pred2),
+    mice.pcr.sim(data, blocks = blocks1, pred = pred2),
     "Names not found in blocks: B1"
   )
   expect_error(
-    mice(data, blocks = blocks2, pred = matrix(1, nr = 1, nc = 4)),
+    mice.pcr.sim(data, blocks = blocks2, pred = matrix(1, nr = 1, nc = 4)),
     "Unable to set row names of predictorMatrix"
   )
-  expect_error(mice(data, blocks = blocks2, pred = matrix(1, nr = 4, nc = 4)))
+  expect_error(mice.pcr.sim(data, blocks = blocks2, pred = matrix(1, nr = 4, nc = 4)))
   expect_error(
-    mice(data, blocks = blocks2, pred = pred2a),
+    mice.pcr.sim(data, blocks = blocks2, pred = pred2a),
     "predictorMatrix has no rows or columns"
   )
 })
@@ -224,13 +224,13 @@ form3 <- list(
 form4 <- list(bmi + hyp ~ ., chl ~ .)
 
 # blocks1 and form1 are compatible
-imp1 <- mice(data, formulas = form1, pred = matrix(1, nr = 4, nc = 4), m = 1, maxit = 1, print = FALSE, seed = 3)
+imp1 <- mice.pcr.sim(data, formulas = form1, pred = matrix(1, nr = 4, nc = 4), m = 1, maxit = 1, print = FALSE, seed = 3)
 test_that("Case F combines forms and pred in blocks", {
   expect_identical(unname(attr(imp1$blocks, "calltype")), c(rep("formula", 3), "type"))
 })
 
 # dots and unnamed predictorMatrix
-imp2 <- mice(data, formulas = form2, pred = matrix(1, nr = 4, nc = 4), m = 1, maxit = 1, print = FALSE, seed = 3)
+imp2 <- mice.pcr.sim(data, formulas = form2, pred = matrix(1, nr = 4, nc = 4), m = 1, maxit = 1, print = FALSE, seed = 3)
 test_that("Case F dots and specified form produce same imputes", {
   expect_identical(complete(imp1), complete(imp2))
 })
@@ -238,21 +238,21 @@ test_that("Case F dots and specified form produce same imputes", {
 # error
 test_that("Case F generates error if it cannot handle non-square predictor", {
   expect_error(
-    mice(data, formulas = form2, pred = pred2),
+    mice.pcr.sim(data, formulas = form2, pred = pred2),
     "If no blocks are specified, predictorMatrix must have same number of rows and columns"
   )
 })
 
 ## Error in formulas[[h]] : subscript out of bounds
-imp3 <- mice(data, formulas = form3, pred = pred1, m = 1, maxit = 0, print = FALSE, seed = 3)
-imp3a <- mice(data, formulas = form3, pred = pred1, m = 1, maxit = 1, print = FALSE, seed = 3)
+imp3 <- mice.pcr.sim(data, formulas = form3, pred = pred1, m = 1, maxit = 0, print = FALSE, seed = 3)
+imp3a <- mice.pcr.sim(data, formulas = form3, pred = pred1, m = 1, maxit = 1, print = FALSE, seed = 3)
 
 # err on matrix columns
 nh <- nhanes
 nh$hyp <- as.matrix(nh$hyp)
 test_that("MICE does not accept data.frames with embedded matrix ", {
   expect_error(
-    mice(nh),
+    mice.pcr.sim(nh),
     "Cannot handle columns with class matrix: hyp"
   )
 })

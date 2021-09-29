@@ -1,9 +1,9 @@
 context("tidiers")
 
 data(nhanes)
-imp <- mice::mice(nhanes, maxit = 2, m = 2, seed = 1, print = FALSE, use.matcher = TRUE)
+imp <- mice.pcr.sim::mice.pcr.sim(nhanes, maxit = 2, m = 2, seed = 1, print = FALSE, use.matcher = TRUE)
 fit_mira <- with(imp, lm(chl ~ age + bmi))
-fit_mipo <- mice::pool(fit_mira)
+fit_mipo <- mice.pcr.sim::pool(fit_mira)
 
 test_that("glance.mipo: nhanes lm", {
   tmp <- glance(fit_mipo)

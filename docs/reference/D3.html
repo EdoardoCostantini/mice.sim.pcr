@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Compare two nested models using D3-statistic — D3 • mice</title>
+<title>Compare two nested models using D3-statistic — D3 • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -77,7 +77,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -114,7 +114,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -139,7 +139,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Compare two nested models using D3-statistic</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/D3.R'><code>R/D3.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/D3.R'><code>R/D3.R</code></a></small>
     <div class="hidden name"><code>D3.Rd</code></div>
     </div>
 
@@ -177,7 +177,7 @@ be done, the procedure assumes (perhaps incorrectly) a large sample.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>mice.anova</code></p>
+    <p>An object of class <code>mice.pcr.sim.anova</code></p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The <code>D3()</code> function implement the LR-method by
@@ -190,7 +190,7 @@ for statistical models in <code>R</code> and the <code>offset</code> function.</
 imputed dataset, it calculates the likelihood for the model with
 the parameters constrained to \(\beta\).</p>
 <p>The <code><a href='https://rdrr.io/pkg/mitml/man/testModels.html'>mitml::testModels()</a></code> function offers similar functionality
-for a subset of statistical models. Results of <code>mice::D3()</code> and
+for a subset of statistical models. Results of <code>mice.pcr.sim::D3()</code> and
 <code><a href='https://rdrr.io/pkg/mitml/man/testModels.html'>mitml::testModels()</a></code> differ in multilevel models because the
 <code>testModels()</code> also constrains the variance components parameters.
 For more details on</p>
@@ -207,14 +207,14 @@ Performing Likelihood Ratio Tests with Multiply-Imputed Data Sets.
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Compare two linear models:</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>nhanes2</span>, seed <span class='op'>=</span> <span class='fl'>51009</span>, print <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>nhanes2</span>, seed <span class='op'>=</span> <span class='fl'>51009</span>, print <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 <span class='va'>mi1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>imp</span>, expr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>bmi</span> <span class='op'>~</span> <span class='va'>age</span> <span class='op'>+</span> <span class='va'>hyp</span> <span class='op'>+</span> <span class='va'>chl</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>mi0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>imp</span>, expr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>bmi</span> <span class='op'>~</span> <span class='va'>age</span> <span class='op'>+</span> <span class='va'>hyp</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>D3</span><span class='op'>(</span><span class='va'>mi1</span>, <span class='va'>mi0</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;    test statistic df1      df2 dfcom  p.value      riv
 #&gt;  1 ~~ 2  2.917381   1 8.764849    20 0.122711 2.082143</div><div class='input'><span class='co'># \donttest{</span>
 <span class='co'># Compare two logistic regression models</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>boys</span>, maxit <span class='op'>=</span> <span class='fl'>2</span>, print <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>boys</span>, maxit <span class='op'>=</span> <span class='fl'>2</span>, print <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 <span class='va'>fit1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='va'>imp</span>, <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>gen</span> <span class='op'>&gt;</span> <span class='fu'><a href='https://rdrr.io/r/base/levels.html'>levels</a></span><span class='op'>(</span><span class='va'>gen</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>~</span> <span class='va'>hgt</span> <span class='op'>+</span> <span class='va'>hc</span> <span class='op'>+</span> <span class='va'>reg</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>fit0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='va'>imp</span>, <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>gen</span> <span class='op'>&gt;</span> <span class='fu'><a href='https://rdrr.io/r/base/levels.html'>levels</a></span><span class='op'>(</span><span class='va'>gen</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>~</span> <span class='va'>hgt</span> <span class='op'>+</span> <span class='va'>hc</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>D3</span><span class='op'>(</span><span class='va'>fit1</span>, <span class='va'>fit0</span><span class='op'>)</span>
@@ -249,7 +249,7 @@ Performing Likelihood Ratio Tests with Multiply-Imputed Data Sets.
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

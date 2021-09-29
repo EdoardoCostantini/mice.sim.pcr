@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Multivariate Imputation by Chained Equations • mice</title>
+<title>Multivariate Imputation by Chained Equations • mice.pcr.sim</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -42,7 +42,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">mice</a>
+        <a class="navbar-link" href="index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -79,7 +79,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -102,33 +102,33 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="mice-" class="section level1">
+<div id="mice.pcr.sim-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#mice-" class="anchor"></a>mice <a href="https://amices.github.io/mice/"><img src="MICE_sticker_SMALL.png" align="right" height="139"></a>
+<a href="#mice.pcr.sim-" class="anchor"></a>mice.pcr.sim <a href="https://amices.github.io/mice.pcr.sim/"><img src="MICE_sticker_SMALL.png" align="right" height="139"></a>
 </h1></div>
 
 <div id="multivariate-imputation-by-chained-equations" class="section level2">
 <h2 class="hasAnchor">
-<a href="#multivariate-imputation-by-chained-equations" class="anchor"></a><a href="https://amices.github.io/mice/">Multivariate Imputation by Chained Equations</a>
+<a href="#multivariate-imputation-by-chained-equations" class="anchor"></a><a href="https://amices.github.io/mice.pcr.sim/">Multivariate Imputation by Chained Equations</a>
 </h2>
-<p>The <a href="https://cran.r-project.org/package=mice"><code>mice</code></a> package implements a method to deal with missing data. The package creates multiple imputations (replacement values) for multivariate missing data. The method is based on Fully Conditional Specification, where each incomplete variable is imputed by a separate model. The <code>MICE</code> algorithm can impute mixes of continuous, binary, unordered categorical and ordered categorical data. In addition, MICE can impute continuous two-level data, and maintain consistency between imputations by means of passive imputation. Many diagnostic plots are implemented to inspect the quality of the imputations.</p>
+<p>The <a href="https://cran.r-project.org/package=mice.pcr.sim"><code>mice.pcr.sim</code></a> package implements a method to deal with missing data. The package creates multiple imputations (replacement values) for multivariate missing data. The method is based on Fully Conditional Specification, where each incomplete variable is imputed by a separate model. The <code>MICE</code> algorithm can impute mixes of continuous, binary, unordered categorical and ordered categorical data. In addition, MICE can impute continuous two-level data, and maintain consistency between imputations by means of passive imputation. Many diagnostic plots are implemented to inspect the quality of the imputations.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>The <code>mice</code> package can be installed from CRAN as follows:</p>
+<p>The <code>mice.pcr.sim</code> package can be installed from CRAN as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"mice"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"mice.pcr.sim"</span><span class="op">)</span></code></pre></div>
 <p>The latest version can be installed from GitHub as follows:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"amices/mice"</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"amices/mice.pcr.sim"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="minimal-example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minimal-example" class="anchor"></a>Minimal example</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice">mice</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/amices/mice.pcr.sim">mice.pcr.sim</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="co"># show the missing data pattern</span>
 <span class="fu"><a href="reference/md.pattern.html">md.pattern</a></span><span class="op">(</span><span class="va">nhanes</span><span class="op">)</span></code></pre></div>
@@ -143,7 +143,7 @@
 <p>The table and the graph summarize where the missing data occur in the <code>nhanes</code> dataset.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># multiple impute the missing values</span>
-<span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mice.html">mice</a></span><span class="op">(</span><span class="va">nhanes</span>, maxit <span class="op">=</span> <span class="fl">2</span>, m <span class="op">=</span> <span class="fl">2</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="va">imp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mice.pcr.sim.html">mice.pcr.sim</a></span><span class="op">(</span><span class="va">nhanes</span>, maxit <span class="op">=</span> <span class="fl">2</span>, m <span class="op">=</span> <span class="fl">2</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  iter imp variable</span>
 <span class="co">#&gt;   1   1  bmi  hyp  chl</span>
@@ -167,9 +167,9 @@
 <span class="co">#&gt; 3         bmi     4.69      1.94     2.417 15.25  0.0286</span></code></pre></div>
 <p>The complete-data is fit to each imputed dataset, and the results are combined to arrive at estimates that properly account for the missing data.</p>
 </div>
-<div id="mice-30" class="section level2">
+<div id="mice.pcr.sim-30" class="section level2">
 <h2 class="hasAnchor">
-<a href="#mice-30" class="anchor"></a><code>mice 3.0</code>
+<a href="#mice.pcr.sim-30" class="anchor"></a><code>mice.pcr.sim 3.0</code>
 </h2>
 <p>Version 3.0 represents a major update that implements the following features:</p>
 <ol>
@@ -181,7 +181,7 @@
 <li><p>Improved numerical algorithms for low-level imputation function. Better handling of duplicate variables.</p></li>
 <li><p>Last but not least: A brand new edition AND online version of <a href="https://stefvanbuuren.name/fimd/">Flexible Imputation of Missing Data. Second Edition.</a></p></li>
 </ol>
-<p>See <a href="https://amices.github.io/mice/">MICE: Multivariate Imputation by Chained Equations</a> for more resources.</p>
+<p>See <a href="https://amices.github.io/mice.pcr.sim/">MICE: Multivariate Imputation by Chained Equations</a> for more resources.</p>
 <p>I’ll be happy to take feedback and discuss suggestions. Please submit these through Github’s issues facility.</p>
 </div>
 <div id="resources" class="section level2">
@@ -198,7 +198,7 @@
 <h3 class="hasAnchor">
 <a href="#course-materials" class="anchor"></a>Course materials</h3>
 <ol>
-<li><a href="https://amices.github.io/Winnipeg/">Handling Missing Data in <code>R</code> with <code>mice</code></a></li>
+<li><a href="https://amices.github.io/Winnipeg/">Handling Missing Data in <code>R</code> with <code>mice.pcr.sim</code></a></li>
 <li><a href="https://stefvanbuuren.github.io/RECAPworkshop/">Statistical Methods for combined data sets</a></li>
 </ol>
 </div>
@@ -211,7 +211,7 @@
 <li><a href="https://gerkovink.github.io/miceVignettes/Missingness_inspection/Missingness_inspection.html">Inspecting how the observed data and missingness are related</a></li>
 <li><a href="https://gerkovink.github.io/miceVignettes/Passive_Post_processing/Passive_imputation_post_processing.html">Passive imputation and post-processing</a></li>
 <li><a href="https://gerkovink.github.io/miceVignettes/Multi_level/Multi_level_data.html">Imputing multilevel data</a></li>
-<li><a href="https://gerkovink.github.io/miceVignettes/Sensitivity_analysis/Sensitivity_analysis.html">Sensitivity analysis with <code>mice</code></a></li>
+<li><a href="https://gerkovink.github.io/miceVignettes/Sensitivity_analysis/Sensitivity_analysis.html">Sensitivity analysis with <code>mice.pcr.sim</code></a></li>
 <li><a href="https://rianneschouten.github.io/mice_ampute/vignette/ampute.html">Generate missing values with <code>ampute</code></a></li>
 </ol>
 </div>
@@ -226,12 +226,12 @@
 <div id="acknowledgement" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acknowledgement" class="anchor"></a>Acknowledgement</h2>
-<p>The cute mice sticker was designed by Jaden M. Walters. Thanks Jaden!</p>
+<p>The cute mice.pcr.sim sticker was designed by Jaden M. Walters. Thanks Jaden!</p>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
 <a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the mice project is released with a <a href="https://amices.github.io/mice/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the mice.pcr.sim project is released with a <a href="https://amices.github.io/mice.pcr.sim/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
@@ -240,11 +240,11 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=mice">https://​cloud.r-project.org/​package=mice</a>
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=mice.pcr.sim">https://​cloud.r-project.org/​package=mice.pcr.sim</a>
 </li>
-<li>Browse source code at <br><a href="https://github.com/amices/mice/">https://​github.com/​amices/​mice/​</a>
+<li>Browse source code at <br><a href="https://github.com/amices/mice.pcr.sim/">https://​github.com/​amices/​mice.pcr.sim/​</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/amices/mice/issues">https://​github.com/​amices/​mice/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/amices/mice.pcr.sim/issues">https://​github.com/​amices/​mice.pcr.sim/​issues</a>
 </li>
 </ul>
 </div>
@@ -265,7 +265,7 @@
 <div class="citation">
 <h2>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html">Citing mice</a></li>
+<li><a href="authors.html">Citing mice.pcr.sim</a></li>
 </ul>
 </div>
 <div class="developers">
@@ -280,9 +280,9 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=mice"><img src="https://www.r-pkg.org/badges/version/mice" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://cran.r-project.org/package=mice"><img src="https://cranlogs.r-pkg.org/badges/mice"></a></li>
-<li><a href="https://amices.github.io/mice/"><img src="https://img.shields.io/badge/github%20version-3.13.9-orange.svg"></a></li>
+<li><a href="https://cran.r-project.org/package=mice.pcr.sim"><img src="https://www.r-pkg.org/badges/version/mice.pcr.sim" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=mice.pcr.sim"><img src="https://cranlogs.r-pkg.org/badges/mice.pcr.sim"></a></li>
+<li><a href="https://amices.github.io/mice.pcr.sim/"><img src="https://img.shields.io/badge/github%20version-3.13.9-orange.svg"></a></li>
 </ul>
 </div>
 </div>
@@ -306,7 +306,7 @@
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

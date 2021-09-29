@@ -1,25 +1,25 @@
-context("mice.mids: newdata")
+context("mice.pcr.sim.mids: newdata")
 
-# Check that mice.mids correctly appends the newdata to the
+# Check that mice.pcr.sim.mids correctly appends the newdata to the
 # existing mids object
-init0 <- mice(nhanes, maxit = 0, m = 1, print = FALSE, seed = 1)
+init0 <- mice.pcr.sim(nhanes, maxit = 0, m = 1, print = FALSE, seed = 1)
 
-init1 <- mice(nhanes, maxit = 0, m = 1, print = FALSE)
+init1 <- mice.pcr.sim(nhanes, maxit = 0, m = 1, print = FALSE)
 init1$ignore <- rep(FALSE, nrow(nhanes))
 
-init2 <- mice.mids(init0, newdata = nhanes, maxit = 0, print = FALSE)
+init2 <- mice.pcr.sim.mids(init0, newdata = nhanes, maxit = 0, print = FALSE)
 
 test_that("`newdata` works like rbind with ignore", {
   expect_equal(complete(rbind(init0, init1)), complete(init2))
 })
 
-imp <- mice(nhanes2, maxit = 0, m = 1, seed = 1)
+imp <- mice.pcr.sim(nhanes2, maxit = 0, m = 1, seed = 1)
 test_that("`newdata` produces warning `invalid factor level, NA generated`", {
-  expect_silent(mice.mids(imp, newdata = nhanes2[1, ], print = FALSE))
+  expect_silent(mice.pcr.sim.mids(imp, newdata = nhanes2[1, ], print = FALSE))
 })
 
 # Check that rows flagged as ignored are indeed ignored by the
-# univariate sampler in mice.mids
+# univariate sampler in mice.pcr.sim.mids
 artificial <- data.frame(
   age = c(1, 1),
   bmi = c(NA, 40.0),
@@ -28,13 +28,13 @@ artificial <- data.frame(
   row.names = paste0("a", 1:2)
 )
 
-imp1 <- mice(nhanes,
+imp1 <- mice.pcr.sim(nhanes,
   maxit = 1, m = 1, print = FALSE, seed = 1,
   donors = 1L, matchtype = 0
 )
 
-imp2 <- mice.mids(imp1, newdata = artificial, maxit = 1, print = FALSE)
-imp2b <- mice.mids(imp1, newdata = artificial, maxit = 1, print = FALSE)
+imp2 <- mice.pcr.sim.mids(imp1, newdata = artificial, maxit = 1, print = FALSE)
+imp2b <- mice.pcr.sim.mids(imp1, newdata = artificial, maxit = 1, print = FALSE)
 
 
 test_that("`newdata` works with pmm", {

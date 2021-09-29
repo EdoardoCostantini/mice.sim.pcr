@@ -1,7 +1,7 @@
 
 context("filter.mids")
 
-imp <- mice(nhanes, m = 2, maxit = 1, print = FALSE, seed = 1)
+imp <- mice.pcr.sim(nhanes, m = 2, maxit = 1, print = FALSE, seed = 1)
 
 imp_l <- imp
 class(imp_l) <- "list"
@@ -29,8 +29,8 @@ test_that("filtered mids is subset", {
 
 imp_fa <- filter(imp, rep(TRUE, nrow(nhanes)))
 
-imp2 <- mice.mids(imp, maxit = 1, printFlag = FALSE)
-imp_fa2 <- mice.mids(imp_fa, maxit = 1, printFlag = FALSE)
+imp2 <- mice.pcr.sim.mids(imp, maxit = 1, printFlag = FALSE)
+imp_fa2 <- mice.pcr.sim.mids(imp_fa, maxit = 1, printFlag = FALSE)
 
 test_that("other elements of mids are left unchanged", {
   expect_equal(complete(imp2), complete(imp_fa2))

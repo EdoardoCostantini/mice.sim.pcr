@@ -1,6 +1,6 @@
 #' Imputation by predictive mean matching
 #'
-#' @aliases mice.impute.pmm pmm
+#' @aliases mice.pcr.sim.impute.pmm pmm
 #' @param y Vector to be imputed
 #' @param ry Logical vector of length \code{length(y)} indicating the
 #' the subset \code{y[ry]} of elements in \code{y} to which the imputation
@@ -31,7 +31,7 @@
 #' the C function \code{matcher()}, the now deprecated matching function that
 #' was default in versions
 #' \code{2.22} (June 2014) to \code{3.11.7} (Oct 2020). Since version \code{3.12.0}
-#' \code{mice()} uses the much faster \code{matchindex} C function. Use
+#' \code{mice.pcr.sim()} uses the much faster \code{matchindex} C function. Use
 #' the deprecated \code{matcher} function only for exact reproduction.
 #' @param \dots Other named arguments.
 #' @return Vector with imputed data, same type as \code{y}, and of length
@@ -68,13 +68,13 @@
 #' \href{https://stefvanbuuren.name/fimd/sec-pmm.html}{\emph{Flexible Imputation of Missing Data. Second Edition.}}
 #' Chapman & Hall/CRC. Boca Raton, FL.
 #'
-#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}: Multivariate
+#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}: Multivariate
 #' Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 #' Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @examples
-#' # We normally call mice.impute.pmm() from within mice()
+#' # We normally call mice.pcr.sim.impute.pmm() from within mice.pcr.sim()
 #' # But we may call it directly as follows (not recommended)
 #'
 #' set.seed(53177)
@@ -89,12 +89,12 @@
 #' sum(!ry) / length(ry)
 #'
 #' # Impute missing tv data
-#' yimp <- mice.impute.pmm(y, ry, x)
+#' yimp <- mice.pcr.sim.impute.pmm(y, ry, x)
 #' length(yimp)
 #' hist(yimp, xlab = "Imputed missing tv")
 #'
 #' # Impute all tv data
-#' yimp <- mice.impute.pmm(y, ry, x, wy = rep(TRUE, length(y)))
+#' yimp <- mice.pcr.sim.impute.pmm(y, ry, x, wy = rep(TRUE, length(y)))
 #' length(yimp)
 #' hist(yimp, xlab = "Imputed missing and observed tv")
 #' plot(jitter(y), jitter(yimp),
@@ -105,7 +105,7 @@
 #' abline(0, 1)
 #' cor(y, yimp, use = "pair")
 #' @export
-mice.impute.pmm <- function(y, ry, x, wy = NULL, donors = 5L,
+mice.pcr.sim.impute.pmm <- function(y, ry, x, wy = NULL, donors = 5L,
                             matchtype = 1L, ridge = 1e-05,
                             use.matcher = FALSE, ...) {
   {
@@ -147,7 +147,7 @@ mice.impute.pmm <- function(y, ry, x, wy = NULL, donors = 5L,
 #' match.
 #'
 #' This function is included for backward compatibility. It was
-#' used up to \code{mice 2.21}. The current \code{mice.impute.pmm()}
+#' used up to \code{mice.pcr.sim 2.21}. The current \code{mice.pcr.sim.impute.pmm()}
 #' function calls the faster \code{C} function \code{matcher} instead of
 #' \code{.pmm.match()}.
 #'

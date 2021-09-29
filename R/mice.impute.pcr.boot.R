@@ -2,8 +2,8 @@
 #'
 #' Imputes univariate missing data using principal component regression.
 #'
-#' @aliases mice.impute.pcr.boot pcr.boot
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.pcr.boot pcr.boot
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @details
@@ -19,7 +19,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.pcr.boot <- function(y, ry, x, wy = NULL, ...) {
+mice.pcr.sim.impute.pcr.boot <- function(y, ry, x, wy = NULL, ...) {
   if (is.null(wy)) wy <- !ry
 
   # Parameter uncertainty (through bootsrap)

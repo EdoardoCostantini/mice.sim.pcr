@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Imputation by predictive mean matching — mice.impute.pmm • mice</title>
+<title>Imputation by predictive mean matching — mice.pcr.sim.impute.pmm • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -45,7 +45,7 @@
 
 
 
-<meta property="og:title" content="Imputation by predictive mean matching — mice.impute.pmm" />
+<meta property="og:title" content="Imputation by predictive mean matching — mice.pcr.sim.impute.pmm" />
 <meta property="og:description" content="Imputation by predictive mean matching" />
 
 
@@ -77,7 +77,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -114,7 +114,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -139,15 +139,15 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Imputation by predictive mean matching</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/mice.impute.pmm.R'><code>R/mice.impute.pmm.R</code></a></small>
-    <div class="hidden name"><code>mice.impute.pmm.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.impute.pmm.R'><code>R/mice.pcr.sim.impute.pmm.R</code></a></small>
+    <div class="hidden name"><code>mice.pcr.sim.impute.pmm.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Imputation by predictive mean matching</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mice.impute.pmm</span><span class='op'>(</span>
+    <pre class="usage"><span class='fu'>mice.pcr.sim.impute.pmm</span><span class='op'>(</span>
   <span class='va'>y</span>,
   <span class='va'>ry</span>,
   <span class='va'>x</span>,
@@ -215,7 +215,7 @@ reduce bias. For highly collinear data, set <code>ridge = 1e-04</code> or higher
 the C function <code>matcher()</code>, the now deprecated matching function that
 was default in versions
 <code>2.22</code> (June 2014) to <code>3.11.7</code> (Oct 2020). Since version <code>3.12.0</code>
-<code><a href='mice.html'>mice()</a></code> uses the much faster <code>matchindex</code> C function. Use
+<code><a href='mice.pcr.sim.html'>mice.pcr.sim()</a></code> uses the much faster <code>matchindex</code> C function. Use
 the deprecated <code>matcher</code> function only for exact reproduction.</p></td>
     </tr>
     <tr>
@@ -257,34 +257,34 @@ mean matching and local residual draws. BMC Med Res Methodol. ;14:75.</p>
 <p>Van Buuren, S. (2018).
 <a href='https://stefvanbuuren.name/fimd/sec-pmm.html'><em>Flexible Imputation of Missing Data. Second Edition.</em></a>
 Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
-<p>Van Buuren, S., Groothuis-Oudshoorn, K. (2011). <code>mice</code>: Multivariate
+<p>Van Buuren, S., Groothuis-Oudshoorn, K. (2011). <code>mice.pcr.sim</code>: Multivariate
 Imputation by Chained Equations in <code>R</code>. <em>Journal of Statistical
 Software</em>, <b>45</b>(3), 1-67. <a href='https://www.jstatsoft.org/v45/i03/'>https://www.jstatsoft.org/v45/i03/</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other univariate imputation functions: 
-<code><a href='mice.impute.cart.html'>mice.impute.cart</a>()</code>,
-<code><a href='mice.impute.lda.html'>mice.impute.lda</a>()</code>,
-<code><a href='mice.impute.logreg.boot.html'>mice.impute.logreg.boot</a>()</code>,
-<code><a href='mice.impute.logreg.html'>mice.impute.logreg</a>()</code>,
-<code><a href='mice.impute.mean.html'>mice.impute.mean</a>()</code>,
-<code><a href='mice.impute.midastouch.html'>mice.impute.midastouch</a>()</code>,
-<code><a href='mice.impute.mnar.logreg.html'>mice.impute.mnar.logreg</a>()</code>,
-<code><a href='mice.impute.norm.boot.html'>mice.impute.norm.boot</a>()</code>,
-<code><a href='mice.impute.norm.nob.html'>mice.impute.norm.nob</a>()</code>,
-<code><a href='mice.impute.norm.predict.html'>mice.impute.norm.predict</a>()</code>,
-<code><a href='mice.impute.norm.html'>mice.impute.norm</a>()</code>,
-<code><a href='mice.impute.polr.html'>mice.impute.polr</a>()</code>,
-<code><a href='mice.impute.polyreg.html'>mice.impute.polyreg</a>()</code>,
-<code><a href='mice.impute.quadratic.html'>mice.impute.quadratic</a>()</code>,
-<code><a href='mice.impute.rf.html'>mice.impute.rf</a>()</code>,
-<code><a href='mice.impute.ri.html'>mice.impute.ri</a>()</code></p></div>
+<code><a href='mice.pcr.sim.impute.cart.html'>mice.pcr.sim.impute.cart</a>()</code>,
+<code><a href='mice.pcr.sim.impute.lda.html'>mice.pcr.sim.impute.lda</a>()</code>,
+<code><a href='mice.pcr.sim.impute.logreg.boot.html'>mice.pcr.sim.impute.logreg.boot</a>()</code>,
+<code><a href='mice.pcr.sim.impute.logreg.html'>mice.pcr.sim.impute.logreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.mean.html'>mice.pcr.sim.impute.mean</a>()</code>,
+<code><a href='mice.pcr.sim.impute.midastouch.html'>mice.pcr.sim.impute.midastouch</a>()</code>,
+<code><a href='mice.pcr.sim.impute.mnar.logreg.html'>mice.pcr.sim.impute.mnar.logreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.boot.html'>mice.pcr.sim.impute.norm.boot</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.nob.html'>mice.pcr.sim.impute.norm.nob</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.predict.html'>mice.pcr.sim.impute.norm.predict</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.html'>mice.pcr.sim.impute.norm</a>()</code>,
+<code><a href='mice.pcr.sim.impute.polr.html'>mice.pcr.sim.impute.polr</a>()</code>,
+<code><a href='mice.pcr.sim.impute.polyreg.html'>mice.pcr.sim.impute.polyreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.quadratic.html'>mice.pcr.sim.impute.quadratic</a>()</code>,
+<code><a href='mice.pcr.sim.impute.rf.html'>mice.pcr.sim.impute.rf</a>()</code>,
+<code><a href='mice.pcr.sim.impute.ri.html'>mice.pcr.sim.impute.ri</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Stef van Buuren, Karin Groothuis-Oudshoorn</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># We normally call mice.impute.pmm() from within mice()</span>
+    <pre class="examples"><div class='input'><span class='co'># We normally call mice.pcr.sim.impute.pmm() from within mice.pcr.sim()</span>
 <span class='co'># But we may call it directly as follows (not recommended)</span>
 
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>53177</span><span class='op'>)</span>
@@ -301,21 +301,21 @@ Software</em>, <b>45</b>(3), 1-67. <a href='https://www.jstatsoft.org/v45/i03/'>
 <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>ry</span><span class='op'>)</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>ry</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 0.6918845</div><div class='input'>
 <span class='co'># Impute missing tv data</span>
-<span class='va'>yimp</span> <span class='op'>&lt;-</span> <span class='fu'>mice.impute.pmm</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span><span class='op'>)</span>
+<span class='va'>yimp</span> <span class='op'>&lt;-</span> <span class='fu'>mice.pcr.sim.impute.pmm</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>yimp</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 503</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>yimp</span>, xlab <span class='op'>=</span> <span class='st'>"Imputed missing tv"</span><span class='op'>)</span>
-</div><div class='img'><img src='mice.impute.pmm-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='img'><img src='mice.pcr.sim.impute.pmm-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Impute all tv data</span>
-<span class='va'>yimp</span> <span class='op'>&lt;-</span> <span class='fu'>mice.impute.pmm</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, wy <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>yimp</span> <span class='op'>&lt;-</span> <span class='fu'>mice.pcr.sim.impute.pmm</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, wy <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>yimp</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 727</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>yimp</span>, xlab <span class='op'>=</span> <span class='st'>"Imputed missing and observed tv"</span><span class='op'>)</span>
-</div><div class='img'><img src='mice.impute.pmm-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/jitter.html'>jitter</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/jitter.html'>jitter</a></span><span class='op'>(</span><span class='va'>yimp</span><span class='op'>)</span>,
+</div><div class='img'><img src='mice.pcr.sim.impute.pmm-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/jitter.html'>jitter</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/jitter.html'>jitter</a></span><span class='op'>(</span><span class='va'>yimp</span><span class='op'>)</span>,
   main <span class='op'>=</span> <span class='st'>"Predictive mean matching on age, height and weight"</span>,
   xlab <span class='op'>=</span> <span class='st'>"Observed tv (n = 224)"</span>,
   ylab <span class='op'>=</span> <span class='st'>"Imputed tv (n = 224)"</span>
 <span class='op'>)</span>
 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>
-</div><div class='img'><img src='mice.impute.pmm-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>yimp</span>, use <span class='op'>=</span> <span class='st'>"pair"</span><span class='op'>)</span>
+</div><div class='img'><img src='mice.pcr.sim.impute.pmm-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>yimp</span>, use <span class='op'>=</span> <span class='st'>"pair"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 0.7415001</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -345,7 +345,7 @@ Software</em>, <b>45</b>(3), 1-67. <a href='https://www.jstatsoft.org/v45/i03/'>
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

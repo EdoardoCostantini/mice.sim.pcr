@@ -2,8 +2,8 @@
 #'
 #' Imputes univariate missing data using logistic regression.
 #'
-#' @aliases mice.impute.logreg
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.logreg
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param ... Other named arguments.
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
@@ -23,8 +23,8 @@
 #' suppressed. Perfect prediction is handled by the data augmentation
 #' method.
 #'
-#' @seealso \code{\link{mice}}, \code{\link{glm}}, \code{\link{glm.fit}}
-#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link{glm}}, \code{\link{glm.fit}}
+#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}:
 #' Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}(3), 1-67.
 #' \url{https://www.jstatsoft.org/v45/i03/}
@@ -43,7 +43,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.logreg <- function(y, ry, x, wy = NULL, ...) {
+mice.pcr.sim.impute.logreg <- function(y, ry, x, wy = NULL, ...) {
   if (is.null(wy)) wy <- !ry
 
   # augment data in order to evade perfect prediction
@@ -86,14 +86,14 @@ mice.impute.logreg <- function(y, ry, x, wy = NULL, ...) {
 #' The bootstrap method draws a simple bootstrap sample with replacement
 #' from the observed data \code{y[ry]} and \code{x[ry, ]}.
 #'
-#' @aliases mice.impute.logreg.boot
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.logreg.boot
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param ... Other named arguments.
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @author Stef van Buuren, Karin Groothuis-Oudshoorn, 2000, 2011
-#' @seealso \code{\link{mice}}, \code{\link{glm}}, \code{\link{glm.fit}}
-#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link{glm}}, \code{\link{glm.fit}}
+#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}:
 #' Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}(3), 1-67.
 #' \url{https://www.jstatsoft.org/v45/i03/}
@@ -104,7 +104,7 @@ mice.impute.logreg <- function(y, ry, x, wy = NULL, ...) {
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.logreg.boot <- function(y, ry, x, wy = NULL, ...) {
+mice.pcr.sim.impute.logreg.boot <- function(y, ry, x, wy = NULL, ...) {
   if (is.null(wy)) wy <- !ry
 
   # draw a bootstrap sample for yobs and xobs

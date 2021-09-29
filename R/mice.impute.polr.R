@@ -1,8 +1,8 @@
 #' Imputation of ordered data by polytomous regression
 #'
 #' Imputes missing data in a categorical variable using polytomous regression
-#' @aliases mice.impute.polr
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.polr
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param nnet.maxit Tuning parameter for \code{nnet()}.
 #' @param nnet.trace Tuning parameter for \code{nnet()}.
 #' @param nnet.MaxNWts Tuning parameter for \code{nnet()}.
@@ -12,15 +12,15 @@
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @details
-#' The function \code{mice.impute.polr()} imputes for ordered categorical response
+#' The function \code{mice.pcr.sim.impute.polr()} imputes for ordered categorical response
 #' variables by the proportional odds logistic regression (polr) model. The
 #' function repeatedly applies logistic regression on the successive splits. The
 #' model is also known as the cumulative link model.
 #'
 #' By default, ordered factors with more than two levels are imputed by
-#' \code{mice.impute.polr}.
+#' \code{mice.pcr.sim.impute.polr}.
 #'
-#' The algorithm of \code{mice.impute.polr} uses the function \code{polr()} from
+#' The algorithm of \code{mice.pcr.sim.impute.polr} uses the function \code{polr()} from
 #' the \code{MASS} package.
 #'
 #' In order to avoid bias due to perfect prediction, the algorithm augment the
@@ -31,21 +31,21 @@
 #' If the local flag \code{polr.to.loggedEvents} is set to TRUE,
 #' a record is written
 #' to the \code{loggedEvents} component of the \code{\link{mids}} object.
-#' Use \code{mice(data, polr.to.loggedEvents = TRUE)} to set the flag.
+#' Use \code{mice.pcr.sim(data, polr.to.loggedEvents = TRUE)} to set the flag.
 #'
 #' @note
 #' In December 2019 Simon White alerted that the
 #' \code{polr} could always fail silently. I can confirm this behaviour for
-#' versions \code{mice 3.0.0 - mice 3.6.6}, so any method requests
+#' versions \code{mice.pcr.sim 3.0.0 - mice.pcr.sim 3.6.6}, so any method requests
 #' for \code{polr} in these versions were in fact handled by \code{multinom}.
-#' See \url{https://github.com/amices/mice/issues/206} for details.
+#' See \url{https://github.com/amices/mice.pcr.sim/issues/206} for details.
 #'
 #' @author Stef van Buuren, Karin Groothuis-Oudshoorn, 2000-2010
-#' @seealso \code{\link{mice}}, \code{\link[nnet]{multinom}},
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link[nnet]{multinom}},
 #' \code{\link[MASS]{polr}}
 #' @references
 #'
-#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}: Multivariate
+#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}: Multivariate
 #' Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 #' Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 #'
@@ -62,7 +62,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.polr <- function(y, ry, x, wy = NULL, nnet.maxit = 100,
+mice.pcr.sim.impute.polr <- function(y, ry, x, wy = NULL, nnet.maxit = 100,
                              nnet.trace = FALSE, nnet.MaxNWts = 1500,
                              polr.to.loggedEvents = FALSE, ...) {
   install.on.demand("MASS", ...)

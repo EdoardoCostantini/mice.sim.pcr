@@ -1,7 +1,7 @@
 #' Creates a \code{blocks} argument
 #'
 #' This helper function generates a list of the type needed for
-#' \code{blocks} argument in the \code{[=mice]{mice}} function.
+#' \code{blocks} argument in the \code{[=mice.pcr.sim]{mice.pcr.sim}} function.
 #' @param data A \code{data.frame}, character vector with
 #' variable names, or \code{list} with variable names.
 #' @param partition A character vector of length 1 used to assign
@@ -111,11 +111,11 @@ make.blocks <- function(data,
 #'
 #' This helper function names any unnamed elements in the \code{blocks}
 #' specification. This is a convenience function.
-#' @inheritParams mice
+#' @inheritParams mice.pcr.sim
 #' @param prefix A character vector of length 1 with the prefix to
 #' be using for naming any unnamed blocks with two or more variables.
 #' @return A named list of character vectors with variables names.
-#' @seealso \code{\link{mice}}
+#' @seealso \code{\link{mice.pcr.sim}}
 #' @details
 #' This function will name any unnamed list elements specified in
 #' the optional argument \code{blocks}. Unnamed blocks
@@ -185,7 +185,7 @@ check.blocks <- function(blocks, data, calltype = "type") {
 #' specify models for the same block, the model for the
 #' \code{predictMatrix} is removed, and priority is given to the
 #' specification given in \code{formulas}.
-#' @inheritParams mice
+#' @inheritParams mice.pcr.sim
 #' @return A \code{blocks} object.
 #' @seealso \code{\link{make.blocks}}, \code{\link{name.blocks}}
 #' @examples

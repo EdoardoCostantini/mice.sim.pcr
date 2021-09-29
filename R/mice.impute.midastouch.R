@@ -1,8 +1,8 @@
 #' Imputation by predictive mean matching with distance aided donor selection
 #'
 #' Imputes univariate missing data using predictive mean matching.
-#' @aliases mice.impute.midastouch
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.midastouch
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param midas.kappa Scalar. If \code{NULL} (default) then the
 #' optimal \code{kappa} gets selected automatically. Alternatively, the user
 #' may specify a scalar. Siddique and Belin 2008 find \code{midas.kappa = 3}
@@ -37,7 +37,7 @@
 #' }
 #' @examples
 #' # do default multiple imputation on a numeric matrix
-#' imp <- mice(nhanes, method = "midastouch")
+#' imp <- mice.pcr.sim(nhanes, method = "midastouch")
 #' imp
 #'
 #' # list the actual imputations for BMI
@@ -47,7 +47,7 @@
 #' complete(imp)
 #'
 #' # imputation on mixed data with a different method per column
-#' mice(nhanes2, method = c("sample", "midastouch", "logreg", "norm"))
+#' mice.pcr.sim(nhanes2, method = c("sample", "midastouch", "logreg", "norm"))
 #' @author Philipp Gaffert, Florian Meinfelder, Volker Bosch 2015
 #' @references
 #' Gaffert, P., Meinfelder, F., Bosch V. (2015) Towards an MI-proper
@@ -73,13 +73,13 @@
 #' \emph{Journal of Statistical Computation and Simulation}, \bold{76}, 12,
 #' 1049--1064.
 #'
-#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011), \code{mice}: Multivariate
+#' Van Buuren, S., Groothuis-Oudshoorn, K. (2011), \code{mice.pcr.sim}: Multivariate
 #' Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}, 3, 1--67. \url{https://www.jstatsoft.org/v45/i03/}
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.midastouch <- function(y, ry, x, wy = NULL, ridge = 1e-05,
+mice.pcr.sim.impute.midastouch <- function(y, ry, x, wy = NULL, ridge = 1e-05,
                                    midas.kappa = NULL,
                                    outout = TRUE, neff = NULL,
                                    debug = NULL, ...) {

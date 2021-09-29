@@ -6,7 +6,7 @@
 #' @param use An character indicating the test statistic
 #' @param ... Other parameters passed down to \code{D1()}, \code{D2()},
 #' \code{D3()} and \code{mitml::testModels}.
-#' @return Object of class \code{mice.anova}
+#' @return Object of class \code{mice.pcr.sim.anova}
 #' @export
 anova.mira <- function(object, ..., method = "D1", use = "wald") {
   modlist <- list(object, ...)
@@ -53,6 +53,6 @@ anova.mira <- function(object, ..., method = "D1", use = "wald") {
     method = method,
     use = use
   )
-  class(obj) <- c("mice.anova", class(first))
+  class(obj) <- c("mice.pcr.sim.anova", class(first))
   obj
 }

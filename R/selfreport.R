@@ -59,13 +59,13 @@
 #' bmi <- function(h, w) {
 #'   return(w / (h / 100)^2)
 #' }
-#' init <- mice(selfreport, maxit = 0)
+#' init <- mice.pcr.sim(selfreport, maxit = 0)
 #' meth <- init$meth
 #' meth["bm"] <- "~bmi(hm,wm)"
 #' pred <- init$pred
 #' pred[, c("src", "id", "web", "bm", "br")] <- 0
-#' imp <- mice(selfreport, pred = pred, meth = meth, seed = 66573, maxit = 2, m = 1)
-#' ## imp <- mice(selfreport, pred=pred, meth=meth, seed=66573, maxit=20, m=10)
+#' imp <- mice.pcr.sim(selfreport, pred = pred, meth = meth, seed = 66573, maxit = 2, m = 1)
+#' ## imp <- mice.pcr.sim(selfreport, pred=pred, meth=meth, seed=66573, maxit=20, m=10)
 #'
 #' ### Like FIMD Figure 7.6
 #'

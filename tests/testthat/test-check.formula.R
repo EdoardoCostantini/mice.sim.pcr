@@ -4,20 +4,20 @@ data <- nhanes
 where <- is.na(data)
 
 # blocks <- name.blocks(list("bmi", "age", "chl"))
-# ini <- mice(data, blocks = blocks, maxit = 0)
+# ini <- mice.pcr.sim(data, blocks = blocks, maxit = 0)
 #
 # # classic type specification
 # setup <- list(blocks = blocks,
 #               predictorMatrix = ini$predictorMatrix,
 #               formulas = NULL)
-# # v1 <- mice:::check.formulas(setup, data)
+# # v1 <- mice.pcr.sim:::check.formulas(setup, data)
 #
 # # using a formula
 # #formulas <- v1$formulas
 # setup <- list(blocks = blocks,
 #               predictorMatrix = ini$predictorMatrix,
 #               formulas = formulas)
-# #v2 <- mice:::check.formulas(setup, data)
+# #v2 <- mice.pcr.sim:::check.formulas(setup, data)
 # #v2$formulas
 #
 # test_that("updates `mode.formula` attribute", {
@@ -31,16 +31,16 @@ where <- is.na(data)
 # setup <- list(blocks = blocks,
 #               predictorMatrix = ini$predictorMatrix,
 #               formulas = formulas)
-# #v3 <- mice:::check.formulas(setup, data)
+# #v3 <- mice.pcr.sim:::check.formulas(setup, data)
 # #v3$formulas
 #
 # # classic specification using predictorMatrix
-# imp1 <- mice(nhanes, seed = 51212, print = FALSE, m = 1)
+# imp1 <- mice.pcr.sim(nhanes, seed = 51212, print = FALSE, m = 1)
 # cmp1 <- complete(imp1)
 #
 # # formula specification
 # form <- list(age ~ ., bmi ~ ., hyp ~., chl ~ .)
-# imp2 <- mice(nhanes, formulas = form, seed = 51212, print = FALSE, m = 1)
+# imp2 <- mice.pcr.sim(nhanes, formulas = form, seed = 51212, print = FALSE, m = 1)
 # cmp2 <- complete(imp2)
 #
 # test_that("predictorMatrix and formula yield same imputations", {
@@ -50,21 +50,21 @@ where <- is.na(data)
 
 # formula specification
 form <- name.blocks(list(bmi ~ ., hyp ~ ., chl ~ .))
-imp3 <- mice(nhanes, formulas = form, seed = 51212, print = FALSE, m = 1)
+imp3 <- mice.pcr.sim(nhanes, formulas = form, seed = 51212, print = FALSE, m = 1)
 cmp3 <- complete(imp3)
 
 # old.form <- c("", "bmi ~ chl + hyp", "hyp ~ bmi + chl", "chl ~ bmi + hyp")
-# imp <- mice(nhanes, formula = old.form, m = 1, maxit = 2, print = FALSE)
+# imp <- mice.pcr.sim(nhanes, formula = old.form, m = 1, maxit = 2, print = FALSE)
 #
 # form1 <- list(bmi = ~ 1, chl = ~ 1, hyp = ~ 1)
 # # impute given predictors
-# imp1 <- mice(nhanes, formula = form1, m = 1, maxit = 2, method = "norm.predict",
+# imp1 <- mice.pcr.sim(nhanes, formula = form1, m = 1, maxit = 2, method = "norm.predict",
 #              print = FALSE, seed = 1)
 # # impute the mean
-# imp2 <- mice(nhanes, formula = form1, m = 1, maxit = 2, method = "norm.predict",
+# imp2 <- mice.pcr.sim(nhanes, formula = form1, m = 1, maxit = 2, method = "norm.predict",
 #              print = FALSE, seed = 1)
 #
 # form2 <- list(bmi = "hyp ~ 1", chl = "hyp ~ 1", hyp = "hyp ~ 1")
-# imp3 <- mice(nhanes, formula = form2, m = 1, maxit = 2, method = "norm.predict",
+# imp3 <- mice.pcr.sim(nhanes, formula = form2, m = 1, maxit = 2, method = "norm.predict",
 #              print = FALSE, seed = 1)
 #

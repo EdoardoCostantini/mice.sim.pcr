@@ -5,8 +5,8 @@
 #' for a mixture of tetrachorics, polychorics, Pearsons, biserials, and polyserials,
 #' as appropriate.
 #'
-#' @aliases mice.impute.pcr.mixed pcr.mixed
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.pcr.mixed pcr.mixed
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param npcs The number of principal components to extract with the pcr.mixed method.
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
@@ -24,7 +24,7 @@
 #' @family univariate imputation functions
 #' @keywords datagen
 #' @export
-mice.impute.pcr.mixed <- function(y, ry, x, wy = NULL, npcs, ...) {
+mice.pcr.sim.impute.pcr.mixed <- function(y, ry, x, wy = NULL, npcs, ...) {
   if (is.null(wy)) wy <- !ry
 
   # Get PCs

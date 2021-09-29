@@ -1,5 +1,5 @@
 context("D1")
-imp <- mice(nhanes2, print = FALSE, m = 10, seed = 219)
+imp <- mice.pcr.sim(nhanes2, print = FALSE, m = 10, seed = 219)
 
 fit1 <- with(data = imp, expr = glm(hyp == "yes" ~ age + chl, family = binomial))
 fit0 <- with(data = imp, expr = glm(hyp == "yes" ~ 1, family = binomial))

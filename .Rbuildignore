@@ -14,7 +14,7 @@ changes_mice*
 .png
 ^script$
 ^CODE_OF_CONDUCT*
-^mice\.Rproj$
+^mice.pcr.sim\.Rproj$
 vignettes/
 ^_pkgdown\.yml$
 ^docs$

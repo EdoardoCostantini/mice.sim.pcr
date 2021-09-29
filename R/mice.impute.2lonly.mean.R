@@ -6,7 +6,7 @@
 #' data in which the second-level variable is inconsistent.
 #'
 #' @aliases 2lonly.mean
-#' @inheritParams mice.impute.pmm
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param type Vector of length \code{ncol(x)} identifying random and class
 #' variables.  The class variable (only one is allowed) is coded as \code{-2}.
 #' @param ... Other named arguments.
@@ -18,22 +18,22 @@
 #' This function is primarily useful for repairing incomplete data
 #' that are constant within the class, but vary over classes.
 #'
-#' For numeric variables, \code{mice.impute.2lonly.mean()} imputes the
+#' For numeric variables, \code{mice.pcr.sim.impute.2lonly.mean()} imputes the
 #' class mean of \code{y}. If \code{y} is a second-level variable, then
 #' conventionally all observed \code{y} will be identical within the
 #' class, and the function just provides a quick fix for any
 #' missing \code{y} by filling in the class mean.
 #'
-#' For factor variables, \code{mice.impute.2lonly.mean()} imputes the
+#' For factor variables, \code{mice.pcr.sim.impute.2lonly.mean()} imputes the
 #' most frequently occuring category within the class.
 #'
 #' If there are no observed \code{y} in the class, all entries of the
 #' class are set to \code{NA}. Note that this may produce problems
-#' later on in \code{mice} if imputation routines are called that
+#' later on in \code{mice.pcr.sim} if imputation routines are called that
 #' expects predictor data to be complete. Methods designed for
 #' imputing this type of second-level variables include
-#' \code{\link{mice.impute.2lonly.norm}} and
-#' \code{\link{mice.impute.2lonly.pmm}}.
+#' \code{\link{mice.pcr.sim.impute.2lonly.norm}} and
+#' \code{\link{mice.pcr.sim.impute.2lonly.pmm}}.
 #'
 #' @references
 #' Van Buuren, S. (2018).
@@ -43,7 +43,7 @@
 #' @family univariate-2lonly
 #' @keywords datagen
 #' @export
-mice.impute.2lonly.mean <- function(y, ry, x, type, wy = NULL, ...) {
+mice.pcr.sim.impute.2lonly.mean <- function(y, ry, x, type, wy = NULL, ...) {
   if (all(ry)) {
     return(numeric(0))
   }

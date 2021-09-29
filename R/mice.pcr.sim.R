@@ -52,30 +52,30 @@
 #' \code{2lonly.pmm}   \tab any      \tab Level-2 class predictive mean matching
 #' }
 #'
-#' These corresponding functions are coded in the \code{mice} library under
-#' names \code{mice.impute.method}, where \code{method} is a string with the
+#' These corresponding functions are coded in the \code{mice.pcr.sim} library under
+#' names \code{mice.pcr.sim.impute.method}, where \code{method} is a string with the
 #' name of the univariate imputation method name, for example \code{norm}. The
 #' \code{method} argument specifies the methods to be used.  For the \code{j}'th
-#' column, \code{mice()} calls the first occurrence of
-#' \code{paste('mice.impute.', method[j], sep = '')} in the search path.  The
+#' column, \code{mice.pcr.sim()} calls the first occurrence of
+#' \code{paste('mice.pcr.sim.impute.', method[j], sep = '')} in the search path.  The
 #' mechanism allows uses to write customized imputation function,
-#' \code{mice.impute.myfunc}. To call it for all columns specify
+#' \code{mice.pcr.sim.impute.myfunc}. To call it for all columns specify
 #' \code{method='myfunc'}.  To call it only for, say, column 2 specify
 #' \code{method=c('norm','myfunc','logreg',\dots{})}.
 #'
 #' \emph{Skipping imputation:} The user may skip imputation of a column by
 #' setting its entry to the empty method: \code{""}. For complete columns without
-#' missing data \code{mice} will automatically set the empty method. Setting t
+#' missing data \code{mice.pcr.sim} will automatically set the empty method. Setting t
 #' he empty method does not produce imputations for the column, so any missing
 #' cells remain \code{NA}. If column A contains \code{NA}'s and is used as
-#' predictor in the imputation model for column B, then \code{mice} produces no
+#' predictor in the imputation model for column B, then \code{mice.pcr.sim} produces no
 #' imputations for the rows in B where A is missing. The imputed data
 #' for B may thus contain \code{NA}'s. The remedy is to remove column A from
 #' the imputation model for the other columns in the data. This can be done
 #' by setting the entire column for variable A in the \code{predictorMatrix}
 #' equal to zero.
 #'
-#' \emph{Passive imputation:} \code{mice()} supports a special built-in method,
+#' \emph{Passive imputation:} \code{mice.pcr.sim()} supports a special built-in method,
 #' called passive imputation. This method can be used to ensure that a data
 #' transform always depends on the most recently generated imputations.  In some
 #' cases, an imputation model may need transformed data in addition to the
@@ -85,12 +85,12 @@
 #' Passive imputation maintains consistency among different transformations of
 #' the same data. Passive imputation is invoked if \code{~} is specified as the
 #' first character of the string that specifies the univariate method.
-#' \code{mice()} interprets the entire string, including the \code{~} character,
+#' \code{mice.pcr.sim()} interprets the entire string, including the \code{~} character,
 #' as the formula argument in a call to \code{model.frame(formula,
 #' data[!r[,j],])}. This provides a simple mechanism for specifying deterministic
 #' dependencies among the columns. For example, suppose that the missing entries
 #' in variables \code{data$height} and \code{data$weight} are imputed. The body
-#' mass index (BMI) can be calculated within \code{mice} by specifying the
+#' mass index (BMI) can be calculated within \code{mice.pcr.sim} by specifying the
 #' string \code{'~I(weight/height^2)'} as the univariate imputation method for
 #' the target column \code{data$bmi}.  Note that the \code{~} mechanism works
 #' only on those entries which have missing values in the target column. You
@@ -154,8 +154,8 @@
 #' \code{ignore} argument to split \code{data} into a training set (on which the
 #' imputation model is built) and a test set (that does not influence the
 #' imputation model estimates).
-#' Note: Multivariate imputation methods, like \code{mice.impute.jomoImpute()}
-#' or \code{mice.impute.panImpute()}, do not honour the \code{ignore} argument.
+#' Note: Multivariate imputation methods, like \code{mice.pcr.sim.impute.jomoImpute()}
+#' or \code{mice.pcr.sim.impute.panImpute()}, do not honour the \code{ignore} argument.
 #' @param where A data frame or matrix with logicals of the same dimensions
 #' as \code{data} indicating where in the data the imputations should be
 #' created. The default, \code{where = is.na(data)}, specifies that the
@@ -214,7 +214,7 @@
 #' polytomous regression imputation for unordered categorical data (factor > 2
 #' levels) \code{polr}, proportional odds model for (ordered, > 2 levels).
 #' @param maxit A scalar giving the number of iterations. The default is 5.
-#' @param printFlag If \code{TRUE}, \code{mice} will print history on console.
+#' @param printFlag If \code{TRUE}, \code{mice.pcr.sim} will print history on console.
 #' Use \code{print=FALSE} for silent computation.
 #' @param seed An integer that is used as argument by the \code{set.seed()} for
 #' offsetting the random number generator. Default is to leave the random number
@@ -237,7 +237,7 @@
 #' John Fox, Frank E. Harrell, and Peter Malewski.
 #' @seealso \code{\link[=mids-class]{mids}}, \code{\link{with.mids}},
 #' \code{\link{set.seed}}, \code{\link{complete}}
-#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
+#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}:
 #' Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}(3), 1-67.
 #' \url{https://www.jstatsoft.org/v45/i03/}
@@ -264,7 +264,7 @@
 #' @keywords iteration
 #' @examples
 #' # do default multiple imputation on a numeric matrix
-#' imp <- mice(nhanes)
+#' imp <- mice.pcr.sim(nhanes)
 #' imp
 #'
 #' # list the actual imputations for BMI
@@ -274,9 +274,9 @@
 #' complete(imp)
 #'
 #' # imputation on mixed data with a different method per column
-#' mice(nhanes2, meth = c("sample", "pmm", "logreg", "norm"))
+#' mice.pcr.sim(nhanes2, meth = c("sample", "pmm", "logreg", "norm"))
 #' @export
-mice <- function(data,
+mice.pcr.sim <- function(data,
                  m = 5,
                  method = NULL,
                  predictorMatrix,
@@ -465,7 +465,7 @@ mice <- function(data,
     chainMean = q$chainMean,
     chainVar = q$chainVar,
     loggedEvents = loggedEvents,
-    version = packageVersion("mice"),
+    version = packageVersion("mice.pcr.sim"),
     date = Sys.Date(),
     pcs = q$pcs
   )

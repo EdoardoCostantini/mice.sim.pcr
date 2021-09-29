@@ -1,6 +1,6 @@
-context("mice: complete")
+context("mice.pcr.sim: complete")
 
-nhanes_mids <- mice(nhanes, m = 2, print = FALSE)
+nhanes_mids <- mice.pcr.sim(nhanes, m = 2, print = FALSE)
 nhanes_complete <- complete(nhanes_mids)
 
 test_that("No missing values remain in imputed nhanes data set", {
@@ -12,25 +12,25 @@ test_that("Data set in returned mids object is identical to nhanes data set", {
   expect_identical(nhanes_mids$data, nhanes)
 })
 
-context("mice: blocks")
+context("mice.pcr.sim: blocks")
 
 test_that("blocks run as expected", {
-  expect_silent(imp1b <<- mice(nhanes,
+  expect_silent(imp1b <<- mice.pcr.sim(nhanes,
     blocks = list(c("age", "hyp"), chl = "chl", "bmi"),
     print = FALSE, m = 1, maxit = 1, seed = 1
   ))
-  expect_silent(imp2b <<- mice(nhanes2,
+  expect_silent(imp2b <<- mice.pcr.sim(nhanes2,
     blocks = list(c("age", "hyp", "bmi"), "chl", "bmi"),
     print = FALSE, m = 1, maxit = 1, seed = 1
   ))
-  # expect_silent(imp3b <<- mice(nhanes2,
+  # expect_silent(imp3b <<- mice.pcr.sim(nhanes2,
   #                             blocks = list(c("hyp", "hyp", "hyp"), "chl", "bmi"),
   #                             print = FALSE, m = 1, maxit = 1, seed = 1))
-  expect_silent(imp4b <<- mice(boys,
+  expect_silent(imp4b <<- mice.pcr.sim(boys,
     blocks = list(c("gen", "phb"), "tv"),
     print = FALSE, m = 1, maxit = 1, seed = 1
   ))
-  expect_silent(imp5b <<- mice(nhanes,
+  expect_silent(imp5b <<- mice.pcr.sim(nhanes,
     blocks = list(c("age", "hyp")),
     print = FALSE, m = 1, maxit = 1, seed = 1
   ))
@@ -55,19 +55,19 @@ test_that("Method `polr` works with one block", {
 
 # check for equality of `scatter` and `collect` for univariate models
 # the following models yield the same imputations
-imp1 <- mice(nhanes,
+imp1 <- mice.pcr.sim(nhanes,
   blocks = make.blocks(nhanes, "scatter"),
   print = FALSE, m = 1, maxit = 1, seed = 123
 )
-imp2 <- mice(nhanes,
+imp2 <- mice.pcr.sim(nhanes,
   blocks = make.blocks(nhanes, "collect"),
   print = FALSE, m = 1, maxit = 1, seed = 123
 )
-imp3 <- mice(nhanes,
+imp3 <- mice.pcr.sim(nhanes,
   blocks = list("age", c("bmi", "hyp", "chl")),
   print = FALSE, m = 1, maxit = 1, seed = 123
 )
-imp4 <- mice(nhanes,
+imp4 <- mice.pcr.sim(nhanes,
   blocks = list(c("bmi", "hyp", "chl"), "age"),
   print = FALSE, m = 1, maxit = 1, seed = 123
 )
@@ -78,19 +78,19 @@ test_that("Univariate yield same imputes for `scatter` and `collect`", {
   expect_identical(complete(imp1), complete(imp4))
 })
 
-# potentially, we may also change the visitSequence, but mice
+# potentially, we may also change the visitSequence, but mice.pcr.sim
 # is quite persistent in overwriting a user-specified
 # visitSequence for complete columns, so this not
 # currently not an option. Defer optimizing this to later.
 
 # another trick is to specify where for age by hand, so it forces
-# mice to impute age by pmm, but then, this would need to be
+# mice.pcr.sim to impute age by pmm, but then, this would need to be
 # done in both imp1 and imp2 models.
 
-context("mice: formulas")
+context("mice.pcr.sim: formulas")
 
 test_that("formulas run as expected", {
-  expect_silent(imp1f <<- mice(nhanes,
+  expect_silent(imp1f <<- mice.pcr.sim(nhanes,
     formulas = list(
       age + hyp ~ chl + bmi,
       chl ~ age + hyp + bmi,
@@ -98,7 +98,7 @@ test_that("formulas run as expected", {
     ),
     print = FALSE, m = 1, maxit = 1, seed = 1
   ))
-  expect_warning(imp2f <<- mice(nhanes2,
+  expect_warning(imp2f <<- mice.pcr.sim(nhanes2,
     formulas = list(
       age + hyp + bmi ~ chl + bmi,
       chl ~ age + hyp + bmi + bmi,
@@ -106,19 +106,19 @@ test_that("formulas run as expected", {
     ),
     print = FALSE, m = 1, maxit = 1, seed = 1
   ))
-  # expect_silent(imp3f <<- mice(nhanes2,
+  # expect_silent(imp3f <<- mice.pcr.sim(nhanes2,
   #                             formulas = list( hyp + hyp + hyp ~ chl + bmi,
   #                                              chl ~ hyp + hyp + hyp + bmi,
   #                                              bmi ~ hyp + hyp + hyp + chl),
   #                             print = FALSE, m = 1, maxit = 1, seed = 1))
-  expect_silent(imp4f <<- mice(boys,
+  expect_silent(imp4f <<- mice.pcr.sim(boys,
     formulas = list(
       gen + phb ~ tv,
       tv ~ gen + phb
     ),
     print = FALSE, m = 1, maxit = 1, seed = 1
   ))
-  expect_silent(imp5f <<- mice(nhanes,
+  expect_silent(imp5f <<- mice.pcr.sim(nhanes,
     formulas = list(age + hyp ~ 1),
     print = FALSE, m = 1, maxit = 1, seed = 1
   ))
@@ -141,28 +141,28 @@ test_that("Method `polr` works with one block", {
 })
 
 
-context("mice: where")
+context("mice.pcr.sim: where")
 
 # # all TRUE
-imp1 <- mice(nhanes,
+imp1 <- mice.pcr.sim(nhanes,
   where = matrix(TRUE, nrow = 25, ncol = 4), maxit = 1,
   m = 1, print = FALSE
 )
 
 # # all FALSE
-imp2 <- mice(nhanes,
+imp2 <- mice.pcr.sim(nhanes,
   where = matrix(FALSE, nrow = 25, ncol = 4), maxit = 1,
   m = 1, print = FALSE
 )
 
 # # alternate
-imp3 <- mice(nhanes,
+imp3 <- mice.pcr.sim(nhanes,
   where = matrix(c(FALSE, TRUE), nrow = 25, ncol = 4),
   maxit = 1, m = 1, print = FALSE
 )
 
 # # whacky situation where we expect no imputes for the incomplete cases
-imp4 <- mice(nhanes2,
+imp4 <- mice.pcr.sim(nhanes2,
   where = matrix(TRUE, nrow = 25, ncol = 4),
   maxit = 1,
   meth = c("pmm", "", "", ""), m = 1, print = FALSE
@@ -176,20 +176,20 @@ test_that("`where` produces correct number of imputes", {
 })
 
 
-context("mice: ignore")
+context("mice.pcr.sim: ignore")
 
 # # all TRUE
 test_that("`ignore` throws appropriate errors and warnings", {
   expect_error(
-    mice(nhanes, maxit = 1, m = 1, print = FALSE, seed = 1, ignore = TRUE),
+    mice.pcr.sim(nhanes, maxit = 1, m = 1, print = FALSE, seed = 1, ignore = TRUE),
     "does not match"
   )
   expect_error(
-    mice(nhanes, maxit = 1, m = 1, print = FALSE, seed = 1, ignore = "string"),
+    mice.pcr.sim(nhanes, maxit = 1, m = 1, print = FALSE, seed = 1, ignore = "string"),
     "not a logical"
   )
   expect_warning(
-    mice(nhanes,
+    mice.pcr.sim(nhanes,
       maxit = 1, m = 1, print = FALSE, seed = 1,
       ignore = c(rep(FALSE, 9), rep(TRUE, nrow(nhanes) - 9))
     ),
@@ -201,17 +201,17 @@ test_that("`ignore` throws appropriate errors and warnings", {
 # Check that the ignore argument is taken into account when
 # calculating the results
 # # all FALSE
-imp1 <- mice(nhanes,
+imp1 <- mice.pcr.sim(nhanes,
   maxit = 1, m = 1, print = FALSE, seed = 1,
   ignore = rep(FALSE, nrow(nhanes))
 )
 
 # # NULL
-imp2 <- mice(nhanes, maxit = 1, m = 1, print = FALSE, seed = 1)
+imp2 <- mice.pcr.sim(nhanes, maxit = 1, m = 1, print = FALSE, seed = 1)
 
 # # alternate
 alternate <- rep(c(TRUE, FALSE), nrow(nhanes))[1:nrow(nhanes)]
-imp3 <- mice(nhanes,
+imp3 <- mice.pcr.sim(nhanes,
   maxit = 0, m = 1, print = FALSE, seed = 1,
   ignore = alternate
 )
@@ -223,7 +223,7 @@ test_that("`ignore` changes the imputation results", {
 
 
 # Check that rows flagged as ignored are indeed ignored by the
-# univariate sampler in mice
+# univariate sampler in mice.pcr.sim
 artificial <- data.frame(
   age = c(1, 1),
   bmi = c(NA, 40.0),
@@ -232,12 +232,12 @@ artificial <- data.frame(
   row.names = paste0("a", 1:2)
 )
 
-imp1 <- mice(
+imp1 <- mice.pcr.sim(
   rbind(nhanes, artificial),
   maxit = 1, m = 1, print = FALSE, seed = 1, donors = 1L, matchtype = 0
 )
 
-imp2 <- mice(
+imp2 <- mice.pcr.sim(
   rbind(nhanes, artificial),
   maxit = 1, m = 1, print = FALSE, seed = 1, donors = 1L, matchtype = 0,
   ignore = c(rep(FALSE, nrow(nhanes)), rep(TRUE, nrow(artificial)))

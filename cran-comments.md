@@ -1,13 +1,13 @@
 cran-comments
 ================
 
-## mice 3.13.0
+## mice.pcr.sim 3.13.0
 
 New submission.
 
 ## Reason
 
-After signal sent by Brian Ripley on Jan26. `mice 3.13.0` implements a
+After signal sent by Brian Ripley on Jan26. `mice.pcr.sim 3.13.0` implements a
 fix for a bug that produced errors with `mitml 0.4-0`.
 
 ## Test environments
@@ -68,7 +68,7 @@ revdep_check(num_workers = 10)
 
 There is one old failure (`dynr`):
 `configure: error: gsl-config not found, is GSL installed?` Not related
-to `mice`.
+to `mice.pcr.sim`.
 
 ### `problems.md`
 
@@ -94,7 +94,7 @@ to `mice`.
 
     |package    |old    |new    |Δ  |
     |:----------|:------|:------|:--|
-    |mice       |3.12.0 |3.13.0 |*  |
+    |mice.pcr.sim       |3.12.0 |3.13.0 |*  |
     |assertthat |0.2.1  |0.2.1  |   |
     |backports  |1.2.1  |1.2.1  |   |
     |broom      |0.7.3  |0.7.3  |   |

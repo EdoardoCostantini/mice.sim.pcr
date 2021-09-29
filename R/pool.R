@@ -4,7 +4,7 @@
 #' repeated complete data analyses. The typical sequence of steps to
 #' do a multiple imputation analysis is:
 #' \enumerate{
-#' \item Impute the missing data by the \code{mice} function, resulting in
+#' \item Impute the missing data by the \code{mice.pcr.sim} function, resulting in
 #' a multiple imputed data set (class \code{mids});
 #' \item Fit the model of interest (scientific model) on each imputed data set
 #' by the \code{with()} function, resulting an object of class \code{mira};
@@ -42,22 +42,22 @@
 #' Barnard-Rubin adjustment for small samples (Barnard and Rubin, 1999).
 #'
 #' The \code{pool()} function relies on the \code{broom::tidy} for
-#' extracting the parameters. Versions before \code{mice 3.8.5} failed
+#' extracting the parameters. Versions before \code{mice.pcr.sim 3.8.5} failed
 #' when no \code{broom::glance()} function was found for extracting the
 #' residual degrees of freedom. The \code{pool()} function is now
 #' more forgiving.
 #'
-#' Since \code{mice 3.13.2} function \code{pool()} uses the robust
+#' Since \code{mice.pcr.sim 3.13.2} function \code{pool()} uses the robust
 #' the standard error estimate for pooling when it can extract
 #' \code{robust.se} from the \code{tidy()} object.
 #'
-#' In versions prior to \code{mice 3.0} pooling required only that
+#' In versions prior to \code{mice.pcr.sim 3.0} pooling required only that
 #' \code{coef()} and \code{vcov()} methods were available for fitted
 #' objects. \emph{This feature is no longer supported}. The reason is that \code{vcov()}
 #' methods are inconsistent across packages, leading to buggy behaviour
 #' of the \code{pool()} function.
 #'
-#' Since \code{mice 3.0+}, the \code{broom}
+#' Since \code{mice.pcr.sim 3.0+}, the \code{broom}
 #' package takes care of filtering out the relevant parts of the
 #' complete-data analysis. It may happen that you'll see the messages
 #' like \code{Error: No tidy method for objects of class ...} or
@@ -98,20 +98,20 @@
 #' pooled outcome'.
 #' @seealso \code{\link{with.mids}}, \code{\link{as.mira}}, \code{\link{pool.scalar}},
 #' \code{\link[broom:reexports]{glance}}, \code{\link[broom:reexports]{tidy}}
-#' \url{https://github.com/amices/mice/issues/142},
-#' \url{https://github.com/amices/mice/issues/274}
+#' \url{https://github.com/amices/mice.pcr.sim/issues/142},
+#' \url{https://github.com/amices/mice.pcr.sim/issues/274}
 #' @references Barnard, J. and Rubin, D.B. (1999). Small sample degrees of
 #' freedom with multiple imputation. \emph{Biometrika}, 86, 948-955.
 #'
 #' Rubin, D.B. (1987). \emph{Multiple Imputation for Nonresponse in Surveys}.
 #' New York: John Wiley and Sons.
 #'
-#' van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice}: Multivariate
+#' van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice.pcr.sim}: Multivariate
 #' Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 #' Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 #' @examples
 #' # pool using the classic MICE workflow
-#' imp <- mice(nhanes, maxit = 2, m = 2)
+#' imp <- mice.pcr.sim(nhanes, maxit = 2, m = 2)
 #' fit <- with(data = imp, exp = lm(bmi ~ hyp + chl))
 #' summary(pool(fit))
 #' @export
@@ -152,7 +152,7 @@ pool.fitlist <- function(fitlist, dfcom = NULL) {
   if ("y.level" %in% names(w)) w$y.level <- factor(w$y.level, levels = unique(w$y.level))
   if ("component" %in% names(w)) w$component <- factor(w$component, levels = unique(w$component))
 
-  # https://github.com/amices/mice/issues/310
+  # https://github.com/amices/mice.pcr.sim/issues/310
   # Prefer using robust.se when tidy object contains it
   if ("robust.se" %in% names(w)) w$std.error <- w$robust.se
 

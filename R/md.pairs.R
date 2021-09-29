@@ -14,7 +14,7 @@
 #' \code{mm}.  Each component is square numerical matrix containing the number
 #' observations within four missing data pattern.
 #' @author Stef van Buuren, Karin Groothuis-Oudshoorn, 2009
-#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
+#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}:
 #' Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}(3), 1-67.
 #' \url{https://www.jstatsoft.org/v45/i03/}

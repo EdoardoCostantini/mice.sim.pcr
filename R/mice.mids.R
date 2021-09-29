@@ -9,12 +9,12 @@
 #' problems.  \item The user can compute customized convergence statistics at
 #' specific points, e.g. after each iteration, for monitoring convergence.  -
 #' For computing a 'few extra iterations'.  } Note: The imputation model itself
-#' is specified in the \code{mice()} function and cannot be changed with
-#' \code{mice.mids}.  The state of the random generator is saved with the
+#' is specified in the \code{mice.pcr.sim()} function and cannot be changed with
+#' \code{mice.pcr.sim.mids}.  The state of the random generator is saved with the
 #' \code{mids} object.
 #'
 #' @param obj An object of class \code{mids}, typically produces by a previous
-#' call to \code{mice()} or \code{mice.mids()}
+#' call to \code{mice.pcr.sim()} or \code{mice.pcr.sim.mids()}
 #' @param newdata An optional \code{data.frame} for which multiple imputations
 #' are generated according to the model in \code{obj}.
 #' @param maxit The number of additional Gibbs sampling iterations.
@@ -24,25 +24,25 @@
 #' @param ... Named arguments that are passed down to the univariate imputation
 #' functions.
 #' @author Stef van Buuren, Karin Groothuis-Oudshoorn, 2000
-#' @seealso \code{\link{complete}}, \code{\link{mice}}, \code{\link{set.seed}},
+#' @seealso \code{\link{complete}}, \code{\link{mice.pcr.sim}}, \code{\link{set.seed}},
 #' \code{\link[=mids-class]{mids}}
-#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
+#' @references Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}:
 #' Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}(3), 1-67.
 #' \url{https://www.jstatsoft.org/v45/i03/}
 #' @keywords iteration
 #' @examples
-#' imp1 <- mice(nhanes, maxit = 1, seed = 123)
-#' imp2 <- mice.mids(imp1)
+#' imp1 <- mice.pcr.sim(nhanes, maxit = 1, seed = 123)
+#' imp2 <- mice.pcr.sim.mids(imp1)
 #'
 #' # yields the same result as
-#' imp <- mice(nhanes, maxit = 2, seed = 123)
+#' imp <- mice.pcr.sim(nhanes, maxit = 2, seed = 123)
 #'
 #' # verification
 #' identical(imp$imp, imp2$imp)
 #' #
 #' @export
-mice.mids <- function(obj, newdata = NULL, maxit = 1, printFlag = TRUE, ...) {
+mice.pcr.sim.mids <- function(obj, newdata = NULL, maxit = 1, printFlag = TRUE, ...) {
   if (!is.mids(obj)) {
     stop("Object should be of type mids.")
   }
@@ -57,7 +57,7 @@ mice.mids <- function(obj, newdata = NULL, maxit = 1, printFlag = TRUE, ...) {
     if (!is.null(obj$ignore)) ignore <- obj$ignore
 
     newdata <- check.newdata(newdata, obj$data)
-    imp.newdata <- mice(newdata,
+    imp.newdata <- mice.pcr.sim(newdata,
       m = obj$m, maxit = 0,
       remove.collinear = FALSE,
       remove.constant = FALSE
@@ -163,7 +163,7 @@ mice.mids <- function(obj, newdata = NULL, maxit = 1, printFlag = TRUE, ...) {
     chainMean = chainMean,
     chainVar = chainVar,
     loggedEvents = loggedEvents,
-    version = packageVersion("mice"),
+    version = packageVersion("mice.pcr.sim"),
     date = Sys.Date()
   )
   oldClass(midsobj) <- "mids"

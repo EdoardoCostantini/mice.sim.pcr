@@ -56,12 +56,12 @@
 #' abbreviated.
 #' @return A square binary matrix of size \code{ncol(data)}.
 #' @author Stef van Buuren, Aug 2009
-#' @seealso \code{\link{mice}}, \code{\link[=mids-class]{mids}}
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link[=mids-class]{mids}}
 #' @references van Buuren, S., Boshuizen, H.C., Knook, D.L. (1999) Multiple
 #' imputation of missing blood pressure covariates in survival analysis.
 #' \emph{Statistics in Medicine}, \bold{18}, 681--694.
 #'
-#' van Buuren, S. and Groothuis-Oudshoorn, K. (2011). \code{mice}: Multivariate
+#' van Buuren, S. and Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}: Multivariate
 #' Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 #' Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 #' @keywords misc
@@ -82,8 +82,8 @@
 #' pred <- quickpred(nhanes, mincor = c(0, 0.1, 0.5, 0.5))
 #' pred
 #'
-#' # use it directly from mice
-#' imp <- mice(nhanes, pred = quickpred(nhanes, minpuc = 0.25, include = "age"))
+#' # use it directly from mice.pcr.sim
+#' imp <- mice.pcr.sim(nhanes, pred = quickpred(nhanes, minpuc = 0.25, include = "age"))
 #' @export
 quickpred <- function(data, mincor = 0.1, minpuc = 0, include = "",
                       exclude = "", method = "pearson") {

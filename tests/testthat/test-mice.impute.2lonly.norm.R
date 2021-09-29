@@ -1,6 +1,6 @@
-context("mice.impute.2lonly.norm")
+context("mice.pcr.sim.impute.2lonly.norm")
 
-## https://stackoverflow.com/questions/58266785/mice-2l-pan-multilevel-multiple-imputation-error-missing-values-in-pred-not-all?sem=2
+## https://stackoverflow.com/questions/58266785/mice.pcr.sim-2l-pan-multilevel-multiple-imputation-error-missing-values-in-pred-not-all?sem=2
 
 library("pan")
 
@@ -26,7 +26,7 @@ data[3, "sex"] <- NA
 
 test_that("2lonly.norm stops with partially missing level-2 data", {
   expect_error(
-    mice(data,
+    mice.pcr.sim(data,
       method = c("", "2lonly.norm", "2l.pan"),
       predictorMatrix = pred, maxit = 1, m = 2, print = FALSE
     ),
@@ -50,5 +50,5 @@ yn <- y
 y <- as.numeric(y)
 
 set.seed(1)
-z1 <- mice.impute.2lonly.norm(y, ry = ry, x, type)
-z2 <- mice.impute.2lonly.pmm(y, ry = ry, x, type)
+z1 <- mice.pcr.sim.impute.2lonly.norm(y, ry = ry, x, type)
+z2 <- mice.pcr.sim.impute.2lonly.pmm(y, ry = ry, x, type)

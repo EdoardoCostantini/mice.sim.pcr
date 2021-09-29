@@ -20,7 +20,7 @@
 #' @keywords datasets
 #' @examples
 #' # create 5 imputed data sets
-#' imp <- mice(nhanes2)
+#' imp <- mice.pcr.sim(nhanes2)
 #'
 #' # print the first imputed data set
 #' complete(imp)

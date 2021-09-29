@@ -2,9 +2,9 @@
 #'
 #' Imputes univariate missing data using classification and regression trees.
 #'
-#' @aliases mice.impute.cart cart
+#' @aliases mice.pcr.sim.impute.cart cart
 #'
-#' @inheritParams mice.impute.pmm
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @param minbucket The minimum number of observations in any terminal node used.
@@ -23,7 +23,7 @@
 #' \item Make a random draw among the member in the node, and take the observed value from that
 #' draw as the imputation.
 #' }
-#' @seealso \code{\link{mice}}, \code{\link{mice.impute.rf}},
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link{mice.pcr.sim.impute.rf}},
 #' \code{\link[rpart]{rpart}}, \code{\link[rpart]{rpart.control}}
 #' @author Lisa Doove, Stef van Buuren, Elise Dusseldorp, 2012
 #' @references
@@ -44,11 +44,11 @@
 #' @examples
 #' require(rpart)
 #'
-#' imp <- mice(nhanes2, meth = "cart", minbucket = 4)
+#' imp <- mice.pcr.sim(nhanes2, meth = "cart", minbucket = 4)
 #' plot(imp)
 #' @keywords datagen
 #' @export
-mice.impute.cart <- function(y, ry, x, wy = NULL, minbucket = 5, cp = 1e-04,
+mice.pcr.sim.impute.cart <- function(y, ry, x, wy = NULL, minbucket = 5, cp = 1e-04,
                              ...) {
   install.on.demand("rpart", ...)
   if (is.null(wy)) {

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Combine estimates by Rubin's rules — pool • mice</title>
+<title>Combine estimates by Rubin's rules — pool • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -49,7 +49,7 @@
 <meta property="og:description" content="The pool() function combines the estimates from m
 repeated complete data analyses. The typical sequence of steps to
 do a multiple imputation analysis is:
-Impute the missing data by the mice function, resulting in
+Impute the missing data by the mice.pcr.sim function, resulting in
 a multiple imputed data set (class mids);
 Fit the model of interest (scientific model) on each imputed data set
 by the with() function, resulting an object of class mira;
@@ -92,7 +92,7 @@ this case." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -129,7 +129,7 @@ this case." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -154,7 +154,7 @@ this case." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Combine estimates by Rubin's rules</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/pool.R'><code>R/pool.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/pool.R'><code>R/pool.R</code></a></small>
     <div class="hidden name"><code>pool.Rd</code></div>
     </div>
 
@@ -162,7 +162,7 @@ this case." />
     <p>The <code>pool()</code> function combines the estimates from <code>m</code>
 repeated complete data analyses. The typical sequence of steps to
 do a multiple imputation analysis is:</p><ol>
-<li><p>Impute the missing data by the <code>mice</code> function, resulting in
+<li><p>Impute the missing data by the <code>mice.pcr.sim</code> function, resulting in
 a multiple imputed data set (class <code>mids</code>);</p></li>
 <li><p>Fit the model of interest (scientific model) on each imputed data set
 by the <code><a href='https://rdrr.io/r/base/with.html'>with()</a></code> function, resulting an object of class <code>mira</code>;</p></li>
@@ -229,19 +229,19 @@ and computes the following diagnostic statistics per estimate:</p><ol>
 <p>The degrees of freedom calculation for the pooled estimates uses the
 Barnard-Rubin adjustment for small samples (Barnard and Rubin, 1999).</p>
 <p>The <code>pool()</code> function relies on the <code><a href='https://generics.r-lib.org/reference/tidy.html'>broom::tidy</a></code> for
-extracting the parameters. Versions before <code>mice 3.8.5</code> failed
+extracting the parameters. Versions before <code>mice.pcr.sim 3.8.5</code> failed
 when no <code><a href='https://generics.r-lib.org/reference/glance.html'>broom::glance()</a></code> function was found for extracting the
 residual degrees of freedom. The <code>pool()</code> function is now
 more forgiving.</p>
-<p>Since <code>mice 3.13.2</code> function <code>pool()</code> uses the robust
+<p>Since <code>mice.pcr.sim 3.13.2</code> function <code>pool()</code> uses the robust
 the standard error estimate for pooling when it can extract
 <code>robust.se</code> from the <code><a href='https://generics.r-lib.org/reference/tidy.html'>tidy()</a></code> object.</p>
-<p>In versions prior to <code>mice 3.0</code> pooling required only that
+<p>In versions prior to <code>mice.pcr.sim 3.0</code> pooling required only that
 <code><a href='https://rdrr.io/r/stats/coef.html'>coef()</a></code> and <code><a href='https://rdrr.io/r/stats/vcov.html'>vcov()</a></code> methods were available for fitted
 objects. <em>This feature is no longer supported</em>. The reason is that <code><a href='https://rdrr.io/r/stats/vcov.html'>vcov()</a></code>
 methods are inconsistent across packages, leading to buggy behaviour
 of the <code>pool()</code> function.</p>
-<p>Since <code>mice 3.0+</code>, the <code>broom</code>
+<p>Since <code>mice.pcr.sim 3.0+</code>, the <code>broom</code>
 package takes care of filtering out the relevant parts of the
 complete-data analysis. It may happen that you'll see the messages
 like <code>Error: No tidy method for objects of class ...</code> or
@@ -267,19 +267,19 @@ given in <a href='https://broom.tidymodels.org'>https://broom.tidymodels.org</a>
 freedom with multiple imputation. <em>Biometrika</em>, 86, 948-955.</p>
 <p>Rubin, D.B. (1987). <em>Multiple Imputation for Nonresponse in Surveys</em>.
 New York: John Wiley and Sons.</p>
-<p>van Buuren S and Groothuis-Oudshoorn K (2011). <code>mice</code>: Multivariate
+<p>van Buuren S and Groothuis-Oudshoorn K (2011). <code>mice.pcr.sim</code>: Multivariate
 Imputation by Chained Equations in <code>R</code>. <em>Journal of Statistical
 Software</em>, <b>45</b>(3), 1-67. <a href='https://www.jstatsoft.org/v45/i03/'>https://www.jstatsoft.org/v45/i03/</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='with.mids.html'>with.mids</a></code>, <code><a href='as.mira.html'>as.mira</a></code>, <code><a href='pool.scalar.html'>pool.scalar</a></code>,
 <code>glance</code>, <code>tidy</code>
-<a href='https://github.com/amices/mice/issues/142'>https://github.com/amices/mice/issues/142</a>,
-<a href='https://github.com/amices/mice/issues/274'>https://github.com/amices/mice/issues/274</a></p></div>
+<a href='https://github.com/amices/mice.pcr.sim/issues/142'>https://github.com/amices/mice.pcr.sim/issues/142</a>,
+<a href='https://github.com/amices/mice.pcr.sim/issues/274'>https://github.com/amices/mice.pcr.sim/issues/274</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># pool using the classic MICE workflow</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>nhanes</span>, maxit <span class='op'>=</span> <span class='fl'>2</span>, m <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>nhanes</span>, maxit <span class='op'>=</span> <span class='fl'>2</span>, m <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  iter imp variable
 #&gt;   1   1  bmi  hyp  chl
@@ -319,7 +319,7 @@ Software</em>, <b>45</b>(3), 1-67. <a href='https://www.jstatsoft.org/v45/i03/'>
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Walking disability data — walking • mice</title>
+<title>Walking disability data — walking • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -77,7 +77,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -114,7 +114,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -139,7 +139,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Walking disability data</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/walking.R'><code>R/walking.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/walking.R'><code>R/walking.R</code></a></small>
     <div class="hidden name"><code>walking.Rd</code></div>
     </div>
 
@@ -190,7 +190,7 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
 #&gt;       0   0   0 300 306 606</div><div class='input'>
 <span class='va'>micemill</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>{</span>
-    <span class='va'>imp</span> <span class='op'>&lt;&lt;-</span> <span class='fu'><a href='mice.mids.html'>mice.mids</a></span><span class='op'>(</span><span class='va'>imp</span><span class='op'>)</span> <span class='co'># global assignment</span>
+    <span class='va'>imp</span> <span class='op'>&lt;&lt;-</span> <span class='fu'><a href='mice.pcr.sim.mids.html'>mice.pcr.sim.mids</a></span><span class='op'>(</span><span class='va'>imp</span><span class='op'>)</span> <span class='co'># global assignment</span>
     <span class='va'>cors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='va'>imp</span>, <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>YA</span><span class='op'>)</span>,
       <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>YB</span><span class='op'>)</span>,
       method <span class='op'>=</span> <span class='st'>"kendall"</span>
@@ -209,10 +209,10 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
 <span class='op'>}</span>
 
 <span class='va'>tau</span> <span class='op'>&lt;-</span> <span class='cn'>NULL</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>walking</span>, max <span class='op'>=</span> <span class='fl'>0</span>, m <span class='op'>=</span> <span class='fl'>10</span>, seed <span class='op'>=</span> <span class='fl'>92786</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>walking</span>, max <span class='op'>=</span> <span class='fl'>0</span>, m <span class='op'>=</span> <span class='fl'>10</span>, seed <span class='op'>=</span> <span class='fl'>92786</span><span class='op'>)</span>
 <span class='va'>pred</span> <span class='op'>&lt;-</span> <span class='va'>imp</span><span class='op'>$</span><span class='va'>pred</span>
 <span class='va'>pred</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"src"</span>, <span class='st'>"age"</span>, <span class='st'>"sex"</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fl'>0</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>walking</span>, max <span class='op'>=</span> <span class='fl'>0</span>, m <span class='op'>=</span> <span class='fl'>3</span>, seed <span class='op'>=</span> <span class='fl'>92786</span>, pred <span class='op'>=</span> <span class='va'>pred</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>walking</span>, max <span class='op'>=</span> <span class='fl'>0</span>, m <span class='op'>=</span> <span class='fl'>3</span>, seed <span class='op'>=</span> <span class='fl'>92786</span>, pred <span class='op'>=</span> <span class='va'>pred</span><span class='op'>)</span>
 <span class='fu'>micemill</span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  iter imp variable
@@ -270,7 +270,7 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

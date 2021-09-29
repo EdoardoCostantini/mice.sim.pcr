@@ -4,8 +4,8 @@ data <- nhanes
 data1 <- data[, c("age", "bmi")]
 data2 <- data[, c("hyp", "chl")]
 
-imp1 <- mice(data1, m = 2, maxit = 1, print = FALSE)
-imp2 <- mice(data2, m = 2, maxit = 1, print = FALSE)
+imp1 <- mice.pcr.sim(data1, m = 2, maxit = 1, print = FALSE)
+imp2 <- mice.pcr.sim(data2, m = 2, maxit = 1, print = FALSE)
 imp <- cbind(imp1, imp2)
 
 test_that("combines imputations", {
@@ -18,8 +18,8 @@ data <- nhanes
 data1 <- data[, c("age", "bmi")]
 data2 <- data[, c("hyp", "chl")]
 
-imp1 <- mice(data1, m = 1, maxit = 1, print = FALSE)
-imp2 <- mice(data2, blocks = list(c("hyp", "chl")), m = 1, maxit = 1, print = FALSE)
+imp1 <- mice.pcr.sim(data1, m = 1, maxit = 1, print = FALSE)
+imp2 <- mice.pcr.sim(data2, blocks = list(c("hyp", "chl")), m = 1, maxit = 1, print = FALSE)
 imp <- cbind(imp1, imp2)
 
 test_that("combines imputations with blocks", {
@@ -32,20 +32,20 @@ data <- nhanes
 data1 <- data[, c("age", "bmi", "hyp")]
 data2 <- data[, c("hyp", "chl")]
 
-imp1 <- mice(data1, m = 1, maxit = 1, print = FALSE)
-imp2 <- mice(data2, m = 1, maxit = 1, print = FALSE)
+imp1 <- mice.pcr.sim(data1, m = 1, maxit = 1, print = FALSE)
+imp2 <- mice.pcr.sim(data2, m = 1, maxit = 1, print = FALSE)
 imp <- cbind(imp1, imp2)
-impc <- mice.mids(imp, max = 2, print = FALSE)
+impc <- mice.pcr.sim.mids(imp, max = 2, print = FALSE)
 
 test_that("duplicate variable adds a column", {
   expect_identical(ncol(complete(impc)), 5L)
 })
 
 # handling of duplicate blocks
-imp1 <- mice(data1, blocks = list(c("age", "bmi"), "hyp"), m = 1, maxit = 1, print = FALSE)
-imp2 <- mice(data2, blocks = list(c("hyp", "chl")), m = 1, maxit = 1, print = FALSE)
+imp1 <- mice.pcr.sim(data1, blocks = list(c("age", "bmi"), "hyp"), m = 1, maxit = 1, print = FALSE)
+imp2 <- mice.pcr.sim(data2, blocks = list(c("hyp", "chl")), m = 1, maxit = 1, print = FALSE)
 imp <- cbind(imp1, imp2)
-impc <- mice.mids(imp, max = 2, print = FALSE)
+impc <- mice.pcr.sim.mids(imp, max = 2, print = FALSE)
 
 test_that("duplicate blocks names renames block", {
   expect_identical(names(impc$blocks)[3], "B1.1")
@@ -53,7 +53,7 @@ test_that("duplicate blocks names renames block", {
 
 
 # cbind - no second argument
-imp1 <- mice(nhanes, blocks = list(c("bmi", "chl"), "hyp"), print = FALSE, maxit = 1, m = 1)
+imp1 <- mice.pcr.sim(nhanes, blocks = list(c("bmi", "chl"), "hyp"), print = FALSE, maxit = 1, m = 1)
 imp2 <- cbind(imp1)
 imp3 <- cbind(imp1, NULL)
 imp4 <- cbind(imp1, character(0))
@@ -85,7 +85,7 @@ test_that("appends names vectors and constants", {
 # matrix, factor, data.frame
 # NOTE: cbind() dispatches to wrong function if there is a data.frame
 # so use cbind.mids()
-imp8 <- mice:::cbind.mids(imp1,
+imp8 <- mice.pcr.sim:::cbind.mids(imp1,
   ma = matrix(1:50, nrow = 25, ncol = 2),
   age = nhanes2$age,
   df = nhanes2[, c("hyp", "chl")]
@@ -93,7 +93,7 @@ imp8 <- mice:::cbind.mids(imp1,
 test_that("appends matrix, factor and data.frame", {
   expect_identical(ncol(complete(imp8)), 9L)
 })
-# impc <- mice.mids(imp8, max = 2, print = FALSE)
+# impc <- mice.pcr.sim.mids(imp8, max = 2, print = FALSE)
 
 
 # NOTE: now using own version of cbind()
@@ -106,8 +106,8 @@ test_that("appends matrix, factor and data.frame", {
   expect_identical(ncol(complete(imp9)), 9L)
 })
 
-impc <- mice.mids(imp9, max = 2, print = FALSE)
-test_that("combined object works as input to mice.mids", {
+impc <- mice.pcr.sim.mids(imp9, max = 2, print = FALSE)
+test_that("combined object works as input to mice.pcr.sim.mids", {
   expect_true(is.mids(impc))
 })
 
@@ -116,18 +116,18 @@ test_that("cbind does not throw a warning (#114)", {
 })
 
 # # cbind data.frame (rename to age.1)
-# imp1 <- mice(nhanes, blocks = list(c("bmi", "chl"), "hyp"), print = FALSE, maxit = 1, m = 1)
+# imp1 <- mice.pcr.sim(nhanes, blocks = list(c("bmi", "chl"), "hyp"), print = FALSE, maxit = 1, m = 1)
 # agevar <- nhanes$age
 # agevar[1:5] <- NA
-# imp2 <- mice:::cbind.mids(imp1, data.frame(age = agevar, hyp = "test"))
-# imp3 <- mice.mids(imp2, max = 2, print = FALSE)
+# imp2 <- mice.pcr.sim:::cbind.mids(imp1, data.frame(age = agevar, hyp = "test"))
+# imp3 <- mice.pcr.sim.mids(imp2, max = 2, print = FALSE)
 # complete(imp3)
 #
 # # cbind data.frame (use quoted name)
-# imp1 <- mice(nhanes, blocks = list(c("bmi", "chl"), "hyp"), print = FALSE, maxit = 1, m = 1)
+# imp1 <- mice.pcr.sim(nhanes, blocks = list(c("bmi", "chl"), "hyp"), print = FALSE, maxit = 1, m = 1)
 # agevar <- nhanes$age
 # agevar[1:5] <- NA
-# imp2 <- mice:::cbind.mids(imp1, age = agevar, hyp = "test")
-# imp3 <- mice.mids(imp2, max = 2, print = FALSE)
+# imp2 <- mice.pcr.sim:::cbind.mids(imp1, age = agevar, hyp = "test")
+# imp3 <- mice.pcr.sim.mids(imp2, max = 2, print = FALSE)
 # complete(imp3)
 #

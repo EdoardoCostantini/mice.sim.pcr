@@ -3,8 +3,8 @@
 #' Imputes incomplete variable that appears as both
 #' main effect and quadratic effect in the complete-data model.
 #'
-#' @aliases mice.impute.quadratic quadratic
-#' @inheritParams mice.impute.pmm
+#' @aliases mice.pcr.sim.impute.quadratic quadratic
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @return Vector with imputed data, same type as \code{y}, and of length
 #' \code{sum(wy)}
 #' @details
@@ -25,13 +25,13 @@
 #' is present in the data, calculate the quadratic term \code{YY} after
 #' imputation. If both the linear term \code{Y} and the the quadratic term
 #' \code{YY} are variables in the data, then first impute \code{Y} by calling
-#' \code{mice.impute.quadratic()} on \code{Y}, and then impute \code{YY} by
+#' \code{mice.pcr.sim.impute.quadratic()} on \code{Y}, and then impute \code{YY} by
 #' passive imputation as \code{meth["YY"] <- "~I(Y^2)"}.  See example section
 #' for details.  Generally, we would like \code{YY} to be present in the data if
 #' we need to preserve quadratic relations between \code{YY} and any third
 #' variables in the multivariate incomplete data that we might wish to impute.
 #' @author Gerko Vink (University of Utrecht), \email{g.vink@@uu.nl}
-#' @seealso \code{\link{mice.impute.pmm}}
+#' @seealso \code{\link{mice.pcr.sim.impute.pmm}}
 #' Van Buuren, S. (2018).
 #' \href{https://stefvanbuuren.name/fimd/sec-knowledge.html#sec:quadratic}{\emph{Flexible Imputation of Missing Data. Second Edition.}}
 #' Chapman & Hall/CRC. Boca Raton, FL.
@@ -56,13 +56,13 @@
 #' dat[0 == rbinom(1000, 1, 1 - .25), 1:2] <- NA
 #'
 #' # Prepare data for imputation
-#' ini <- mice(dat, maxit = 0)
+#' ini <- mice.pcr.sim(dat, maxit = 0)
 #' meth <- c("quadratic", "~I(x^2)", "")
 #' pred <- ini$pred
 #' pred[, "xx"] <- 0
 #'
 #' # Impute data
-#' imp <- mice(dat, meth = meth, pred = pred)
+#' imp <- mice.pcr.sim(dat, meth = meth, pred = pred)
 #'
 #' # Pool results
 #' pool(with(imp, lm(y ~ x + xx)))
@@ -73,7 +73,7 @@
 #' cmp <- complete(imp)
 #' points(cmp$x[is.na(dat$x)], cmp$xx[is.na(dat$x)], col = mdc(2))
 #' @export
-mice.impute.quadratic <- function(y, ry, x, wy = NULL, ...) {
+mice.pcr.sim.impute.quadratic <- function(y, ry, x, wy = NULL, ...) {
   if (is.null(wy)) wy <- !ry
   x <- cbind(1, as.matrix(x))
 
@@ -85,7 +85,7 @@ mice.impute.quadratic <- function(y, ry, x, wy = NULL, ...) {
   zobs <- cbind(y, y2) %*% parm$coef[-1]
 
   # impute z
-  zmis <- mice.impute.pmm(zobs, ry, x[, -1])
+  zmis <- mice.pcr.sim.impute.pmm(zobs, ry, x[, -1])
   zstar <- zobs
   zstar[!ry] <- zmis
   # Otherwise the predict function crashes (nmatrix.1 error)

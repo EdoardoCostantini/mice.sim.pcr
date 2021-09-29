@@ -12,7 +12,7 @@
 #' do automatic pooling in procedures where that is supported.
 #'
 #' @param imp The \code{imp} argument is an object of class \code{mids},
-#' typically produced by the \code{mice()} function.
+#' typically produced by the \code{mice.pcr.sim()} function.
 #' @param file.prefix A character string describing the prefix of the output
 #' data files.
 #' @param path A character string containing the path of the output file.  By

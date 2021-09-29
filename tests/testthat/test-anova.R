@@ -1,5 +1,5 @@
 context("anova")
-imp <- mice(nhanes2, m = 10, print = FALSE, seed = 71242)
+imp <- mice.pcr.sim(nhanes2, m = 10, print = FALSE, seed = 71242)
 m2 <- with(imp, lm(chl ~ age + bmi))
 m1 <- with(imp, lm(chl ~ bmi))
 m0 <- with(imp, lm(chl ~ 1))
@@ -24,7 +24,7 @@ data$age[rbinom(nrow(data), size = 1, prob = 0.2) == 1] <- NA
 data$sex[rbinom(nrow(data), size = 1, prob = 0.2) == 1] <- NA
 data$ph.ecog[rbinom(nrow(data), size = 1, prob = 0.2) == 1] <- NA
 
-imp <- mice(data, print = FALSE)
+imp <- mice.pcr.sim(data, print = FALSE)
 m1 <- with(imp, coxph(Surv(time, status) ~ age))
 m2 <- with(imp, coxph(Surv(time, status) ~ age + sex))
 m3 <- with(imp, coxph(Surv(time, status) ~ age + sex + ph.ecog))

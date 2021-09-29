@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Multivariate multilevel imputation using jomo — mice.impute.jomoImpute • mice</title>
+<title>Multivariate multilevel imputation using jomo — mice.pcr.sim.impute.jomoImpute • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -45,10 +45,10 @@
 
 
 
-<meta property="og:title" content="Multivariate multilevel imputation using jomo — mice.impute.jomoImpute" />
+<meta property="og:title" content="Multivariate multilevel imputation using jomo — mice.pcr.sim.impute.jomoImpute" />
 <meta property="og:description" content="This function is a wrapper around the jomoImpute function
 from the mitml package so that it can be called to
-impute blocks of variables in mice. The mitml::jomoImpute
+impute blocks of variables in mice.pcr.sim. The mitml::jomoImpute
 function provides an interface to the jomo package for
 multiple imputation of multilevel data
 https://CRAN.R-project.org/package=jomo.
@@ -84,7 +84,7 @@ which offer different options for model specification." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -121,7 +121,7 @@ which offer different options for model specification." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -146,14 +146,14 @@ which offer different options for model specification." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Multivariate multilevel imputation using <code>jomo</code></h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/mice.impute.jomoImpute.R'><code>R/mice.impute.jomoImpute.R</code></a></small>
-    <div class="hidden name"><code>mice.impute.jomoImpute.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.impute.jomoImpute.R'><code>R/mice.pcr.sim.impute.jomoImpute.R</code></a></small>
+    <div class="hidden name"><code>mice.pcr.sim.impute.jomoImpute.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function is a wrapper around the <code>jomoImpute</code> function
 from the <code>mitml</code> package so that it can be called to
-impute blocks of variables in <code>mice</code>. The <code><a href='https://rdrr.io/pkg/mitml/man/jomoImpute.html'>mitml::jomoImpute</a></code>
+impute blocks of variables in <code>mice.pcr.sim</code>. The <code><a href='https://rdrr.io/pkg/mitml/man/jomoImpute.html'>mitml::jomoImpute</a></code>
 function provides an interface to the <code>jomo</code> package for
 multiple imputation of multilevel data
 <a href='https://CRAN.R-project.org/package=jomo'>https://CRAN.R-project.org/package=jomo</a>.
@@ -161,7 +161,7 @@ Imputations can be generated using <code>type</code> or <code>formula</code>,
 which offer different options for model specification.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mice.impute.jomoImpute</span><span class='op'>(</span>
+    <pre class="usage"><span class='fu'>mice.pcr.sim.impute.jomoImpute</span><span class='op'>(</span>
   <span class='va'>data</span>,
   <span class='va'>formula</span>,
   <span class='va'>type</span>,
@@ -222,7 +222,7 @@ object.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>The number of imputations <code>m</code> is set to 1, and the function
-is called <code>m</code> times so that it fits within the <code>mice</code>
+is called <code>m</code> times so that it fits within the <code>mice.pcr.sim</code>
 iteration scheme.</p>
 <p>This is a multivariate imputation function using a joint model.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
@@ -238,7 +238,7 @@ and studies with missing covariates. Statistics in Medicine,
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/mitml/man/jomoImpute.html'>jomoImpute</a></code></p>
 <p>Other multivariate-2l: 
-<code><a href='mice.impute.panImpute.html'>mice.impute.panImpute</a>()</code></p></div>
+<code><a href='mice.pcr.sim.impute.panImpute.html'>mice.pcr.sim.impute.panImpute</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Stef van Buuren, 2018, building on work of Simon Grund,
@@ -250,10 +250,10 @@ and Quartagno and Carpenter (authors of <code>jomo</code> package).</p>
 <span class='co'># Note: Requires mitml 0.3-5.7</span>
 <span class='va'>blocks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"bmi"</span>, <span class='st'>"chl"</span>, <span class='st'>"hyp"</span><span class='op'>)</span>, <span class='st'>"age"</span><span class='op'>)</span>
 <span class='va'>method</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"jomoImpute"</span>, <span class='st'>"pmm"</span><span class='op'>)</span>
-<span class='va'>ini</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>nhanes</span>, blocks <span class='op'>=</span> <span class='va'>blocks</span>, method <span class='op'>=</span> <span class='va'>method</span>, maxit <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>ini</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>nhanes</span>, blocks <span class='op'>=</span> <span class='va'>blocks</span>, method <span class='op'>=</span> <span class='va'>method</span>, maxit <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
 <span class='va'>pred</span> <span class='op'>&lt;-</span> <span class='va'>ini</span><span class='op'>$</span><span class='va'>pred</span>
 <span class='va'>pred</span><span class='op'>[</span><span class='st'>"B1"</span>, <span class='st'>"hyp"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='op'>-</span><span class='fl'>2</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>nhanes</span>, blocks <span class='op'>=</span> <span class='va'>blocks</span>, method <span class='op'>=</span> <span class='va'>method</span>, pred <span class='op'>=</span> <span class='va'>pred</span>, maxit <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>nhanes</span>, blocks <span class='op'>=</span> <span class='va'>blocks</span>, method <span class='op'>=</span> <span class='va'>method</span>, pred <span class='op'>=</span> <span class='va'>pred</span>, maxit <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  iter imp variable
 #&gt;   1   1  bmi chl hyp
@@ -290,7 +290,7 @@ and Quartagno and Carpenter (authors of <code>jomo</code> package).</p>
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

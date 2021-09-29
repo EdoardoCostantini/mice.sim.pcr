@@ -54,14 +54,14 @@
 #' @examples
 #'
 #' # impute four variables at once (default)
-#' imp <- mice(nhanes, m = 1, maxit = 1, print = FALSE)
+#' imp <- mice.pcr.sim(nhanes, m = 1, maxit = 1, print = FALSE)
 #' imp$predictorMatrix
 #'
 #' # impute two by two
 #' data1 <- nhanes[, c("age", "bmi")]
 #' data2 <- nhanes[, c("hyp", "chl")]
-#' imp1 <- mice(data1, m = 2, maxit = 1, print = FALSE)
-#' imp2 <- mice(data2, m = 2, maxit = 1, print = FALSE)
+#' imp1 <- mice.pcr.sim(data1, m = 2, maxit = 1, print = FALSE)
+#' imp2 <- mice.pcr.sim(data2, m = 2, maxit = 1, print = FALSE)
 #'
 #' # Append two solutions
 #' imp12 <- cbind(imp1, imp2)
@@ -75,7 +75,7 @@
 #'
 #' # Append 'forgotten' variable chl
 #' data3 <- nhanes[, 1:3]
-#' imp3 <- mice(data3, maxit = 1, m = 2, print = FALSE)
+#' imp3 <- mice.pcr.sim(data3, maxit = 1, m = 2, print = FALSE)
 #' imp4 <- cbind(imp3, chl = nhanes$chl)
 #'
 #' # Of course, chl was not imputed
@@ -104,7 +104,7 @@ cbind.mids <- function(x, y = NULL, ...) {
     y <- cbind.data.frame(y, dots)
   }
 
-  # Call is a vector, with first argument the mice statement
+  # Call is a vector, with first argument the mice.pcr.sim statement
   # and second argument the call to cbind.mids.
   call <- c(x$call, call)
 
@@ -214,7 +214,7 @@ cbind.mids <- function(x, y = NULL, ...) {
     chainMean = chainMean,
     chainVar = chainVar,
     loggedEvents = loggedEvents,
-    version = packageVersion("mice"),
+    version = packageVersion("mice.pcr.sim"),
     date = Sys.Date()
   )
   oldClass(midsobj) <- "mids"
@@ -232,7 +232,7 @@ cbind.mids.mids <- function(x, y, call) {
     stop("The two mids objects should have the same number of imputations\n")
   }
 
-  # Call is a vector, with first argument the mice statement
+  # Call is a vector, with first argument the mice.pcr.sim statement
   # and second argument the call to cbind.mids.
   call <- c(x$call, call)
 
@@ -372,7 +372,7 @@ cbind.mids.mids <- function(x, y, call) {
     chainMean = chainMean,
     chainVar = chainVar,
     loggedEvents = loggedEvents,
-    version = packageVersion("mice"),
+    version = packageVersion("mice.pcr.sim"),
     date = Sys.Date()
   )
   oldClass(midsobj) <- "mids"

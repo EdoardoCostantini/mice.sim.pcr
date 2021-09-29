@@ -39,28 +39,28 @@ print.mira <- function(x, ...) {
 }
 
 
-#' Print a \code{mice.anova} object
+#' Print a \code{mice.pcr.sim.anova} object
 #'
 #' @rdname print
 #' @return \code{NULL}
 #' @seealso \code{\link{mipo}}
-#' @method print mice.anova
+#' @method print mice.pcr.sim.anova
 #' @export
-print.mice.anova <- function(x, ...) {
+print.mice.pcr.sim.anova <- function(x, ...) {
   z <- summary(x, ...)
   print(z$comparisons, row.names = FALSE)
   invisible(x)
 }
 
 
-#' Print a \code{summary.mice.anova} object
+#' Print a \code{summary.mice.pcr.sim.anova} object
 #'
 #' @rdname print
 #' @return \code{NULL}
 #' @seealso \code{\link{mipo}}
-#' @method print mice.anova.summary
+#' @method print mice.pcr.sim.anova.summary
 #' @export
-print.mice.anova.summary <- function(x, ...) {
+print.mice.pcr.sim.anova.summary <- function(x, ...) {
   cat("\nModels:\n")
   print(x$models, row.names = FALSE)
   cat("\nComparisons:\n")

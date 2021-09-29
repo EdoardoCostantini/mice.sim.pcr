@@ -28,7 +28,7 @@
 #' estimates into a single inference.
 #'
 #' @param imp The \code{imp} argument is an object of class \code{mids},
-#' typically produced by the \code{mice()} function.
+#' typically produced by the \code{mice.pcr.sim()} function.
 #' @param filename A character string describing the name of the output data
 #' file and its extension.
 #' @param path A character string containing the path of the output file. The

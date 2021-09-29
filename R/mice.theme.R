@@ -1,20 +1,20 @@
 #' Set the theme for the plotting Trellis functions
 #'
-#' The \code{mice.theme()} function sets default choices for
-#' Trellis plots that are built into \pkg{mice}.
+#' The \code{mice.pcr.sim.theme()} function sets default choices for
+#' Trellis plots that are built into \pkg{mice.pcr.sim}.
 #'
-#' @aliases mice.theme
+#' @aliases mice.pcr.sim.theme
 #' @param transparent A logical indicating whether alpha-transparency is
 #' allowed. The default is \code{TRUE}.
 #' @param alpha.fill A numerical values between 0 and 1 that indicates the
 #' default alpha value for fills.
-#' @return \code{mice.theme()} returns a named list that can be used as a theme in the functions in
-#' \pkg{lattice}. By default, the \code{mice.theme()} function sets
+#' @return \code{mice.pcr.sim.theme()} returns a named list that can be used as a theme in the functions in
+#' \pkg{lattice}. By default, the \code{mice.pcr.sim.theme()} function sets
 #' \code{transparent <- TRUE} if the current device \code{.Device} supports
 #' semi-transparent colors.
 #' @author Stef van Buuren 2011
 #' @export
-mice.theme <- function(transparent = TRUE, alpha.fill = 0.3) {
+mice.pcr.sim.theme <- function(transparent = TRUE, alpha.fill = 0.3) {
   filler <- function(transparent, alpha) {
     if (transparent) {
       return(c(
@@ -59,7 +59,7 @@ mice.theme <- function(transparent = TRUE, alpha.fill = 0.3) {
     strip.background = list(
       col = "grey95"
     ),
-    mice = list(
+    mice.pcr.sim = list(
       flag = TRUE
     )
   )

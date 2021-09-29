@@ -15,14 +15,14 @@
 #' the parameters constrained to \eqn{\beta}.
 #'
 #' The \code{mitml::testModels()} function offers similar functionality
-#' for a subset of statistical models. Results of \code{mice::D3()} and
+#' for a subset of statistical models. Results of \code{mice.pcr.sim::D3()} and
 #' \code{mitml::testModels()} differ in multilevel models because the
 #' \code{testModels()} also constrains the variance components parameters.
 #' For more details on
 #'
 #' @seealso \code{\link{fix.coef}}
 #' @inheritParams D1
-#' @return An object of class \code{mice.anova}
+#' @return An object of class \code{mice.pcr.sim.anova}
 #' @references
 #' Meng, X. L., and D. B. Rubin. 1992.
 #' Performing Likelihood Ratio Tests with Multiply-Imputed Data Sets.
@@ -33,13 +33,13 @@
 #' \url{http://bbolker.github.io/mixedmodels-misc/glmmFAQ.html#setting-residual-variances-to-a-fixed-value-zero-or-other}
 #' @examples
 #' # Compare two linear models:
-#' imp <- mice(nhanes2, seed = 51009, print = FALSE)
+#' imp <- mice.pcr.sim(nhanes2, seed = 51009, print = FALSE)
 #' mi1 <- with(data = imp, expr = lm(bmi ~ age + hyp + chl))
 #' mi0 <- with(data = imp, expr = lm(bmi ~ age + hyp))
 #' D3(mi1, mi0)
 #' \donttest{
 #' # Compare two logistic regression models
-#' imp <- mice(boys, maxit = 2, print = FALSE)
+#' imp <- mice.pcr.sim(boys, maxit = 2, print = FALSE)
 #' fit1 <- with(imp, glm(gen > levels(gen)[1] ~ hgt + hc + reg, family = binomial))
 #' fit0 <- with(imp, glm(gen > levels(gen)[1] ~ hgt + hc, family = binomial))
 #' D3(fit1, fit0)
@@ -131,6 +131,6 @@ D3 <- function(fit1, fit0 = NULL, dfcom = NULL, df.com = NULL) {
       dfcom = dfcom,
       deviances = deviances
     )
-  class(out) <- c("mice.anova", class(fit1))
+  class(out) <- c("mice.pcr.sim.anova", class(fit1))
   out
 }

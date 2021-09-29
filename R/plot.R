@@ -11,7 +11,7 @@
 #' @param x      An object of class \code{mids}
 #' @param y      A formula that specifies which variables, stream and iterations are plotted.
 #'               If omitted, all streams, variables and iterations are plotted.
-#' @param theme  The trellis theme to applied to the graphs. The default is \code{mice.theme()}.
+#' @param theme  The trellis theme to applied to the graphs. The default is \code{mice.pcr.sim.theme()}.
 #' @param layout A vector of length 2 given the number of columns and rows in the plot.
 #'               The default is \code{c(2, 3)}.
 #' @param type   Parameter \code{type} of \code{\link{panel.xyplot}}.
@@ -20,14 +20,14 @@
 #' @param ...    Extra arguments for \code{\link{xyplot}}.
 #' @return An object of class \code{"trellis"}.
 #' @author Stef van Buuren 2011
-#' @seealso \code{\link{mice}}, \code{\link[=mids-class]{mids}},
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link[=mids-class]{mids}},
 #' \code{\link{xyplot}}
 #' @method plot mids
 #' @examples
-#' imp <- mice(nhanes, print = FALSE)
+#' imp <- mice.pcr.sim(nhanes, print = FALSE)
 #' plot(imp, bmi + chl ~ .it | .ms, layout = c(2, 1))
 #' @export
-plot.mids <- function(x, y = NULL, theme = mice.theme(), layout = c(2, 3),
+plot.mids <- function(x, y = NULL, theme = mice.pcr.sim.theme(), layout = c(2, 3),
                       type = "l", col = 1:10, lty = 1, ...) {
   strip.combined <- function(which.given, which.panel, factor.levels, ...) {
     if (which.given == 1) {

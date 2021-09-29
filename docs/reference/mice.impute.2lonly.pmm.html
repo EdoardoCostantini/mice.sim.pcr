@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Imputation at level 2 by predictive mean matching — mice.impute.2lonly.pmm • mice</title>
+<title>Imputation at level 2 by predictive mean matching — mice.pcr.sim.impute.2lonly.pmm • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -45,7 +45,7 @@
 
 
 
-<meta property="og:title" content="Imputation at level 2 by predictive mean matching — mice.impute.2lonly.pmm" />
+<meta property="og:title" content="Imputation at level 2 by predictive mean matching — mice.pcr.sim.impute.2lonly.pmm" />
 <meta property="og:description" content="Imputes univariate missing data at level 2 using predictive mean matching.
 Variables are level 1 are aggregated at level 2. The group identifier at
 level 2 must be indicated by type = -2 in the predictorMatrix." />
@@ -79,7 +79,7 @@ level 2 must be indicated by type = -2 in the predictorMatrix." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -116,7 +116,7 @@ level 2 must be indicated by type = -2 in the predictorMatrix." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -141,8 +141,8 @@ level 2 must be indicated by type = -2 in the predictorMatrix." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Imputation at level 2 by predictive mean matching</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/mice.impute.2lonly.pmm.R'><code>R/mice.impute.2lonly.pmm.R</code></a></small>
-    <div class="hidden name"><code>mice.impute.2lonly.pmm.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.impute.2lonly.pmm.R'><code>R/mice.pcr.sim.impute.2lonly.pmm.R</code></a></small>
+    <div class="hidden name"><code>mice.pcr.sim.impute.2lonly.pmm.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -151,7 +151,7 @@ Variables are level 1 are aggregated at level 2. The group identifier at
 level 2 must be indicated by <code>type = -2</code> in the <code>predictorMatrix</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mice.impute.2lonly.pmm</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, <span class='va'>type</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>mice.pcr.sim.impute.2lonly.pmm</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, <span class='va'>x</span>, <span class='va'>type</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -193,7 +193,7 @@ indicates locations in <code>y</code> for which imputations are created.</p></td
     <p>A vector of length <code>nmis</code> with imputations.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function allows in combination with <code><a href='mice.impute.2l.pan.html'>mice.impute.2l.pan</a></code>
+    <p>This function allows in combination with <code><a href='mice.pcr.sim.impute.2l.pan.html'>mice.pcr.sim.impute.2l.pan</a></code>
 switching regression imputation between level 1 and level 2 as described in
 Yucel (2008) or Gelman and Hill (2007, p. 541).</p>
 <p>The function checks for partial missing level-2 data. Level-2 data
@@ -209,7 +209,7 @@ a dependent factor variable by means of the <code><a href='https://rdrr.io/r/bas
 function. This may make sense for categories that are
 approximately ordered, but less so for pure nominal measures.</p>
 <p>For a more general approach, see
-<code><a href='https://rdrr.io/pkg/miceadds/man/mice.impute.2lonly.function.html'>miceadds::mice.impute.2lonly.function()</a></code>.</p>
+<code><a href='https://rdrr.io/pkg/miceadds/man/mice.pcr.sim.impute.2lonly.function.html'>miceadds::mice.pcr.sim.impute.2lonly.function()</a></code>.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Gelman, A. and Hill, J. (2007). <em>Data analysis using
@@ -223,12 +223,12 @@ Transactions of the Royal Society A</em>, <b>366</b>, 2389-2404.</p>
 Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='mice.impute.pmm.html'>mice.impute.pmm</a></code>,
-<code><a href='mice.impute.2lonly.norm.html'>mice.impute.2lonly.norm</a></code>, <code><a href='mice.impute.2l.pan.html'>mice.impute.2l.pan</a></code>,
-<code><a href='mice.impute.2lonly.mean.html'>mice.impute.2lonly.mean</a></code></p>
+    <div class='dont-index'><p><code><a href='mice.pcr.sim.impute.pmm.html'>mice.pcr.sim.impute.pmm</a></code>,
+<code><a href='mice.pcr.sim.impute.2lonly.norm.html'>mice.pcr.sim.impute.2lonly.norm</a></code>, <code><a href='mice.pcr.sim.impute.2l.pan.html'>mice.pcr.sim.impute.2l.pan</a></code>,
+<code><a href='mice.pcr.sim.impute.2lonly.mean.html'>mice.pcr.sim.impute.2lonly.mean</a></code></p>
 <p>Other univariate-2lonly: 
-<code><a href='mice.impute.2lonly.mean.html'>mice.impute.2lonly.mean</a>()</code>,
-<code><a href='mice.impute.2lonly.norm.html'>mice.impute.2lonly.norm</a>()</code></p></div>
+<code><a href='mice.pcr.sim.impute.2lonly.mean.html'>mice.pcr.sim.impute.2lonly.mean</a>()</code>,
+<code><a href='mice.pcr.sim.impute.2lonly.norm.html'>mice.pcr.sim.impute.2lonly.norm</a>()</code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Alexander Robitzsch (IPN - Leibniz Institute for Science and
@@ -255,8 +255,8 @@ Mathematics Education, Kiel, Germany), <a href='mailto:robitzsch@ipn.uni-kiel.de
 <span class='va'>dfr</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>G</span><span class='op'>)</span>, each <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>qnorm</a></span><span class='op'>(</span><span class='va'>missrate</span><span class='op'>)</span>, <span class='st'>"w"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span>
 <span class='va'>dfr</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>G</span><span class='op'>)</span>, each <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>qnorm</a></span><span class='op'>(</span><span class='va'>missrate</span><span class='op'>)</span>, <span class='st'>"v"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span>
 
-<span class='co'># empty mice imputation</span>
-<span class='va'>imp0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>dfr</span><span class='op'>)</span>, maxit <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+<span class='co'># empty mice.pcr.sim imputation</span>
+<span class='va'>imp0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>dfr</span><span class='op'>)</span>, maxit <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
 <span class='va'>predM</span> <span class='op'>&lt;-</span> <span class='va'>imp0</span><span class='op'>$</span><span class='va'>predictorMatrix</span>
 <span class='va'>impM</span> <span class='op'>&lt;-</span> <span class='va'>imp0</span><span class='op'>$</span><span class='va'>method</span>
 
@@ -278,7 +278,7 @@ Mathematics Education, Kiel, Germany), <a href='mailto:robitzsch@ipn.uni-kiel.de
 <span class='co'># skip imputation on solaris</span>
 <span class='va'>is.solaris</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>grepl</a></span><span class='op'>(</span><span class='st'>"SunOS"</span>, <span class='fu'><a href='https://rdrr.io/r/base/Sys.info.html'>Sys.info</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>[</span><span class='st'>"sysname"</span><span class='op'>]</span><span class='op'>)</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'>is.solaris</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
-  <span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.html'>mice</a></span><span class='op'>(</span><span class='va'>dfr</span>,
+  <span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mice.pcr.sim.html'>mice.pcr.sim</a></span><span class='op'>(</span><span class='va'>dfr</span>,
     m <span class='op'>=</span> <span class='fl'>1</span>, predictorMatrix <span class='op'>=</span> <span class='va'>predM1</span>,
     method <span class='op'>=</span> <span class='va'>impM1</span>, maxit <span class='op'>=</span> <span class='fl'>1</span>, paniter <span class='op'>=</span> <span class='fl'>500</span>
   <span class='op'>)</span>
@@ -314,7 +314,7 @@ Mathematics Education, Kiel, Germany), <a href='mailto:robitzsch@ipn.uni-kiel.de
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

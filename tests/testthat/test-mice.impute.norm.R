@@ -1,4 +1,4 @@
-context("mice.impute.norm")
+context("mice.pcr.sim.impute.norm")
 
 #########################
 # TEST 1: Simple problem #
@@ -64,9 +64,9 @@ test_that("Correct estimation method used", {
 # TEST 3: correct imputation model   #
 #####################################
 
-expect_warning(imp.qr <- mice(mammalsleep[, -1], ls.meth = "qr", seed = 123, print = FALSE, use.matcher = TRUE))
-expect_warning(imp.svd <- mice(mammalsleep[, -1], ls.meth = "svd", seed = 123, print = FALSE, use.matcher = TRUE))
-expect_warning(imp.ridge <- mice(mammalsleep[, -1], ls.meth = "ridge", seed = 123, print = FALSE, use.matcher = TRUE))
+expect_warning(imp.qr <- mice.pcr.sim(mammalsleep[, -1], ls.meth = "qr", seed = 123, print = FALSE, use.matcher = TRUE))
+expect_warning(imp.svd <- mice.pcr.sim(mammalsleep[, -1], ls.meth = "svd", seed = 123, print = FALSE, use.matcher = TRUE))
+expect_warning(imp.ridge <- mice.pcr.sim(mammalsleep[, -1], ls.meth = "ridge", seed = 123, print = FALSE, use.matcher = TRUE))
 
 test_that("Imputations are equal", {
   expect_equal(imp.qr$imp, imp.svd$imp)
@@ -78,9 +78,9 @@ test_that("Imputations are equal", {
 #####################################
 # test on faulty imputation model (exactly singular system)
 
-expect_warning(imp.qr <- mice(mammalsleep, ls.meth = "qr", seed = 123, print = FALSE))
-expect_warning(imp.svd <- mice(mammalsleep, ls.meth = "svd", seed = 123, print = FALSE))
-expect_warning(imp.ridge <- mice(mammalsleep, ls.meth = "ridge", seed = 123, print = FALSE))
+expect_warning(imp.qr <- mice.pcr.sim(mammalsleep, ls.meth = "qr", seed = 123, print = FALSE))
+expect_warning(imp.svd <- mice.pcr.sim(mammalsleep, ls.meth = "svd", seed = 123, print = FALSE))
+expect_warning(imp.ridge <- mice.pcr.sim(mammalsleep, ls.meth = "ridge", seed = 123, print = FALSE))
 
 test_that("Imputations are not equal", {
   expect_false(identical(imp.qr$imp, imp.svd$imp))
@@ -104,11 +104,11 @@ wy3 <- rep(FALSE, length(y))
 wy4 <- rep(c(TRUE, FALSE), times = c(1, length(y) - 1))
 
 test_that("Returns requested length", {
-  expect_equal(length(mice.impute.norm(y, ry, x)), sum(!ry))
-  expect_equal(length(mice.impute.norm(y, ry, x, wy = wy1)), sum(wy1))
-  expect_equal(length(mice.impute.norm(y, ry, x, wy = wy2)), sum(wy2))
-  expect_equal(length(mice.impute.norm(y, ry, x, wy = wy3)), sum(wy3))
-  expect_equal(length(mice.impute.norm(y, ry, x, wy = wy4)), sum(wy4))
+  expect_equal(length(mice.pcr.sim.impute.norm(y, ry, x)), sum(!ry))
+  expect_equal(length(mice.pcr.sim.impute.norm(y, ry, x, wy = wy1)), sum(wy1))
+  expect_equal(length(mice.pcr.sim.impute.norm(y, ry, x, wy = wy2)), sum(wy2))
+  expect_equal(length(mice.pcr.sim.impute.norm(y, ry, x, wy = wy3)), sum(wy3))
+  expect_equal(length(mice.pcr.sim.impute.norm(y, ry, x, wy = wy4)), sum(wy4))
 })
 
 ###
@@ -122,25 +122,25 @@ x1 <- x[, c(1, 2, 3)]
 x2 <- x[, c(1, 3, 2)]
 
 set.seed(123)
-pmm1 <- mice.impute.pmm(y, ry, x1)
+pmm1 <- mice.pcr.sim.impute.pmm(y, ry, x1)
 set.seed(123)
-pmm2 <- mice.impute.pmm(y, ry, x2)
+pmm2 <- mice.pcr.sim.impute.pmm(y, ry, x2)
 set.seed(123)
-norm1 <- mice.impute.norm(y, ry, x1)
+norm1 <- mice.pcr.sim.impute.norm(y, ry, x1)
 set.seed(123)
-norm2 <- mice.impute.norm(y, ry, x2)
+norm2 <- mice.pcr.sim.impute.norm(y, ry, x2)
 set.seed(123)
-norm.nob1 <- mice.impute.norm.nob(y, ry, x1)
+norm.nob1 <- mice.pcr.sim.impute.norm.nob(y, ry, x1)
 set.seed(123)
-norm.nob2 <- mice.impute.norm.nob(y, ry, x2)
+norm.nob2 <- mice.pcr.sim.impute.norm.nob(y, ry, x2)
 set.seed(123)
-norm.predict1 <- mice.impute.norm.predict(y, ry, x1)
+norm.predict1 <- mice.pcr.sim.impute.norm.predict(y, ry, x1)
 set.seed(123)
-norm.predict2 <- mice.impute.norm.predict(y, ry, x2)
+norm.predict2 <- mice.pcr.sim.impute.norm.predict(y, ry, x2)
 set.seed(123)
-norm.boot1 <- mice.impute.norm.boot(y, ry, x1)
+norm.boot1 <- mice.pcr.sim.impute.norm.boot(y, ry, x1)
 set.seed(123)
-norm.boot2 <- mice.impute.norm.boot(y, ry, x2)
+norm.boot2 <- mice.pcr.sim.impute.norm.boot(y, ry, x2)
 
 test_that("Imputations are invariant to column order", {
   # expect_equal(pmm1, pmm2)

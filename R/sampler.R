@@ -1,5 +1,5 @@
 # The sampler controls the actual Gibbs sampling iteration scheme.
-# This function is called by mice and mice.mids
+# This function is called by mice.pcr.sim and mice.pcr.sim.mids
 sampler <- function(data, m, ignore, where, imp, blocks, method,
                     visitSequence, predictorMatrix, formulas, blots,
                     post, fromto, printFlag, pcs, ...) {
@@ -52,9 +52,9 @@ sampler <- function(data, m, ignore, where, imp, blocks, method,
           theMethod <- method[h]
           empt <- theMethod == ""
           univ <- !empt && !is.passive(theMethod) &&
-            !handles.format(paste0("mice.impute.", theMethod))
+            !handles.format(paste0("mice.pcr.sim.impute.", theMethod))
           mult <- !empt && !is.passive(theMethod) &&
-            handles.format(paste0("mice.impute.", theMethod))
+            handles.format(paste0("mice.pcr.sim.impute.", theMethod))
           pass <- !empt && is.passive(theMethod) && length(blocks[[h]]) == 1
           if (printFlag & !empt) cat(" ", b)
 
@@ -102,7 +102,7 @@ sampler <- function(data, m, ignore, where, imp, blocks, method,
             mis[, setdiff(colnames(data), b)] <- FALSE
             data[mis] <- NA
 
-            fm <- paste("mice.impute", theMethod, sep = ".")
+            fm <- paste("mice.pcr.sim.impute", theMethod, sep = ".")
             if (calltype == "formula") {
               imputes <- do.call(fm, args = list(
                 data = data,
@@ -241,7 +241,7 @@ sampler.univ <- function(data, r, where, type, formula, method, yname, k,
   }
 
   # here we go
-  f <- paste("mice.impute", method, sep = ".")
+  f <- paste("mice.pcr.sim.impute", method, sep = ".")
   imputes <- data[wy, j]
   imputes[!cc] <- NA
 

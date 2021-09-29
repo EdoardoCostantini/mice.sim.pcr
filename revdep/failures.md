@@ -16,7 +16,7 @@ Run `revdep_details(, "dynr")` for more info
 *   checking whether package ‘dynr’ can be installed ... ERROR
     ```
     Installation failed.
-    See ‘/Users/buurensv/Dropbox/Package/mice/mice/revdep/checks.noindex/dynr/new/dynr.Rcheck/00install.out’ for details.
+    See ‘/Users/buurensv/Dropbox/Package/mice.pcr.sim/mice.pcr.sim/revdep/checks.noindex/dynr/new/dynr.Rcheck/00install.out’ for details.
     ```
 
 ## Installation
@@ -30,7 +30,7 @@ Run `revdep_details(, "dynr")` for more info
 checking for gsl-config... no
 configure: error: gsl-config not found, is GSL installed?
 ERROR: configuration failed for package ‘dynr’
-* removing ‘/Users/buurensv/Dropbox/Package/mice/mice/revdep/checks.noindex/dynr/new/dynr.Rcheck/dynr’
+* removing ‘/Users/buurensv/Dropbox/Package/mice.pcr.sim/mice.pcr.sim/revdep/checks.noindex/dynr/new/dynr.Rcheck/dynr’
 
 ```
 ### CRAN
@@ -42,6 +42,6 @@ ERROR: configuration failed for package ‘dynr’
 checking for gsl-config... no
 configure: error: gsl-config not found, is GSL installed?
 ERROR: configuration failed for package ‘dynr’
-* removing ‘/Users/buurensv/Dropbox/Package/mice/mice/revdep/checks.noindex/dynr/old/dynr.Rcheck/dynr’
+* removing ‘/Users/buurensv/Dropbox/Package/mice.pcr.sim/mice.pcr.sim/revdep/checks.noindex/dynr/old/dynr.Rcheck/dynr’
 
 ```

@@ -8,11 +8,11 @@ context("pool")
 # https://stefvanbuuren.name/fimd/
 suppressWarnings(RNGversion("3.5.0"))
 
-imp <- mice(nhanes2, print = FALSE, maxit = 2, seed = 121, use.matcher = TRUE)
+imp <- mice.pcr.sim(nhanes2, print = FALSE, maxit = 2, seed = 121, use.matcher = TRUE)
 fit <- with(imp, lm(bmi ~ chl + age + hyp))
 est <- pool(fit)
 # fitlist <- fit$analyses
-# est <- mice:::pool.fitlist(fitlist)
+# est <- mice.pcr.sim:::pool.fitlist(fitlist)
 
 mn <- c(18.76175, 0.05359003, -4.573652, -6.635969, 2.163629)
 se <- c(4.002796, 0.02235067, 2.033986, 2.459769, 2.02898)
@@ -23,7 +23,7 @@ test_that("retains same numerical result", {
 })
 
 
-imp <- mice(nhanes2, print = FALSE, m = 10, seed = 219)
+imp <- mice.pcr.sim(nhanes2, print = FALSE, m = 10, seed = 219)
 fit0 <- with(data = imp, expr = glm(hyp == "yes" ~ 1, family = binomial))
 fit1 <- with(data = imp, expr = glm(hyp == "yes" ~ chl + bmi, family = binomial))
 D1(fit1, fit0)
@@ -102,7 +102,7 @@ bwt.mis <- bwt
 bwt.mis$smoke[runif(nrow(bwt)) < 0.001] <- NA
 bwt.mis$lwt[runif(nrow(bwt)) < 0.01] <- NA
 
-imp <- mice(bwt.mis, print = FALSE, m = 10)
+imp <- mice.pcr.sim(bwt.mis, print = FALSE, m = 10)
 fit1 <- with(data = imp, expr = glm(low ~ age + lwt + race + smoke + ptd + ht + ui + ftv, family = binomial))
 fit0 <- with(data = imp, glm(low ~ lwt + race + smoke + ptd + ht + ui, family = binomial))
 D1(fit1, fit0)

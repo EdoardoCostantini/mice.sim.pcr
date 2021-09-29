@@ -1,7 +1,7 @@
 #' Creates a \code{formulas} argument
 #'
 #' This helper function creates a valid \code{formulas} object. The
-#' \code{formulas} object is an argument to the \code{mice} function.
+#' \code{formulas} object is an argument to the \code{mice.pcr.sim} function.
 #' It is a list of formula's that specifies the target variables and
 #' the predictors by means of the standard \code{~} operator.
 #' @param data A \code{data.frame} with the source data
@@ -56,11 +56,11 @@ make.formulas <- function(data, blocks = make.blocks(data),
 #'
 #' This helper function names any unnamed elements in the \code{formula}
 #' list. This is a convenience function.
-#' @inheritParams mice
+#' @inheritParams mice.pcr.sim
 #' @param prefix A character vector of length 1 with the prefix to
 #' be using for naming any unnamed blocks with two or more variables.
 #' @return Named list of formulas
-#' @seealso \code{\link{mice}}
+#' @seealso \code{\link{mice.pcr.sim}}
 #' @details
 #' This function will name any unnamed list elements specified in
 #' the optional argument \code{formula}. Unnamed formula's
@@ -76,28 +76,28 @@ make.formulas <- function(data, blocks = make.blocks(data),
 #'   chl ~ age + bmi + hyp
 #' )
 #' form1 <- name.formulas(form1)
-#' imp1 <- mice(nhanes, formulas = form1, print = FALSE, m = 1, seed = 12199)
+#' imp1 <- mice.pcr.sim(nhanes, formulas = form1, print = FALSE, m = 1, seed = 12199)
 #'
 #' # same model using dot notation
 #' form2 <- list(bmi ~ ., hyp ~ ., chl ~ .)
 #' form2 <- name.formulas(form2)
-#' imp2 <- mice(nhanes, formulas = form2, print = FALSE, m = 1, seed = 12199)
+#' imp2 <- mice.pcr.sim(nhanes, formulas = form2, print = FALSE, m = 1, seed = 12199)
 #' identical(complete(imp1), complete(imp2))
 #'
 #' # same model using repeated multivariate imputation
 #' form3 <- name.blocks(list(all = bmi + hyp + chl ~ .))
-#' imp3 <- mice(nhanes, formulas = form3, print = FALSE, m = 1, seed = 12199)
+#' imp3 <- mice.pcr.sim(nhanes, formulas = form3, print = FALSE, m = 1, seed = 12199)
 #' cmp3 <- complete(imp3)
 #' identical(complete(imp1), complete(imp3))
 #'
 #' # same model using predictorMatrix
-#' imp4 <- mice(nhanes, print = FALSE, m = 1, seed = 12199, auxiliary = TRUE)
+#' imp4 <- mice.pcr.sim(nhanes, print = FALSE, m = 1, seed = 12199, auxiliary = TRUE)
 #' identical(complete(imp1), complete(imp4))
 #'
 #' # different model: multivariate imputation for chl and bmi
 #' form5 <- list(chl + bmi ~ ., hyp ~ bmi + age)
 #' form5 <- name.formulas(form5)
-#' imp5 <- mice(nhanes, formulas = form5, print = FALSE, m = 1, seed = 71712)
+#' imp5 <- mice.pcr.sim(nhanes, formulas = form5, print = FALSE, m = 1, seed = 71712)
 #' @export
 name.formulas <- function(formulas, prefix = "F") {
   if (!is.list(formulas)) {
@@ -139,7 +139,7 @@ check.formulas <- function(formulas, data) {
 
 #' Extends formula's with predictor matrix settings
 #'
-#' @inheritParams mice
+#' @inheritParams mice.pcr.sim
 #' @return A list of formula's
 #' @param auxiliary A logical that indicates whether the variables
 #' listed in \code{predictors} should be added to the formula as main

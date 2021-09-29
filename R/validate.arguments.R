@@ -1,6 +1,6 @@
 validate.arguments <- function(y, ry, x, wy, allow.x.NULL = FALSE,
                                allow.x.NA = FALSE) {
-  # validate standard arguments of mice.impute functions
+  # validate standard arguments of mice.pcr.sim.impute functions
   if (!allow.x.NULL && is.null(x)) {
     stop("Cannot handle NULL value for `x`")
   }

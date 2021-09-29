@@ -6,7 +6,7 @@
 #' The function is useful to convert back operations applied to
 #' the imputed data back in a \code{mids} object. It may also be
 #' used to store multiply imputed data sets from other software
-#' into the format used by \code{mice}.
+#' into the format used by \code{mice.pcr.sim}.
 #' @note The function expects the input data \code{long} to be sorted by
 #' imputation number (variable \code{".imp"} by default), and in the
 #' same sequence within each imputation block.
@@ -24,12 +24,12 @@
 #' function searches for a variable named \code{".id"}. If this variable
 #' is found, the values in the column will define the row names in
 #' the \code{data} element of the resulting \code{mids} object.
-#' @inheritParams mice
+#' @inheritParams mice.pcr.sim
 #' @return An object of class \code{mids}
 #' @author Gerko Vink
 #' @examples
 #' # impute the nhanes dataset
-#' imp <- mice(nhanes, print = FALSE)
+#' imp <- mice.pcr.sim(nhanes, print = FALSE)
 #' # extract the data in long format
 #' X <- complete(imp, action = "long", include = TRUE)
 #' # create dataset with .imp variable as numeric
@@ -101,9 +101,9 @@ as.mids <- function(long, where = NULL, .imp = ".imp", .id = ".id") {
   # determine m
   m <- length(unique(imps)) - 1
 
-  # use mice to get info on data
+  # use mice.pcr.sim to get info on data
   if (is.null(where)) where <- is.na(data)
-  ini <- mice(data,
+  ini <- mice.pcr.sim(data,
     m = m, where = where, maxit = 0,
     remove.collinear = FALSE, allow.na = TRUE
   )

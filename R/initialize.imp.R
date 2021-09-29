@@ -13,7 +13,7 @@ initialize.imp <- function(data, m, ignore, where, blocks, visitSequence,
       if (method[h] != "") {
         for (i in seq_len(m)) {
           if (nmis[j] < nrow(data) && is.null(data.init)) {
-            imp[[j]][, i] <- mice.impute.sample(y, ry, wy = wy)
+            imp[[j]][, i] <- mice.pcr.sim.impute.sample(y, ry, wy = wy)
           } else if (!is.null(data.init)) {
             imp[[j]][, i] <- data.init[wy, j]
           } else {

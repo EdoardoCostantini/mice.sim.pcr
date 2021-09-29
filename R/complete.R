@@ -5,7 +5,7 @@
 #'
 #' @aliases complete
 #' @param data An object of class \code{mids} as created by the function
-#' \code{mice()}.
+#' \code{mice.pcr.sim()}.
 #' @param action A numeric vector or a keyword. Numeric
 #' values between 1 and \code{data$m} return the data with
 #' imputation number \code{action} filled in. The value of \code{action = 0}
@@ -43,18 +43,18 @@
 #' columns in a different order.}
 #' }
 #' @note
-#' Technical note: \code{mice 3.7.5} renamed the \code{complete()} function
+#' Technical note: \code{mice.pcr.sim 3.7.5} renamed the \code{complete()} function
 #' to \code{complete.mids()} and exported it as an S3 method of the
 #' generic \code{tidyr::complete()}. Name clashes between
-#' \code{mice::complete()} and \code{tidyr::complete()} should no
+#' \code{mice.pcr.sim::complete()} and \code{tidyr::complete()} should no
 #' longer occur.
-#' @seealso \code{\link{mice}}, \code{\link[=mids-class]{mids}}
+#' @seealso \code{\link{mice.pcr.sim}}, \code{\link[=mids-class]{mids}}
 #' @keywords manip
 #' @examples
 #'
 #' # obtain first imputed data set
 #' sum(is.na(nhanes2))
-#' imp <- mice(nhanes2, print = FALSE, maxit = 1)
+#' imp <- mice.pcr.sim(nhanes2, print = FALSE, maxit = 1)
 #' dat <- complete(imp)
 #' sum(is.na(dat))
 #'

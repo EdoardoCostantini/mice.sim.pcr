@@ -48,7 +48,7 @@
 #' pattern.}
 #' \item{\code{data}:}{The complete data set that was entered in \code{ampute}.}
 #' }
-#' @note Many of the functions of the \code{mice} package do not use the S4 class
+#' @note Many of the functions of the \code{mice.pcr.sim} package do not use the S4 class
 #' definitions, and instead rely on the S3 list equivalent
 #' \code{oldClass(obj) <- "mads"}.
 #' @author Rianne Schouten, 2016

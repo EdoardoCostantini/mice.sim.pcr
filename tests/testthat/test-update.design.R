@@ -1,14 +1,14 @@
 context("update.design")
 
 data <- nhanes2
-design <- mice:::obtain.design(data)
-d1 <- mice:::update.design(design, data, varname = "age")
-d2 <- mice:::update.design(design, data, varname = "bmi")
-d3 <- mice:::update.design(design, data, varname = "hyp")
-d4 <- mice:::update.design(design, data, varname = ".")
-d5 <- mice:::update.design(design, data, varname = "xxxx")
-d6 <- mice:::update.design(design, data, varname = "")
-d7 <- mice:::update.design(design, data, varname = c("xxx", "age"))
+design <- mice.pcr.sim:::obtain.design(data)
+d1 <- mice.pcr.sim:::update.design(design, data, varname = "age")
+d2 <- mice.pcr.sim:::update.design(design, data, varname = "bmi")
+d3 <- mice.pcr.sim:::update.design(design, data, varname = "hyp")
+d4 <- mice.pcr.sim:::update.design(design, data, varname = ".")
+d5 <- mice.pcr.sim:::update.design(design, data, varname = "xxxx")
+d6 <- mice.pcr.sim:::update.design(design, data, varname = "")
+d7 <- mice.pcr.sim:::update.design(design, data, varname = c("xxx", "age"))
 
 test_that("updates itself", {
   expect_identical(design, d1)
@@ -21,13 +21,13 @@ test_that("updates itself", {
 })
 
 data <- nhanes2
-design <- mice:::obtain.design(data)
+design <- mice.pcr.sim:::obtain.design(data)
 data$age[1:4] <- data$age[4:1]
 data$bmi[1:4] <- data$bmi[4:1]
 data$hyp[1:4] <- data$hyp[4:1]
-d1 <- mice:::update.design(design, data, varname = "age")
-d2 <- mice:::update.design(design, data, varname = "bmi")
-d3 <- mice:::update.design(design, data, varname = ".")
+d1 <- mice.pcr.sim:::update.design(design, data, varname = "age")
+d2 <- mice.pcr.sim:::update.design(design, data, varname = "bmi")
+d3 <- mice.pcr.sim:::update.design(design, data, varname = ".")
 
 test_that("caries through selected row reversals", {
   expect_identical(

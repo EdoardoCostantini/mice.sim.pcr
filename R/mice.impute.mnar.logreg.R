@@ -1,6 +1,6 @@
-#' @rdname mice.impute.mnar
+#' @rdname mice.pcr.sim.impute.mnar
 #' @export
-mice.impute.mnar.logreg <- function(y, ry, x, wy = NULL,
+mice.pcr.sim.impute.mnar.logreg <- function(y, ry, x, wy = NULL,
                                     ums = NULL, umx = NULL, ...) {
 
   ## Undentifiable part:
@@ -9,7 +9,7 @@ mice.impute.mnar.logreg <- function(y, ry, x, wy = NULL,
   if (is.null(wy)) wy <- !ry
   wyold <- wy
 
-  ## Identifiable part: exactly the same as mice.impute.logreg
+  ## Identifiable part: exactly the same as mice.pcr.sim.impute.logreg
 
   # augment data in order to evade perfect prediction
   aug <- augment(y, ry, x, wy)

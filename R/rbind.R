@@ -50,14 +50,14 @@
 #' }
 #' @author Karin Groothuis-Oudshoorn, Stef van Buuren
 #' @seealso \code{\link{cbind.mids}}, \code{\link{ibind}}, \code{\link[=mids-class]{mids}}
-#' @references van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice}:
+#' @references van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice.pcr.sim}:
 #' Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 #' Statistical Software}, \bold{45}(3), 1-67.
 #' \url{https://www.jstatsoft.org/v45/i03/}
 #' @keywords manip
 #' @examples
-#' imp1 <- mice(nhanes[1:13, ], m = 2, maxit = 1, print = FALSE)
-#' imp5 <- mice(nhanes[1:13, ], m = 2, maxit = 2, print = FALSE)
+#' imp1 <- mice.pcr.sim(nhanes[1:13, ], m = 2, maxit = 1, print = FALSE)
+#' imp5 <- mice.pcr.sim(nhanes[1:13, ], m = 2, maxit = 2, print = FALSE)
 #' mylist <- list(age = NA, bmi = NA, hyp = NA, chl = NA)
 #'
 #' nrow(complete(rbind(imp1, imp5)))
@@ -87,7 +87,7 @@ rbind.mids <- function(x, y = NULL, ...) {
 
   varnames <- colnames(x$data)
 
-  # Call is a vector, with first argument the mice statement and second argument the call to cbind.mids.
+  # Call is a vector, with first argument the mice.pcr.sim statement and second argument the call to cbind.mids.
   call <- c(x$call, call)
 
   # The data in x (x$data) and y are combined together.
@@ -144,7 +144,7 @@ rbind.mids <- function(x, y = NULL, ...) {
     chainMean = chainMean,
     chainVar = chainVar,
     loggedEvents = loggedEvents,
-    version = packageVersion("mice"),
+    version = packageVersion("mice.pcr.sim"),
     date = Sys.Date()
   )
   oldClass(midsobj) <- "mids"
@@ -168,7 +168,7 @@ rbind.mids.mids <- function(x, y, call) {
   }
   varnames <- colnames(x$data)
 
-  # Call is a vector, with first argument the mice statement and second argument the call to cbind.mids.
+  # Call is a vector, with first argument the mice.pcr.sim statement and second argument the call to cbind.mids.
   call <- match.call()
   call <- c(x$call, call)
 
@@ -239,7 +239,7 @@ rbind.mids.mids <- function(x, y, call) {
     chainMean = chainMean,
     chainVar = chainVar,
     loggedEvents = loggedEvents,
-    version = packageVersion("mice"),
+    version = packageVersion("mice.pcr.sim"),
     date = Sys.Date()
   )
   oldClass(midsobj) <- "mids"

@@ -17,8 +17,8 @@
 #' current imputation.  If that happens we see flat lines in the
 #' trace line plots. Thus, the appearance of flat trace lines should be taken
 #' as an additional alert to a problem with imputation model fitting.
-#' @name mice.impute.2l.lmer
-#' @inheritParams mice.impute.pmm
+#' @name mice.pcr.sim.impute.2l.lmer
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param type Vector of length \code{ncol(x)} identifying random and class
 #' variables.  Random variables are identified by a '2'. The class variable
 #' (only one is allowed) is coded as '-2'. Fixed effects are indicated by
@@ -45,7 +45,7 @@
 #' @family univariate-2l
 #' @keywords datagen
 #' @export
-mice.impute.2l.lmer <- function(y, ry, x, type, wy = NULL, intercept = TRUE, ...) {
+mice.pcr.sim.impute.2l.lmer <- function(y, ry, x, type, wy = NULL, intercept = TRUE, ...) {
   install.on.demand("lme4", ...)
   if (is.null(wy)) wy <- !ry
 

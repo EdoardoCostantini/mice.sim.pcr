@@ -5,18 +5,18 @@
 #' level 2 must be indicated by \code{type = -2} in the \code{predictorMatrix}.
 #'
 #' @aliases 2lonly.pmm
-#' @inheritParams mice.impute.pmm
+#' @inheritParams mice.pcr.sim.impute.pmm
 #' @param type Group identifier must be specified by '-2'. Predictors must be
 #' specified by '1'.
 #' @param ... Other named arguments.
 #' @return A vector of length \code{nmis} with imputations.
 #' @author Alexander Robitzsch (IPN - Leibniz Institute for Science and
 #' Mathematics Education, Kiel, Germany), \email{robitzsch@@ipn.uni-kiel.de}
-#' @seealso \code{\link{mice.impute.pmm}},
-#' \code{\link{mice.impute.2lonly.norm}}, \code{\link{mice.impute.2l.pan}},
-#' \code{\link{mice.impute.2lonly.mean}}
+#' @seealso \code{\link{mice.pcr.sim.impute.pmm}},
+#' \code{\link{mice.pcr.sim.impute.2lonly.norm}}, \code{\link{mice.pcr.sim.impute.2l.pan}},
+#' \code{\link{mice.pcr.sim.impute.2lonly.mean}}
 #' @details
-#' This function allows in combination with \code{\link{mice.impute.2l.pan}}
+#' This function allows in combination with \code{\link{mice.pcr.sim.impute.2l.pan}}
 #' switching regression imputation between level 1 and level 2 as described in
 #' Yucel (2008) or Gelman and Hill (2007, p. 541).
 #'
@@ -44,7 +44,7 @@
 #' approximately ordered, but less so for pure nominal measures.
 #'
 #' For a more general approach, see
-#' \code{miceadds::mice.impute.2lonly.function()}.
+#' \code{miceadds::mice.pcr.sim.impute.2lonly.function()}.
 #' @family univariate-2lonly
 #' @examples
 #' # simulate some data
@@ -67,8 +67,8 @@
 #' dfr[rep(rnorm(G), each = n) < qnorm(missrate), "w"] <- NA
 #' dfr[rep(rnorm(G), each = n) < qnorm(missrate), "v"] <- NA
 #'
-#' # empty mice imputation
-#' imp0 <- mice(as.matrix(dfr), maxit = 0)
+#' # empty mice.pcr.sim imputation
+#' imp0 <- mice.pcr.sim(as.matrix(dfr), maxit = 0)
 #' predM <- imp0$predictorMatrix
 #' impM <- imp0$method
 #'
@@ -90,13 +90,13 @@
 #' # skip imputation on solaris
 #' is.solaris <- function() grepl("SunOS", Sys.info()["sysname"])
 #' if (!is.solaris()) {
-#'   imp <- mice(dfr,
+#'   imp <- mice.pcr.sim(dfr,
 #'     m = 1, predictorMatrix = predM1,
 #'     method = impM1, maxit = 1, paniter = 500
 #'   )
 #' }
 #' @export
-mice.impute.2lonly.pmm <- function(y, ry, x, type, wy = NULL, ...) {
+mice.pcr.sim.impute.2lonly.pmm <- function(y, ry, x, type, wy = NULL, ...) {
   .imputation.level2(
     y = y, ry = ry, x = x, type = type, wy = wy,
     method = "pmm", ...
@@ -146,7 +146,7 @@ mice.impute.2lonly.pmm <- function(y, ry, x, type, wy = NULL, ...) {
 
   # norm imputation at level 2
   if (method == "norm") {
-    ximp2 <- mice.impute.norm(
+    ximp2 <- mice.pcr.sim.impute.norm(
       y = y2, ry = ry2, x = x2,
       wy = wy2, ...
     )
@@ -154,7 +154,7 @@ mice.impute.2lonly.pmm <- function(y, ry, x, type, wy = NULL, ...) {
 
   # pmm imputation at level 2
   if (method == "pmm") {
-    ximp2 <- mice.impute.pmm(
+    ximp2 <- mice.pcr.sim.impute.pmm(
       y = y2, ry = ry2, x = x2,
       wy = wy2, ...
     )

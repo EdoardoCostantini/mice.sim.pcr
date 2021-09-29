@@ -2,10 +2,10 @@
 #'
 #' Calculates the number of cells within a block for which imputation
 #' is requested.
-#' @inheritParams mice
+#' @inheritParams mice.pcr.sim
 #' @return  A numeric vector of length \code{length(blocks)} containing
 #' the number of cells that need to be imputed within a block.
-#' @seealso \code{\link{mice}}
+#' @seealso \code{\link{mice.pcr.sim}}
 #' @export
 #' @examples
 #' where <- is.na(nhanes)

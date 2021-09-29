@@ -1,11 +1,11 @@
 #' Creates a \code{visitSequence} argument
 #'
 #' This helper function creates a valid \code{visitSequence}. The
-#' \code{visitSequence} is an argument to the \code{mice} function that
+#' \code{visitSequence} is an argument to the \code{mice.pcr.sim} function that
 #' specifies the sequence in which blocks are imputed.
-#' @inheritParams mice
+#' @inheritParams mice.pcr.sim
 #' @return Vector containing block names
-#' @seealso \code{\link{mice}}
+#' @seealso \code{\link{mice.pcr.sim}}
 #' @examples
 #' make.visitSequence(nhanes)
 #' @export

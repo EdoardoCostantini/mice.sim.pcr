@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Imputation by the mean — mice.impute.mean • mice</title>
+<title>Imputation by the mean — mice.pcr.sim.impute.mean • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -45,7 +45,7 @@
 
 
 
-<meta property="og:title" content="Imputation by the mean — mice.impute.mean" />
+<meta property="og:title" content="Imputation by the mean — mice.pcr.sim.impute.mean" />
 <meta property="og:description" content="Imputes the arithmetic mean of the observed data" />
 
 
@@ -77,7 +77,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -114,7 +114,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -139,15 +139,15 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Imputation by the mean</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/mice.impute.mean.R'><code>R/mice.impute.mean.R</code></a></small>
-    <div class="hidden name"><code>mice.impute.mean.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.impute.mean.R'><code>R/mice.pcr.sim.impute.mean.R</code></a></small>
+    <div class="hidden name"><code>mice.pcr.sim.impute.mean.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Imputes the arithmetic mean of the observed data</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mice.impute.mean</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, x <span class='op'>=</span> <span class='cn'>NULL</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>mice.pcr.sim.impute.mean</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>ry</span>, x <span class='op'>=</span> <span class='cn'>NULL</span>, wy <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -190,7 +190,7 @@ appropriate.  See Little and Rubin (2002, p. 61-62) or
 Van Buuren (2012, p. 10-11)</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Van Buuren, S., Groothuis-Oudshoorn, K. (2011). <code>mice</code>:
+    <p>Van Buuren, S., Groothuis-Oudshoorn, K. (2011). <code>mice.pcr.sim</code>:
 Multivariate Imputation by Chained Equations in <code>R</code>. <em>Journal of
 Statistical Software</em>, <b>45</b>(3), 1-67.
 <a href='https://www.jstatsoft.org/v45/i03/'>https://www.jstatsoft.org/v45/i03/</a></p>
@@ -201,24 +201,24 @@ Data.  New York: John Wiley and Sons.</p>
 Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='mice.html'>mice</a></code>, <code><a href='https://rdrr.io/r/base/mean.html'>mean</a></code></p>
+    <div class='dont-index'><p><code><a href='mice.pcr.sim.html'>mice.pcr.sim</a></code>, <code><a href='https://rdrr.io/r/base/mean.html'>mean</a></code></p>
 <p>Other univariate imputation functions: 
-<code><a href='mice.impute.cart.html'>mice.impute.cart</a>()</code>,
-<code><a href='mice.impute.lda.html'>mice.impute.lda</a>()</code>,
-<code><a href='mice.impute.logreg.boot.html'>mice.impute.logreg.boot</a>()</code>,
-<code><a href='mice.impute.logreg.html'>mice.impute.logreg</a>()</code>,
-<code><a href='mice.impute.midastouch.html'>mice.impute.midastouch</a>()</code>,
-<code><a href='mice.impute.mnar.logreg.html'>mice.impute.mnar.logreg</a>()</code>,
-<code><a href='mice.impute.norm.boot.html'>mice.impute.norm.boot</a>()</code>,
-<code><a href='mice.impute.norm.nob.html'>mice.impute.norm.nob</a>()</code>,
-<code><a href='mice.impute.norm.predict.html'>mice.impute.norm.predict</a>()</code>,
-<code><a href='mice.impute.norm.html'>mice.impute.norm</a>()</code>,
-<code><a href='mice.impute.pmm.html'>mice.impute.pmm</a>()</code>,
-<code><a href='mice.impute.polr.html'>mice.impute.polr</a>()</code>,
-<code><a href='mice.impute.polyreg.html'>mice.impute.polyreg</a>()</code>,
-<code><a href='mice.impute.quadratic.html'>mice.impute.quadratic</a>()</code>,
-<code><a href='mice.impute.rf.html'>mice.impute.rf</a>()</code>,
-<code><a href='mice.impute.ri.html'>mice.impute.ri</a>()</code></p></div>
+<code><a href='mice.pcr.sim.impute.cart.html'>mice.pcr.sim.impute.cart</a>()</code>,
+<code><a href='mice.pcr.sim.impute.lda.html'>mice.pcr.sim.impute.lda</a>()</code>,
+<code><a href='mice.pcr.sim.impute.logreg.boot.html'>mice.pcr.sim.impute.logreg.boot</a>()</code>,
+<code><a href='mice.pcr.sim.impute.logreg.html'>mice.pcr.sim.impute.logreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.midastouch.html'>mice.pcr.sim.impute.midastouch</a>()</code>,
+<code><a href='mice.pcr.sim.impute.mnar.logreg.html'>mice.pcr.sim.impute.mnar.logreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.boot.html'>mice.pcr.sim.impute.norm.boot</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.nob.html'>mice.pcr.sim.impute.norm.nob</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.predict.html'>mice.pcr.sim.impute.norm.predict</a>()</code>,
+<code><a href='mice.pcr.sim.impute.norm.html'>mice.pcr.sim.impute.norm</a>()</code>,
+<code><a href='mice.pcr.sim.impute.pmm.html'>mice.pcr.sim.impute.pmm</a>()</code>,
+<code><a href='mice.pcr.sim.impute.polr.html'>mice.pcr.sim.impute.polr</a>()</code>,
+<code><a href='mice.pcr.sim.impute.polyreg.html'>mice.pcr.sim.impute.polyreg</a>()</code>,
+<code><a href='mice.pcr.sim.impute.quadratic.html'>mice.pcr.sim.impute.quadratic</a>()</code>,
+<code><a href='mice.pcr.sim.impute.rf.html'>mice.pcr.sim.impute.rf</a>()</code>,
+<code><a href='mice.pcr.sim.impute.ri.html'>mice.pcr.sim.impute.ri</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -248,7 +248,7 @@ Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

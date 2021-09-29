@@ -2,14 +2,14 @@
 #'
 #' This function is a wrapper around the \code{jomoImpute} function
 #' from the \code{mitml} package so that it can be called to
-#' impute blocks of variables in \code{mice}. The \code{mitml::jomoImpute}
+#' impute blocks of variables in \code{mice.pcr.sim}. The \code{mitml::jomoImpute}
 #' function provides an interface to the \code{jomo} package for
 #' multiple imputation of multilevel data
 #' \url{https://CRAN.R-project.org/package=jomo}.
 #' Imputations can be generated using \code{type} or \code{formula},
 #' which offer different options for model specification.
 #'
-#' @name mice.impute.jomoImpute
+#' @name mice.pcr.sim.impute.jomoImpute
 #' @inheritParams mitml::jomoImpute
 #' @param data A data frame containing incomplete and auxiliary variables,
 #' the cluster indicator variable, and any other variables that should be
@@ -31,7 +31,7 @@
 #' object.
 #' @seealso \code{\link[mitml]{jomoImpute}}
 #' @note The number of imputations \code{m} is set to 1, and the function
-#' is called \code{m} times so that it fits within the \code{mice}
+#' is called \code{m} times so that it fits within the \code{mice.pcr.sim}
 #' iteration scheme.
 #'
 #' This is a multivariate imputation function using a joint model.
@@ -55,13 +55,13 @@
 #' # Note: Requires mitml 0.3-5.7
 #' blocks <- list(c("bmi", "chl", "hyp"), "age")
 #' method <- c("jomoImpute", "pmm")
-#' ini <- mice(nhanes, blocks = blocks, method = method, maxit = 0)
+#' ini <- mice.pcr.sim(nhanes, blocks = blocks, method = method, maxit = 0)
 #' pred <- ini$pred
 #' pred["B1", "hyp"] <- -2
-#' imp <- mice(nhanes, blocks = blocks, method = method, pred = pred, maxit = 1)
+#' imp <- mice.pcr.sim(nhanes, blocks = blocks, method = method, pred = pred, maxit = 1)
 #' }
 #' @export
-mice.impute.jomoImpute <- function(data, formula, type, m = 1, silent = TRUE,
+mice.pcr.sim.impute.jomoImpute <- function(data, formula, type, m = 1, silent = TRUE,
                                    format = "imputes", ...) {
   install.on.demand("mitml", ...)
 

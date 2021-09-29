@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>mice: Multivariate Imputation by Chained Equations — mice • mice</title>
+<title>mice.pcr.sim: Multivariate Imputation by Chained Equations — mice.pcr.sim • mice.pcr.sim</title>
 
 
 <!-- jquery -->
@@ -45,8 +45,8 @@
 
 
 
-<meta property="og:title" content="mice: Multivariate Imputation by Chained Equations — mice" />
-<meta property="og:description" content="The mice package implements a method to deal with missing data.
+<meta property="og:title" content="mice.pcr.sim: Multivariate Imputation by Chained Equations — mice.pcr.sim" />
+<meta property="og:description" content="The mice.pcr.sim package implements a method to deal with missing data.
 The package creates multiple imputations (replacement values) for
 multivariate missing data. The method is based on Fully Conditional
 Specification, where each incomplete variable is imputed by a separate
@@ -86,7 +86,7 @@ Generates Multivariate Imputations by Chained Equations (MICE)" />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mice</a>
+        <a class="navbar-link" href="../index.html">mice.pcr.sim</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.9</span>
       </span>
     </div>
@@ -123,7 +123,7 @@ Generates Multivariate Imputations by Chained Equations (MICE)" />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/amices/mice/">
+  <a href="https://github.com/amices/mice.pcr.sim/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -147,13 +147,13 @@ Generates Multivariate Imputations by Chained Equations (MICE)" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1><span class="pkg">mice</span>: Multivariate Imputation by Chained Equations</h1>
-    <small class="dont-index">Source: <a href='https://github.com/amices/mice/blob/master/R/mice-package.R'><code>R/mice-package.R</code></a>, <a href='https://github.com/amices/mice/blob/master/R/mice.R'><code>R/mice.R</code></a></small>
-    <div class="hidden name"><code>mice.Rd</code></div>
+    <h1><span class="pkg">mice.pcr.sim</span>: Multivariate Imputation by Chained Equations</h1>
+    <small class="dont-index">Source: <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim-package.R'><code>R/mice.pcr.sim-package.R</code></a>, <a href='https://github.com/amices/mice.pcr.sim/blob/master/R/mice.pcr.sim.R'><code>R/mice.pcr.sim.R</code></a></small>
+    <div class="hidden name"><code>mice.pcr.sim.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The <span class="pkg">mice</span> package implements a method to deal with missing data.
+    <p>The <span class="pkg">mice.pcr.sim</span> package implements a method to deal with missing data.
 The package creates multiple imputations (replacement values) for
 multivariate missing data. The method is based on Fully Conditional
 Specification, where each incomplete variable is imputed by a separate
@@ -165,7 +165,7 @@ implemented to inspect the quality of the imputations.</p>
 <p>Generates Multivariate Imputations by Chained Equations (MICE)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mice</span><span class='op'>(</span>
+    <pre class="usage"><span class='fu'>mice.pcr.sim</span><span class='op'>(</span>
   <span class='va'>data</span>,
   m <span class='op'>=</span> <span class='fl'>5</span>,
   method <span class='op'>=</span> <span class='cn'>NULL</span>,
@@ -230,8 +230,8 @@ parameters of the imputation model, but are still imputed. We may use the
 <code>ignore</code> argument to split <code>data</code> into a training set (on which the
 imputation model is built) and a test set (that does not influence the
 imputation model estimates).
-Note: Multivariate imputation methods, like <code><a href='mice.impute.jomoImpute.html'>mice.impute.jomoImpute()</a></code>
-or <code><a href='mice.impute.panImpute.html'>mice.impute.panImpute()</a></code>, do not honour the <code>ignore</code> argument.</p></td>
+Note: Multivariate imputation methods, like <code><a href='mice.pcr.sim.impute.jomoImpute.html'>mice.pcr.sim.impute.jomoImpute()</a></code>
+or <code><a href='mice.pcr.sim.impute.panImpute.html'>mice.pcr.sim.impute.panImpute()</a></code>, do not honour the <code>ignore</code> argument.</p></td>
     </tr>
     <tr>
       <th>where</th>
@@ -317,7 +317,7 @@ levels) <code>polr</code>, proportional odds model for (ordered, &gt; 2 levels).
     </tr>
     <tr>
       <th>printFlag</th>
-      <td><p>If <code>TRUE</code>, <code>mice</code> will print history on console.
+      <td><p>If <code>TRUE</code>, <code>mice.pcr.sim</code> will print history on console.
 Use <code>print=FALSE</code> for silent computation.</p></td>
     </tr>
     <tr>
@@ -348,7 +348,7 @@ functions.</p></td>
        (multiply imputed data set)</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The <span class="pkg">mice</span> package contains functions to</p><ul>
+    <p>The <span class="pkg">mice.pcr.sim</span> package contains functions to</p><ul>
 <li><p>Inspect the missing data pattern</p></li>
 <li><p>Impute the missing data <em>m</em> times, resulting in <em>m</em> completed data sets</p></li>
 <li><p>Diagnose the quality of the imputed values</p></li>
@@ -406,28 +406,28 @@ variable.</p>
 </table>
 
 
-<p>These corresponding functions are coded in the <code>mice</code> library under
-names <code>mice.impute.method</code>, where <code>method</code> is a string with the
+<p>These corresponding functions are coded in the <code>mice.pcr.sim</code> library under
+names <code>mice.pcr.sim.impute.method</code>, where <code>method</code> is a string with the
 name of the univariate imputation method name, for example <code>norm</code>. The
 <code>method</code> argument specifies the methods to be used.  For the <code>j</code>'th
-column, <code>mice()</code> calls the first occurrence of
-<code><a href='https://rdrr.io/r/base/paste.html'>paste('mice.impute.', method[j], sep = '')</a></code> in the search path.  The
+column, <code>mice.pcr.sim()</code> calls the first occurrence of
+<code><a href='https://rdrr.io/r/base/paste.html'>paste('mice.pcr.sim.impute.', method[j], sep = '')</a></code> in the search path.  The
 mechanism allows uses to write customized imputation function,
-<code>mice.impute.myfunc</code>. To call it for all columns specify
+<code>mice.pcr.sim.impute.myfunc</code>. To call it for all columns specify
 <code>method='myfunc'</code>.  To call it only for, say, column 2 specify
 <code>method=c('norm','myfunc','logreg',...{})</code>.</p>
 <p><em>Skipping imputation:</em> The user may skip imputation of a column by
 setting its entry to the empty method: <code>""</code>. For complete columns without
-missing data <code>mice</code> will automatically set the empty method. Setting t
+missing data <code>mice.pcr.sim</code> will automatically set the empty method. Setting t
 he empty method does not produce imputations for the column, so any missing
 cells remain <code>NA</code>. If column A contains <code>NA</code>'s and is used as
-predictor in the imputation model for column B, then <code>mice</code> produces no
+predictor in the imputation model for column B, then <code>mice.pcr.sim</code> produces no
 imputations for the rows in B where A is missing. The imputed data
 for B may thus contain <code>NA</code>'s. The remedy is to remove column A from
 the imputation model for the other columns in the data. This can be done
 by setting the entire column for variable A in the <code>predictorMatrix</code>
 equal to zero.</p>
-<p><em>Passive imputation:</em> <code>mice()</code> supports a special built-in method,
+<p><em>Passive imputation:</em> <code>mice.pcr.sim()</code> supports a special built-in method,
 called passive imputation. This method can be used to ensure that a data
 transform always depends on the most recently generated imputations.  In some
 cases, an imputation model may need transformed data in addition to the
@@ -436,12 +436,12 @@ on).</p>
 <p>Passive imputation maintains consistency among different transformations of
 the same data. Passive imputation is invoked if <code><a href='https://rdrr.io/r/base/tilde.html'>~</a></code> is specified as the
 first character of the string that specifies the univariate method.
-<code>mice()</code> interprets the entire string, including the <code><a href='https://rdrr.io/r/base/tilde.html'>~</a></code> character,
+<code>mice.pcr.sim()</code> interprets the entire string, including the <code><a href='https://rdrr.io/r/base/tilde.html'>~</a></code> character,
 as the formula argument in a call to <code><a href='https://rdrr.io/r/stats/model.frame.html'>model.frame(formula,
 data[!r[,j],])</a></code>. This provides a simple mechanism for specifying deterministic
 dependencies among the columns. For example, suppose that the missing entries
 in variables <code>data$height</code> and <code>data$weight</code> are imputed. The body
-mass index (BMI) can be calculated within <code>mice</code> by specifying the
+mass index (BMI) can be calculated within <code>mice.pcr.sim</code> by specifying the
 string <code>'~I(weight/height^2)'</code> as the univariate imputation method for
 the target column <code>data$bmi</code>.  Note that the <code><a href='https://rdrr.io/r/base/tilde.html'>~</a></code> mechanism works
 only on those entries which have missing values in the target column. You
@@ -480,7 +480,7 @@ argument <code>auxiliary = FALSE</code>.</p>
 
 
 <p>The main functions are:</p><table class='table'>
-<tr><td><code>mice()</code></td><td>Impute the missing data *m* times</td></tr>
+<tr><td><code>mice.pcr.sim()</code></td><td>Impute the missing data *m* times</td></tr>
 <tr><td><code><a href='https://rdrr.io/r/base/with.html'>with()</a></code></td><td>Analyze completed data sets</td></tr>
 <tr><td><code><a href='pool.html'>pool()</a></code></td><td>Combine parameter estimates</td></tr>
 <tr><td><code><a href='complete.mids.html'>complete()</a></code></td><td>Export imputed data</td></tr>
@@ -495,14 +495,14 @@ argument <code>auxiliary = FALSE</code>.</p>
 
 <p>There is a detailed series of
 six online vignettes that walk you through solving realistic inference
-problems with mice.</p>
+problems with mice.pcr.sim.</p>
 <p>We suggest going through these vignettes in the following order</p><ol>
 <li><p><a href='https://www.gerkovink.com/miceVignettes/Ad_hoc_and_mice/Ad_hoc_methods.html'>Ad hoc methods and the MICE algorithm</a></p></li>
 <li><p><a href='https://www.gerkovink.com/miceVignettes/Convergence_pooling/Convergence_and_pooling.html'>Convergence and pooling</a></p></li>
 <li><p><a href='https://www.gerkovink.com/miceVignettes/Missingness_inspection/Missingness_inspection.html'>Inspecting how the observed data and missingness are related</a></p></li>
 <li><p><a href='https://www.gerkovink.com/miceVignettes/Passive_Post_processing/Passive_imputation_post_processing.html'>Passive imputation and post-processing</a></p></li>
 <li><p><a href='https://www.gerkovink.com/miceVignettes/Multi_level/Multi_level_data.html'>Imputing multilevel data</a></p></li>
-<li><p><a href='https://www.gerkovink.com/miceVignettes/Sensitivity_analysis/Sensitivity_analysis.html'>Sensitivity analysis with <span class="pkg">mice</span></a></p></li>
+<li><p><a href='https://www.gerkovink.com/miceVignettes/Sensitivity_analysis/Sensitivity_analysis.html'>Sensitivity analysis with <span class="pkg">mice.pcr.sim</span></a></p></li>
 </ol>
 
 <p>#'Van Buuren, S. (2018).
@@ -515,7 +515,7 @@ contains a lot of <a href='https://github.com/stefvanbuuren/fimdbook/tree/master
     
 
 
-<p>The <span class="pkg">mice</span> software was published in the <a href='https://www.jstatsoft.org/article/view/v045i03'>Journal of Statistical Software</a> (Van Buuren and Groothuis-Oudshoorn, 2011).
+<p>The <span class="pkg">mice.pcr.sim</span> software was published in the <a href='https://www.jstatsoft.org/article/view/v045i03'>Journal of Statistical Software</a> (Van Buuren and Groothuis-Oudshoorn, 2011).
 The first application of the method
 concerned missing blood pressure data (Van Buuren et. al., 1999).
 The term <em>Fully Conditional Specification</em> was introduced in 2006 to describe a general class of methods that specify imputations model for multivariate data as a set of conditional distributions (Van Buuren et. al., 2006). Further details on mixes of variables and applications can be found in the book
@@ -537,13 +537,13 @@ imputation of missing blood pressure covariates in survival analysis.
 <p>van Buuren, S., Brand, J.P.L., Groothuis-Oudshoorn C.G.M., Rubin, D.B. (2006)
 Fully conditional specification in multivariate imputation.  <em>Journal of
 Statistical Computation and Simulation</em>, <b>76</b>, 12, 1049--1064.</p>
-<p>van Buuren, S., Groothuis-Oudshoorn, K. (2011). <a href='https://www.jstatsoft.org/v45/i03/'><code>mice</code>:
+<p>van Buuren, S., Groothuis-Oudshoorn, K. (2011). <a href='https://www.jstatsoft.org/v45/i03/'><code>mice.pcr.sim</code>:
 Multivariate Imputation by Chained Equations in <code>R</code></a>. <em>Journal of
 Statistical Software</em>, <b>45</b>(3), 1--67.</p>
 <p>Van Buuren, S. (2018).
 <a href='https://stefvanbuuren.name/fimd/'><em>Flexible Imputation of Missing Data. Second Edition.</em></a>
 Chapman &amp; Hall/CRC. Boca Raton, FL.</p>
-<p>Van Buuren, S., Groothuis-Oudshoorn, K. (2011). <code>mice</code>:
+<p>Van Buuren, S., Groothuis-Oudshoorn, K. (2011). <code>mice.pcr.sim</code>:
 Multivariate Imputation by Chained Equations in <code>R</code>. <em>Journal of
 Statistical Software</em>, <b>45</b>(3), 1-67.
 <a href='https://www.jstatsoft.org/v45/i03/'>https://www.jstatsoft.org/v45/i03/</a></p>
@@ -564,7 +564,7 @@ multiple imputation strategies for the statistical analysis of incomplete
 data sets.</em> Dissertation. Rotterdam: Erasmus University.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>mice</code>, <code><a href='with.mids.html'>with.mids</a></code>,
+    <div class='dont-index'><p><code>mice.pcr.sim</code>, <code><a href='with.mids.html'>with.mids</a></code>,
 <code><a href='pool.html'>pool</a></code>, <code><a href='complete.mids.html'>complete</a></code>, <code><a href='ampute.html'>ampute</a></code></p>
 <p><code><a href='mids-class.html'>mids</a></code>, <code><a href='with.mids.html'>with.mids</a></code>,
 <code><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></code>, <code><a href='complete.mids.html'>complete</a></code></p></div>
@@ -578,7 +578,7 @@ John Fox, Frank E. Harrell, and Peter Malewski.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># do default multiple imputation on a numeric matrix</span>
-<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'>mice</span><span class='op'>(</span><span class='va'>nhanes</span><span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='fu'>mice.pcr.sim</span><span class='op'>(</span><span class='va'>nhanes</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  iter imp variable
 #&gt;   1   1  bmi  hyp  chl
@@ -658,7 +658,7 @@ John Fox, Frank E. Harrell, and Peter Malewski.</p>
 #&gt; 24   3 24.9   1 186
 #&gt; 25   2 27.4   1 186</div><div class='input'>
 <span class='co'># imputation on mixed data with a different method per column</span>
-<span class='fu'>mice</span><span class='op'>(</span><span class='va'>nhanes2</span>, meth <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sample"</span>, <span class='st'>"pmm"</span>, <span class='st'>"logreg"</span>, <span class='st'>"norm"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>mice.pcr.sim</span><span class='op'>(</span><span class='va'>nhanes2</span>, meth <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sample"</span>, <span class='st'>"pmm"</span>, <span class='st'>"logreg"</span>, <span class='st'>"norm"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt;  iter imp variable
 #&gt;   1   1  bmi  hyp  chl
@@ -724,7 +724,7 @@ John Fox, Frank E. Harrell, and Peter Malewski.</p>
     
     
     apiKey: '491b6c2ead7f15b8c26c513b923dd6a0',
-    indexName: 'mice',
+    indexName: 'mice.pcr.sim',
     inputSelector: 'input#search-input.form-control',
     transformData: function(hits) {
       return hits.map(function (hit) {

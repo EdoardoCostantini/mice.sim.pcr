@@ -18,10 +18,10 @@
 #' @keywords manip
 #' @examples
 #' data(nhanes)
-#' imp1 <- mice(nhanes, m = 1, maxit = 2, print = FALSE)
+#' imp1 <- mice.pcr.sim(nhanes, m = 1, maxit = 2, print = FALSE)
 #' imp1$m
 #'
-#' imp2 <- mice(nhanes, m = 3, maxit = 3, print = FALSE)
+#' imp2 <- mice.pcr.sim(nhanes, m = 3, maxit = 3, print = FALSE)
 #' imp2$m
 #'
 #' imp12 <- ibind(imp1, imp2)
@@ -97,7 +97,7 @@ ibind <- function(x, y) {
     chainMean = chainMean,
     chainVar = chainVar,
     loggedEvents = x$loggedEvents,
-    version = packageVersion("mice"),
+    version = packageVersion("mice.pcr.sim"),
     date = Sys.Date()
   )
   oldClass(midsobj) <- "mids"
