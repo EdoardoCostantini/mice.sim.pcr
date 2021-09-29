@@ -39,12 +39,12 @@ mice.impute.pcr.mixed <- function(y, ry, x, wy = NULL, npcs, ...) {
   if(npcs >= 1){
     # npcs as NOT-a-proportion
     pcs_keep <- 1:npcs
-    x_pcs <- pcr_out$x[, pcs_keep, drop = FALSE]
   } else {
     # npcs as a proportion
     pcs_keep <- cumsum(pc_var_exp) <= npcs
-    x_pcs <- pcr_out$x[, pcs_keep, drop = FALSE]
   }
+  x_pcs <- pcr_out$x[, pcs_keep, drop = FALSE]
+  pca_exp <- sum(pc_var_exp[pcs_keep])
 
   # Use traditional norm.boot machinery to obtain prediction
   x <- cbind(1, as.matrix(x_pcs))
@@ -55,5 +55,7 @@ mice.impute.pcr.mixed <- function(y, ry, x, wy = NULL, npcs, ...) {
   dotyobs <- y[ry][s]
   p <- estimice(dotxobs, dotyobs, ...)
   sigma <- sqrt((sum(p$r^2)) / (n1 - ncol(x) - 1))
-  x[wy, ] %*% p$c + rnorm(sum(wy)) * sigma
+  imputes <- x[wy, ] %*% p$c + rnorm(sum(wy)) * sigma
+  return(list(imputes = imputes,
+              pca_exp = pca_exp))
 }

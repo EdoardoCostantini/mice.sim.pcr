@@ -417,13 +417,27 @@ mice <- function(data,
     method, nmis, data.init
   )
 
+  # initialize pc storing object
+  ## Create PC storing
+  pcs <- vector("list", ncol(data))
+  names(pcs) <- names(data)
+  r <- !is.na(data)
+  for (h in visitSequence) {
+    for (j in blocks[[h]]) {
+      y <- data[, j]
+      ry <- r[, j] & !ignore
+      wy <- where[, j]
+      pcs[[j]] <- as.data.frame(matrix(NA, nrow = 1, ncol = m))
+    }
+  }
+
   # and iterate...
   from <- 1
   to <- from + maxit - 1
   q <- sampler(
     data, m, ignore, where, imp, blocks, method,
     visitSequence, predictorMatrix, formulas, blots,
-    post, c(from, to), printFlag, ...
+    post, c(from, to), printFlag, pcs, ...
   )
 
   if (!state$log) loggedEvents <- NULL
@@ -452,7 +466,8 @@ mice <- function(data,
     chainVar = q$chainVar,
     loggedEvents = loggedEvents,
     version = packageVersion("mice"),
-    date = Sys.Date()
+    date = Sys.Date(),
+    pcs = q$pcs
   )
   oldClass(midsobj) <- "mids"
 

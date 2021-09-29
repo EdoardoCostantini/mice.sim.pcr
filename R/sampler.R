@@ -2,7 +2,7 @@
 # This function is called by mice and mice.mids
 sampler <- function(data, m, ignore, where, imp, blocks, method,
                     visitSequence, predictorMatrix, formulas, blots,
-                    post, fromto, printFlag, ...) {
+                    post, fromto, printFlag, pcs, ...) {
   from <- fromto[1]
   to <- fromto[2]
   maxit <- to - from + 1
@@ -71,7 +71,7 @@ sampler <- function(data, m, ignore, where, imp, blocks, method,
           # (repeated) univariate imputation - type method
           if (univ) {
             for (j in b) {
-              imp[[j]][, i] <-
+              sampler.univ.out <-
                 sampler.univ(
                   data = data, r = r, where = where,
                   type = type, formula = ff,
@@ -81,6 +81,8 @@ sampler <- function(data, m, ignore, where, imp, blocks, method,
                   user = user, ignore = ignore,
                   ...
                 )
+              imp[[j]][, i] <- sampler.univ.out$imputes
+              pcs[[j]][, i] <- sampler.univ.out$pca_track
 
               data[(!r[, j]) & where[, j], j] <-
                 imp[[j]][(!r[, j])[where[, j]], i]
@@ -174,7 +176,7 @@ sampler <- function(data, m, ignore, where, imp, blocks, method,
       }
     }
   }
-  list(iteration = maxit, imp = imp, chainMean = chainMean, chainVar = chainVar)
+  list(iteration = maxit, imp = imp, chainMean = chainMean, chainVar = chainVar, pcs = pcs)
 }
 
 
@@ -244,6 +246,12 @@ sampler.univ <- function(data, r, where, type, formula, method, yname, k,
   imputes[!cc] <- NA
 
   args <- c(list(y = y, ry = ry, x = x, wy = wy, type = type), user, list(...))
-  imputes[cc] <- do.call(f, args = args)
-  imputes
+
+  # Costum outcome of function
+  univariate_out <- do.call(f, args = args)
+  imputes[cc] <- univariate_out$imputes
+  pca_track <- univariate_out$pca_exp
+
+  return(list(imputes = imputes,
+              pca_track = pca_track))
 }
