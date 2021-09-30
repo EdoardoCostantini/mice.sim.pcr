@@ -427,7 +427,7 @@ mice.pcr.sim <- function(data,
       y <- data[, j]
       ry <- r[, j] & !ignore
       wy <- where[, j]
-      pcs[[j]] <- as.data.frame(matrix(NA, nrow = 1, ncol = m))
+      pcs[[j]] <- as.data.frame(matrix(NA, nrow = maxit, ncol = m))
     }
   }
 

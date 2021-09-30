@@ -82,7 +82,7 @@ sampler <- function(data, m, ignore, where, imp, blocks, method,
                   ...
                 )
               imp[[j]][, i] <- sampler.univ.out$imputes
-              pcs[[j]][, i] <- sampler.univ.out$pca_track
+              pcs[[j]][k, i] <- sampler.univ.out$pca_track
 
               data[(!r[, j]) & where[, j], j] <-
                 imp[[j]][(!r[, j])[where[, j]], i]
