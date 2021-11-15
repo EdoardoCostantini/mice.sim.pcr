@@ -37,7 +37,6 @@ Depends:
 Imports:
     broom,
     dplyr,
-    glmnet,
     generics,
     graphics,
     lattice,
@@ -47,7 +46,6 @@ Imports:
     stats,
     tidyr,
     utils,
-    pls,
     psych
 Suggests:
     broom.mixed,
