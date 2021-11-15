@@ -25,7 +25,7 @@ coefficients of determination (R^2_a) obtained with the \code{lm} modeling
 function. For pooling it uses the Fisher \emph{z}-transformation.
 }
 \examples{
-imp <- mice(nhanes, print = FALSE, seed = 16117)
+imp <- mice.pcr.sim(nhanes, print = FALSE, seed = 16117)
 fit <- with(imp, lm(chl ~ age + hyp + bmi))
 
 # input: mira object
@@ -45,7 +45,7 @@ incomplete data sets using multiple imputation, Journal of Applied Statistics,
 Rubin, D.B. (1987). Multiple Imputation for Nonresponse in Surveys.  New
 York: John Wiley and Sons.
 
-van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice}: Multivariate
+van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice.pcr.sim}: Multivariate
 Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 }

@@ -33,7 +33,7 @@ match.
 }
 \details{
 This function is included for backward compatibility. It was
-used up to \code{mice 2.21}. The current \code{mice.impute.pmm()}
+used up to \code{mice.pcr.sim 2.21}. The current \code{mice.pcr.sim.impute.pmm()}
 function calls the faster \code{C} function \code{matcher} instead of
 \code{.pmm.match()}.
 }

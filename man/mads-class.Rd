@@ -11,7 +11,7 @@ methods for the following generic functions: \code{print}, \code{summary},
 \code{bwplot} and \code{xyplot}.
 }
 \note{
-Many of the functions of the \code{mice} package do not use the S4 class
+Many of the functions of the \code{mice.pcr.sim} package do not use the S4 class
 definitions, and instead rely on the S3 list equivalent
 \code{oldClass(obj) <- "mads"}.
 }

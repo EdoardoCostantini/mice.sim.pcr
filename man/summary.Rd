@@ -4,7 +4,7 @@
 \alias{summary.mira}
 \alias{summary.mids}
 \alias{summary.mads}
-\alias{summary.mice.anova}
+\alias{summary.mice.pcr.sim.anova}
 \title{Summary of a \code{mira} object}
 \usage{
 \method{summary}{mira}(object, type = c("tidy", "glance", "summary"), ...)
@@ -13,7 +13,7 @@
 
 \method{summary}{mads}(object, ...)
 
-\method{summary}{mice.anova}(object, ...)
+\method{summary}{mice.pcr.sim.anova}(object, ...)
 }
 \arguments{
 \item{object}{A \code{mira} object}
@@ -44,7 +44,7 @@ Summary of a \code{mids} object
 
 Summary of a \code{mads} object
 
-Print a \code{mice.anova} object
+Print a \code{mice.pcr.sim.anova} object
 }
 \seealso{
 \code{\link[=mira-class]{mira}}

@@ -17,7 +17,7 @@ A matrix
 }
 \description{
 This helper function creates a valid \code{blots} object. The
-\code{blots} object is an argument to the \code{mice} function.
+\code{blots} object is an argument to the \code{mice.pcr.sim} function.
 The name \code{blots} is a contraction of blocks-dots.
 Through \code{blots}, the user can specify any additional
 arguments that are specifically passed down to the lowest level

@@ -21,13 +21,13 @@ The method is less powerful than the D1- and D3-statistics.
 }
 \examples{
 # Compare two linear models:
-imp <- mice(nhanes2, seed = 51009, print = FALSE)
+imp <- mice.pcr.sim(nhanes2, seed = 51009, print = FALSE)
 mi1 <- with(data = imp, expr = lm(bmi ~ age + hyp + chl))
 mi0 <- with(data = imp, expr = lm(bmi ~ age + hyp))
 D2(mi1, mi0)
 \donttest{
 # Compare two logistic regression models
-imp <- mice(boys, maxit = 2, print = FALSE)
+imp <- mice.pcr.sim(boys, maxit = 2, print = FALSE)
 fit1 <- with(imp, glm(gen > levels(gen)[1] ~ hgt + hc + reg, family = binomial))
 fit0 <- with(imp, glm(gen > levels(gen)[1] ~ hgt + hc, family = binomial))
 D2(fit1, fit0)

@@ -50,7 +50,7 @@ information.
 }
 \examples{
 # example with manual and automatic pooling
-imp <- mice(nhanes, maxit = 2, m = 2, print = FALSE, seed = 18210)
+imp <- mice.pcr.sim(nhanes, maxit = 2, m = 2, print = FALSE, seed = 18210)
 fit <- with(data = imp, lm(bmi ~ age))
 
 # manual pooling

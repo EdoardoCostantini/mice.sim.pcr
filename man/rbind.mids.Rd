@@ -65,8 +65,8 @@ the data of \code{y} will be copied\cr
 }
 }
 \examples{
-imp1 <- mice(nhanes[1:13, ], m = 2, maxit = 1, print = FALSE)
-imp5 <- mice(nhanes[1:13, ], m = 2, maxit = 2, print = FALSE)
+imp1 <- mice.pcr.sim(nhanes[1:13, ], m = 2, maxit = 1, print = FALSE)
+imp5 <- mice.pcr.sim(nhanes[1:13, ], m = 2, maxit = 2, print = FALSE)
 mylist <- list(age = NA, bmi = NA, hyp = NA, chl = NA)
 
 nrow(complete(rbind(imp1, imp5)))
@@ -76,7 +76,7 @@ nrow(complete(rbind(imp1, data.frame(mylist))))
 nrow(complete(rbind(imp1, complete(imp5))))
 }
 \references{
-van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice}:
+van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice.pcr.sim}:
 Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 Statistical Software}, \bold{45}(3), 1-67.
 \url{https://www.jstatsoft.org/v45/i03/}

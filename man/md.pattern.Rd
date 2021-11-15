@@ -46,7 +46,7 @@ md.pattern(nhanes)
 Schafer, J.L. (1997), Analysis of multivariate incomplete data.
 London: Chapman&Hall.
 
-Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}: Multivariate
+Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}: Multivariate
 Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 }

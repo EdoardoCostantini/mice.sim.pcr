@@ -35,7 +35,7 @@ md.pattern(walking)
 
 micemill <- function(n) {
   for (i in 1:n) {
-    imp <<- mice.mids(imp) # global assignment
+    imp <<- mice.pcr.sim.mids(imp) # global assignment
     cors <- with(imp, cor(as.numeric(YA),
       as.numeric(YB),
       method = "kendall"
@@ -54,10 +54,10 @@ plotit <- function() {
 }
 
 tau <- NULL
-imp <- mice(walking, max = 0, m = 10, seed = 92786)
+imp <- mice.pcr.sim(walking, max = 0, m = 10, seed = 92786)
 pred <- imp$pred
 pred[, c("src", "age", "sex")] <- 0
-imp <- mice(walking, max = 0, m = 3, seed = 92786, pred = pred)
+imp <- mice.pcr.sim(walking, max = 0, m = 3, seed = 92786, pred = pred)
 micemill(5)
 plotit()
 

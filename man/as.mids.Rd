@@ -40,7 +40,7 @@ needs to be available so that we know where the missing data are.
 The function is useful to convert back operations applied to
 the imputed data back in a \code{mids} object. It may also be
 used to store multiply imputed data sets from other software
-into the format used by \code{mice}.
+into the format used by \code{mice.pcr.sim}.
 }
 \note{
 The function expects the input data \code{long} to be sorted by
@@ -49,7 +49,7 @@ same sequence within each imputation block.
 }
 \examples{
 # impute the nhanes dataset
-imp <- mice(nhanes, print = FALSE)
+imp <- mice.pcr.sim(nhanes, print = FALSE)
 # extract the data in long format
 X <- complete(imp, action = "long", include = TRUE)
 # create dataset with .imp variable as numeric

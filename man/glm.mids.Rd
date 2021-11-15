@@ -14,7 +14,7 @@ form response ~ predictors. See the documentation of \code{\link{lm}} and
 \item{family}{The family of the glm model}
 
 \item{data}{An object of type \code{mids}, which stands for 'multiply imputed
-data set', typically created by function \code{mice()}.}
+data set', typically created by function \code{mice.pcr.sim()}.}
 
 \item{\dots}{Additional parameters passed to \code{\link{glm}}.}
 }
@@ -32,7 +32,7 @@ is superseded by \code{\link{with.mids}}.
 }
 \examples{
 
-imp <- mice(nhanes)
+imp <- mice.pcr.sim(nhanes)
 
 # logistic regression on the imputed data
 fit <- glm.mids((hyp == 2) ~ bmi + chl, data = imp, family = binomial)

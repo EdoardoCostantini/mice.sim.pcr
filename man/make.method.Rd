@@ -47,12 +47,12 @@ Vector of \code{length(blocks)} element with method names
 }
 \description{
 This helper function creates a valid \code{method} vector. The
-\code{method} vector is an argument to the \code{mice} function that
+\code{method} vector is an argument to the \code{mice.pcr.sim} function that
 specifies the method for each block.
 }
 \examples{
 make.method(nhanes2)
 }
 \seealso{
-\code{\link{mice}}
+\code{\link{mice.pcr.sim}}
 }

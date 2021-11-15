@@ -51,7 +51,7 @@ Multiple imputation of this data set has been described in Hille et al (2007)
 and Van Buuren (2012), chapter 8.
 }
 \note{
-This dataset is not part of \code{mice}.
+This dataset is not part of \code{mice.pcr.sim}.
 }
 \examples{
 pops <- data(pops)

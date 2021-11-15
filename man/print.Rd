@@ -3,17 +3,17 @@
 \name{print.mids}
 \alias{print.mids}
 \alias{print.mira}
-\alias{print.mice.anova}
-\alias{print.mice.anova.summary}
+\alias{print.mice.pcr.sim.anova}
+\alias{print.mice.pcr.sim.anova.summary}
 \title{Print a \code{mids} object}
 \usage{
 \method{print}{mids}(x, ...)
 
 \method{print}{mira}(x, ...)
 
-\method{print}{mice.anova}(x, ...)
+\method{print}{mice.pcr.sim.anova}(x, ...)
 
-\method{print}{mice.anova.summary}(x, ...)
+\method{print}{mice.pcr.sim.anova.summary}(x, ...)
 }
 \arguments{
 \item{x}{Object of class \code{mids}, \code{mira} or \code{mipo}}
@@ -34,9 +34,9 @@ Print a \code{mids} object
 
 Print a \code{mira} object
 
-Print a \code{mice.anova} object
+Print a \code{mice.pcr.sim.anova} object
 
-Print a \code{summary.mice.anova} object
+Print a \code{summary.mice.pcr.sim.anova} object
 }
 \seealso{
 \code{\link[=mids-class]{mids}}

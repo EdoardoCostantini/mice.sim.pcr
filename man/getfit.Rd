@@ -32,7 +32,7 @@ No checking is done for validity of objects. The function also processes
 objects of class \code{mitml.result} from the \code{mitml} package.
 }
 \examples{
-imp <- mice(nhanes, print = FALSE, seed = 21443)
+imp <- mice.pcr.sim(nhanes, print = FALSE, seed = 21443)
 fit <- with(imp, lm(bmi ~ chl + hyp))
 f1 <- getfit(fit)
 class(f1)

@@ -19,7 +19,7 @@ A list of formula's.
 }
 \description{
 This helper function creates a valid \code{formulas} object. The
-\code{formulas} object is an argument to the \code{mice} function.
+\code{formulas} object is an argument to the \code{mice.pcr.sim} function.
 It is a list of formula's that specifies the target variables and
 the predictors by means of the standard \code{~} operator.
 }

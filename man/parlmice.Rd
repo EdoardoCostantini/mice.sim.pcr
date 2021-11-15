@@ -17,14 +17,14 @@ parlmice(
 }
 \arguments{
 \item{data}{A data frame or matrix containing the incomplete data. Similar to
-the first argument of \code{\link{mice}}.}
+the first argument of \code{\link{mice.pcr.sim}}.}
 
-\item{m}{The number of desired imputated datasets. By default $m=5$ as with \code{mice}}
+\item{m}{The number of desired imputated datasets. By default $m=5$ as with \code{mice.pcr.sim}}
 
-\item{seed}{A scalar to be used as the seed value for the mice algorithm within
+\item{seed}{A scalar to be used as the seed value for the mice.pcr.sim algorithm within
 each parallel stream. Please note that the imputations will be the same for all
 streams and, hence, this should be used if and only if \code{n.core = 1} and
-if it is desired to obtain the same output as under \code{mice}.}
+if it is desired to obtain the same output as under \code{mice.pcr.sim}.}
 
 \item{cluster.seed}{A scalar to be used as the seed value. It is recommended to put the
 seed value here and not outside this function, as otherwise the parallel processes
@@ -37,15 +37,15 @@ will be performed with separate, random seeds.}
 \item{cl.type}{The cluster type. Default value is \code{"PSOCK"}. Posix machines (linux, Mac)
 generally benefit from much faster cluster computation if \code{type} is set to \code{type = "FORK"}.}
 
-\item{...}{Named arguments that are passed down to function \code{\link{mice}} or
+\item{...}{Named arguments that are passed down to function \code{\link{mice.pcr.sim}} or
 \code{\link{makeCluster}}.}
 }
 \value{
 A mids object as defined by \code{\link{mids-class}}
 }
 \description{
-This is a wrapper function for \code{\link{mice}}, using multiple cores to
-execute \code{\link{mice}} in parallel. As a result, the imputation
+This is a wrapper function for \code{\link{mice.pcr.sim}}, using multiple cores to
+execute \code{\link{mice.pcr.sim}} in parallel. As a result, the imputation
 procedure can be sped up, which may be useful in general.
 }
 \details{
@@ -61,19 +61,19 @@ clean the memory by using \code{\link{rm}} and \code{\link{gc}} and make another
 run using the same settings.
 
 This wrapper function combines the output of \code{\link{parLapply}} with
-function \code{\link{ibind}} in \code{\link{mice}}. A \code{mids} object is returned
+function \code{\link{ibind}} in \code{\link{mice.pcr.sim}}. A \code{mids} object is returned
 and can be used for further analyses.
 
 Note that if a seed value is desired, the seed should be entered to this function
 with argument \code{seed}. Seed values outside the wrapper function (in an
-R-script or passed to \code{\link{mice}}) will not result to reproducible results.
+R-script or passed to \code{\link{mice.pcr.sim}}) will not result to reproducible results.
 We refer to the manual of \code{\link{parallel}} for an explanation on this matter.
 }
 \examples{
 # 150 imputations in dataset nhanes, performed by 3 cores
 \dontrun{
 imp1 <- parlmice(data = nhanes, n.core = 3, n.imp.core = 50)
-# Making use of arguments in mice.
+# Making use of arguments in mice.pcr.sim.
 imp2 <- parlmice(data = nhanes, method = "norm.nob", m = 100)
 imp2$method
 fit <- with(imp2, lm(bmi ~ hyp))
@@ -91,7 +91,7 @@ Chapman & Hall/CRC. Boca Raton, FL.
 }
 \seealso{
 \code{\link{parallel}}, \code{\link{parLapply}}, \code{\link{makeCluster}},
-\code{\link{mice}}, \code{\link{mids-class}}
+\code{\link{mice.pcr.sim}}, \code{\link{mids-class}}
 }
 \author{
 Gerko Vink, Rianne Schouten

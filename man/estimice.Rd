@@ -41,7 +41,7 @@ automatically falls back to adding a ridge penalty to the diagonal of the
 crossproduct to allow for proper calculation of the inverse.
 }
 \note{
-This functions adds a star to variable names in the mice iteration
+This functions adds a star to variable names in the mice.pcr.sim iteration
 history to signal that a ridge penalty was added. In that case, it
 also adds an entry to \code{loggedEvents}.
 }

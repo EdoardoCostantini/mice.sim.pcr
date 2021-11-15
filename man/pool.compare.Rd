@@ -75,7 +75,7 @@ Statistica Sinica, 1, 65-92.
 Meng, X.L. and Rubin, D.B. (1992). Performing likelihood ratio tests with
 multiple-imputed data sets.  Biometrika, 79, 103-111.
 
-van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice}: Multivariate
+van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice.pcr.sim}: Multivariate
 Imputation by Chained Equations in \code{R}. \emph{Journal of Statistical
 Software}, \bold{45}(3), 1-67. \url{https://www.jstatsoft.org/v45/i03/}
 }

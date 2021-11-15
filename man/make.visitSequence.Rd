@@ -27,12 +27,12 @@ Vector containing block names
 }
 \description{
 This helper function creates a valid \code{visitSequence}. The
-\code{visitSequence} is an argument to the \code{mice} function that
+\code{visitSequence} is an argument to the \code{mice.pcr.sim} function that
 specifies the sequence in which blocks are imputed.
 }
 \examples{
 make.visitSequence(nhanes)
 }
 \seealso{
-\code{\link{mice}}
+\code{\link{mice.pcr.sim}}
 }

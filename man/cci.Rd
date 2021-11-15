@@ -20,7 +20,7 @@ The companion function \code{ici()} selects the incomplete cases.
 }
 \examples{
 cci(nhanes) # indicator for 13 complete cases
-cci(mice(nhanes, maxit = 0))
+cci(mice.pcr.sim(nhanes, maxit = 0))
 f <- cci(nhanes[, c("bmi", "hyp")]) # complete data for bmi and hyp
 nhanes[f, ] # obtain all data from those with complete bmi and hyp
 }

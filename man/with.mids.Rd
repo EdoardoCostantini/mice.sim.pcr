@@ -8,7 +8,7 @@
 }
 \arguments{
 \item{data}{An object of type \code{mids}, which stands for 'multiply imputed
-data set', typically created by a call to function \code{mice()}.}
+data set', typically created by a call to function \code{mice.pcr.sim()}.}
 
 \item{expr}{An expression to evaluate for each imputed data set. Formula's
 containing a dot (notation for "all other variables") do not work.}
@@ -28,7 +28,7 @@ It turned out that the latter statement was not true (#292).
 Version 3.12.2 reverts to the old \code{with()} function.
 }
 \examples{
-imp <- mice(nhanes2, m = 2, print = FALSE, seed = 14221)
+imp <- mice.pcr.sim(nhanes2, m = 2, print = FALSE, seed = 14221)
 
 # descriptive statistics
 getfit(with(imp, table(hyp, age)))
@@ -39,7 +39,7 @@ fit2 <- with(imp, glm(hyp ~ age + chl, family = binomial))
 fit3 <- with(imp, anova(lm(bmi ~ age + chl)))
 }
 \references{
-van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice}:
+van Buuren S and Groothuis-Oudshoorn K (2011). \code{mice.pcr.sim}:
 Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 Statistical Software}, \bold{45}(3), 1-67.
 \url{https://www.jstatsoft.org/v45/i03/}

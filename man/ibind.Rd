@@ -28,10 +28,10 @@ be fitted on the same data.
 }
 \examples{
 data(nhanes)
-imp1 <- mice(nhanes, m = 1, maxit = 2, print = FALSE)
+imp1 <- mice.pcr.sim(nhanes, m = 1, maxit = 2, print = FALSE)
 imp1$m
 
-imp2 <- mice(nhanes, m = 3, maxit = 3, print = FALSE)
+imp2 <- mice.pcr.sim(nhanes, m = 3, maxit = 3, print = FALSE)
 imp2$m
 
 imp12 <- ibind(imp1, imp2)

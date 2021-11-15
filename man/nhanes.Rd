@@ -25,7 +25,7 @@ the same data set, but with \code{age} and \code{hyp} treated as factors.
 }
 \examples{
 # create 5 imputed data sets
-imp <- mice(nhanes)
+imp <- mice.pcr.sim(nhanes)
 
 # print the first imputed data set
 complete(imp)

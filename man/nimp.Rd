@@ -43,5 +43,5 @@ nimp(where)
 nimp(where, blocks = name.blocks(list(c("bmi", "hyp"), "age", "chl")))
 }
 \seealso{
-\code{\link{mice}}
+\code{\link{mice.pcr.sim}}
 }

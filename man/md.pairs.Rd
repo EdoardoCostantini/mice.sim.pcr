@@ -37,7 +37,7 @@ pat$rr + pat$rm + pat$mr + pat$mm
 round(100 * pat$mr / (pat$mr + pat$mm))
 }
 \references{
-Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice}:
+Van Buuren, S., Groothuis-Oudshoorn, K. (2011). \code{mice.pcr.sim}:
 Multivariate Imputation by Chained Equations in \code{R}. \emph{Journal of
 Statistical Software}, \bold{45}(3), 1-67.
 \url{https://www.jstatsoft.org/v45/i03/}

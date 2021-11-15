@@ -4,7 +4,7 @@
 \alias{version}
 \title{Echoes the package version number}
 \usage{
-version(pkg = "mice")
+version(pkg = "mice.pcr.sim")
 }
 \arguments{
 \item{pkg}{A character vector with the package name.}

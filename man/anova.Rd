@@ -17,7 +17,7 @@
 \item{use}{An character indicating the test statistic}
 }
 \value{
-Object of class \code{mice.anova}
+Object of class \code{mice.pcr.sim.anova}
 }
 \description{
 Compare several nested models

@@ -55,9 +55,9 @@ outcomes of the donor cases (in the same sequence as \code{d}), then
 \code{y[matchindex(d, t)]} returns one matched outcome for every
 target case.
 
-See \url{https://github.com/amices/mice/issues/236}.
+See \url{https://github.com/amices/mice.pcr.sim/issues/236}.
 This function is a replacement for the \code{matcher()} function that has
-been in default in \code{mice} since version \code{2.22} (June 2014).
+been in default in \code{mice.pcr.sim} since version \code{2.22} (June 2014).
 }
 \examples{
 set.seed(1)

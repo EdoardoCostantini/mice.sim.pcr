@@ -7,7 +7,7 @@
 \method{glance}{mipo}(x, ...)
 }
 \arguments{
-\item{x}{An object with multiply-imputed models from `mice` (class: `mipo`)}
+\item{x}{An object with multiply-imputed models from `mice.pcr.sim` (class: `mipo`)}
 
 \item{...}{extra arguments (not used)}
 }
