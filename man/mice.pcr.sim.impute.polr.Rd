@@ -115,6 +115,7 @@ Other univariate imputation functions:
 \code{\link{mice.pcr.sim.impute.norm}()},
 \code{\link{mice.pcr.sim.impute.pcr.boot}()},
 \code{\link{mice.pcr.sim.impute.pcr.mixed}()},
+\code{\link{mice.pcr.sim.impute.pcr.pmm}()},
 \code{\link{mice.pcr.sim.impute.pmm}()},
 \code{\link{mice.pcr.sim.impute.polyreg}()},
 \code{\link{mice.pcr.sim.impute.quadratic}()},
